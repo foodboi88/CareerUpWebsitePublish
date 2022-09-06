@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Home from './pages/home/Home'
 import {Container} from 'react-bootstrap'
-
+import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)

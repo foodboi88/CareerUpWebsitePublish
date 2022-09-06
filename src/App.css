@@ -1,0 +1,15 @@
+.CCareerAdvisor {
+    background: rgba(218, 236, 253, 255);
+}
+
+.title-advisor {
+    background: linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
