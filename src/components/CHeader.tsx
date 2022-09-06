@@ -1,14 +1,17 @@
 import React from 'react'
 import Logo from '../images/CareerUp.png'
 import {Button} from 'antd'
+import { MDBBtn } from 'mdb-react-ui-kit'
 
 const CHeader = () => {
   return (
-    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', borderBottom:'5px solid red'}}>
-      <div style={{marginLeft:'136px',width:'151px',height:'48px',marginTop:'8px'}}>
+    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', boxShadow: '0px 10px 0px lightblue'}}
+      className='shadow-5-strong fw-bold'
+    >
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'136px',width:'151px',height:'48px',marginTop:'10px', marginBottom:'8px'}}>
         <img src={Logo}/>
       </div>
-      <div style={{display: 'flex', flexDirection: 'row', marginTop:'22px'}}>
+      <div style={{display: 'flex', flexDirection: 'row', marginTop:'22px', marginBottom:'22px'}}>
         <div><a>Trang chủ</a></div>
         <div style={{marginLeft:'48px'}}><a>Tư vấn</a></div>
         <div style={{marginLeft:'48px'}}><a>Thông tin tuyển sinh</a></div>
@@ -16,10 +19,8 @@ const CHeader = () => {
       </div>
       <div style={{display: 'flex', flexDirection: 'row', marginRight:'136px'}}>
         <div style={{marginTop:'22px'}}><a>Đăng nhập</a></div>
-        <div style={{marginLeft:'17px',marginTop:'12px'}}>
-          <Button type="primary" shape="round" >
-            Đăng ký
-          </Button>
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'17px', marginTop:'12px', marginBottom:'12px'}}>
+        <MDBBtn rounded className='mx-2' color='info'>Đăng ký</MDBBtn>
         </div>
       </div>
     </div>
