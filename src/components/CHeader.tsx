@@ -5,10 +5,10 @@ import { MDBBtn } from 'mdb-react-ui-kit'
 
 const CHeader = () => {
   return (
-    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', boxShadow: '0px 10px 0px lightblue'}}
-      className='shadow-5-strong fw-bold'
+    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between',fontSize:'18px'}}
+      className='shadow-5 fw-bold'
     >
-      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'136px',width:'151px',height:'48px',marginTop:'10px', marginBottom:'8px'}}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'136px',width:'151px',height:'54px',marginTop:'10px', marginBottom:'8px'}}>
         <img src={Logo}/>
       </div>
       <div style={{display: 'flex', flexDirection: 'row', marginTop:'22px', marginBottom:'22px'}}>
