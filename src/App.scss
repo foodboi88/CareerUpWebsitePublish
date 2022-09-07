@@ -612,3 +612,39 @@ input::-webkit-inner-spin-button {
     font-size: 18px;
     border: none;
 }
+
+.ant-modal.career-advisor-modal .ant-modal-content {
+    background: #FFFFFF;
+    border-radius: 12px;
+}
+
+.ant-modal.career-advisor-modal .ant-modal-content .ant-table-thead .ant-table-cell{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+    color: black;
+}
+
+.ant-modal .ant-table-cell {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #646A6C;
+    background: #FFFFFF;
+    border: none;
+}
+
+.ant-modal.career-advisor-modal .ant-table-thead>tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+    display: none;
+}
+// .ant-modal.career-advisor-modal .ant-modal-footer{
+//     display: none;
+// }
+.career-advisor-modal-title .anticon.anticon-close {
+    font-size: 20px;
+}
+
+.career-advisor-modal-title .anticon.anticon-close:hover {
+    transition: all 0.3s;
+    opacity: 0.5;
+}

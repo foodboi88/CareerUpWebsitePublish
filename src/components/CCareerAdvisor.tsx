@@ -1,10 +1,33 @@
 
-import { Button, Checkbox, Form, Input, Select } from 'antd'
-import { MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit'
+import { Button, Form, Input, Select } from 'antd';
+import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
+import { useEffect, useState } from 'react';
+import CCareerAdvisorModal from './CCareerAdvisorModal';
 const CCareerAdvisor = () => {
 
     const { Option } = Select;
+    const [isShowModal, setIsShowModal] = useState<boolean>(false);
 
+    const [name, setName] = useState<String>();
+    const [score, setScore] = useState<String>();
+    const [combination, setCombination] = useState<String[]>();
+
+    const [checkButtonSubmitted, setCheckButtonSubmitted] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (!name || !score || !combination || combination.length == 0)
+            setCheckButtonSubmitted(false);
+        else
+            setCheckButtonSubmitted(true);
+    });
+
+    const onClick = () => {
+        console.log(name, score, combination);
+    }
+
+    const handleChange = (value: string[]) => {
+        setCombination(value);
+    };
 
     return (
         <div
@@ -45,9 +68,15 @@ const CCareerAdvisor = () => {
                         label="Tên trường: "
                         name="name"
                         rules={[{ required: true, message: 'Vui lòng nhập tên trường' }]}
-
                     >
-                        <Input autoComplete="off" style={{ width: 400, borderRadius: 12 }} placeholder='Nhập tên trường' id='form1' type='text' />
+                        <Input
+                            autoComplete="off"
+                            style={{ width: 400, borderRadius: 12 }}
+                            placeholder='Nhập tên trường'
+                            id='form1'
+                            type='text'
+                            onChange={(e) => setName(e.target.value)}
+                        />
                     </Form.Item>
 
                     <Form.Item
@@ -56,8 +85,15 @@ const CCareerAdvisor = () => {
                         name="score"
                         rules={[{ required: true, message: 'Vui lòng nhập điểm thi' }]}
                     >
-                        <Input autoComplete="off" style={{ width: 400, borderRadius: 12 }} placeholder='Nhập điểm thi' id='form1' type='number' min={1} />
-
+                        <Input
+                            autoComplete="off"
+                            style={{ width: 400, borderRadius: 12 }}
+                            placeholder='Nhập điểm thi'
+                            id='form1'
+                            type='number'
+                            min={1}
+                            onChange={(e) => setScore(e.target.value)}
+                        />
                     </Form.Item>
 
                     <Form.Item
@@ -70,9 +106,7 @@ const CCareerAdvisor = () => {
                             style={{ width: 400, borderRadius: 12 }}
                             mode="multiple"
                             placeholder="Chọn tổ hợp thi"
-                            filterOption={(input, option) =>
-                                (option!.children as unknown as string).toLowerCase().includes(input.toLowerCase())
-                            }
+                            onChange={handleChange}
                         >
                             <Option value="A00">A00</Option>
                             <Option value="A01">A01</Option>
@@ -80,7 +114,11 @@ const CCareerAdvisor = () => {
                         </Select>
                     </Form.Item>
                     <Form.Item >
-                        <Button type="primary" htmlType="submit">
+                        <CCareerAdvisorModal
+                            isShow={isShowModal}
+                            setIsShowModal={setIsShowModal}
+                        />
+                        <Button disabled={!checkButtonSubmitted} type="primary" htmlType="submit" onClick={() => { setIsShowModal(true); }}>
                             Tìm kiếm thông tin
                         </Button>
                     </Form.Item>
