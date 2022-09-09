@@ -144,24 +144,21 @@ const Home = () => {
           </div>
         </div>
         <div style={{
-            
-            backgroundImage: `url(${JoinBackground})`,
-            backgroundSize: 'cover',
+            background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            height:'670px',
-            maxWidth: '100%',
-            objectFit: "fill"
+            height:'354px',
+            width: '100%'
         }}>
-            <div style={{fontWeight:'600',fontSize:'48px',lineHeight:'64px',color:'white',marginTop:'71px'}}>
+            <div style={{fontWeight:'600',fontSize:'48px',lineHeight:'64px',color:'white'}}>
                 Tham gia cộng đồng của chúng tôi trên
             </div>
             <div style={{fontWeight:'600',fontSize:'48px',lineHeight:'64px',color:'white', marginBottom: '32px'}}>
                 blog CAREER UP.
             </div>
-            <MDBBtn rounded style={{width:'320px',height: '64px',fontSize: '32px', fontWeight:'400',}} className='mx-2' color='light'><p style={{background:'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)',WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent',backgroundClip:'text'}}>Đi tới Career Up</p></MDBBtn>
+            <MDBBtn rounded style={{width:'320px',height: '64px',fontSize: '32px', fontWeight:'400'}} className='mx-2' color='info'>Đi tới Career Up</MDBBtn>
         </div>
         <CFooter
         />
