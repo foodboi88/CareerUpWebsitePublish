@@ -10,8 +10,8 @@ function App() {
 
     return (
         <div className="App">
-            {/* <Home /> */}
-            <Advisor/>
+            <Home />
+            {/* <Advisor/> */}
         </div>
     )
 }
