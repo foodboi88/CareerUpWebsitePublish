@@ -1,131 +1,187 @@
+import { Button, Checkbox } from 'antd';
+import React, { useState } from 'react'
+import { useHistory } from 'react-router';
+import { Question, QuestionChoice } from '../common/define-type'
 
-import { Button, Form, Input, Select } from 'antd';
-import { MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
-import { useEffect, useState } from 'react';
-import CCareerAdvisorModal from './CCareerAdvisorModal';
-const CCareerAdvisor = () => {
+interface MyProps{
+    showUniAdvisor: React.Dispatch<React.SetStateAction<boolean>>
+    showCareerAdvisor: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-    const { Option } = Select;
-    const [isShowModal, setIsShowModal] = useState<boolean>(false);
-
-    const [name, setName] = useState<String>();
-    const [score, setScore] = useState<String>();
-    const [combination, setCombination] = useState<String[]>();
-
-    const [checkButtonSubmitted, setCheckButtonSubmitted] = useState<boolean>(false);
-
-    useEffect(() => {
-        if (!name || !score || !combination || combination.length == 0)
-            setCheckButtonSubmitted(false);
-        else
-            setCheckButtonSubmitted(true);
-    });
-
-    const onClick = () => {
-        console.log(name, score, combination);
+const questionLst: Question[] = [
+    {
+        content: "Bạn có thích trêu chó không",
+        choiceLst: [
+            {
+                content:"Đam mê luôn ý chứ"
+            },
+            {
+                content:"Kó"
+            }
+        ],
+        pickedChoice: null
+    },
+    {
+        content: "Sẽ làm gì nếu nyc đòi quay lại",
+        choiceLst: [
+            {
+                content:"Tát chết cmnl"
+            },
+            {
+                content:"Nạnh nùng từ chối"
+            }
+        ],
+        pickedChoice: null
+    },
+    {
+        content: "Sẽ làm gì nếu nyc đòi quay lại",
+        choiceLst: [
+            {
+                content:"Tát chết cmnl"
+            },
+            {
+                content:"Nạnh nùng từ chối"
+            }
+        ],
+        pickedChoice: null
+    },
+    {
+        content: "Sẽ làm gì nếu nyc đòi quay lại",
+        choiceLst: [
+            {
+                content:"Tát chết cmnl"
+            },
+            {
+                content:"Nạnh nùng từ chối"
+            }
+        ],
+        pickedChoice: null
+    },
+    {
+        content: "Sẽ làm gì nếu nyc đòi quay lại",
+        choiceLst: [
+            {
+                content:"Tát chết cmnl"
+            },
+            {
+                content:"Nạnh nùng từ chối"
+            }
+        ],
+        pickedChoice: null
+    },
+    {
+        content: "Sẽ làm gì nếu nyc đòi quay lại",
+        choiceLst: [
+            {
+                content:"Tát chết cmnl"
+            },
+            {
+                content:"Nạnh nùng từ chối"
+            }
+        ],
+        pickedChoice: null
+    },
+    {
+        content: "Sẽ làm gì nếu nyc đòi quay lại",
+        choiceLst: [
+            {
+                content:"Tát chết cmnl"
+            },
+            {
+                content:"Nạnh nùng từ chối"
+            }
+        ],
+        pickedChoice: null
     }
+]
 
-    const handleChange = (value: string[]) => {
-        setCombination(value);
-    };
 
-    return (
-        <div
-            className='CCareerAdvisor'
-            style={{
-                width: '1440px',
-                height: '720px',
-                left: '0px',
-                top: '320px',
-                margin: '10px auto',
-            }}>
-            <div style={{ display: 'flex', margin: '10px auto', flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-start', width: '720px', height: '50px', borderRadius: 12, opacity: '1' }}>
-                <MDBBtn
-                    style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '200px', height: '50px', borderRadius: '12px', marginRight: 10 }}>
-                    <MDBIcon style={{ fontSize: 15 }} fas icon="suitcase" />
-                    <p style={{ margin: '0 10px', fontSize: 14 }}>Tư vấn ngành</p>
-                </MDBBtn>
-                <MDBBtn
-                    style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '200px', height: '50px', borderRadius: '12px', marginRight: 10 }}
-                >
-                    <MDBIcon style={{ fontSize: 15 }} fas icon="school" />
-                    <p style={{ margin: '0 10px', fontSize: 14 }}>Tư vấn trường</p>
-                </MDBBtn>
-                <MDBBtn
-                    style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '200px', height: '50px', borderRadius: '12px' }}
-                >
-                    <MDBIcon style={{ fontSize: 15 }} fas icon="calendar-alt" />
-                    <p style={{ margin: '0 10px', fontSize: 14 }}>Đặt lịch tư vấn</p>
-                </MDBBtn>
+
+const CCareerAdvisor = (props: MyProps) => { 
+    const history = useHistory();
+    const [showQuestion,setShowQuestion] = useState(true);
+    const [showResult,setShowResult] = useState(false);
+    const [currentQuestionIndex,setCurrentQuestionIndex] = useState<number>(0);
+    const [currentChoice,setCurrentChoice] = useState<string>();
+  return (
+    <div>
+        
+        {
+            showQuestion &&
+            <>
+                <div>Câu {currentQuestionIndex}:</div>
+                <div>{questionLst[currentQuestionIndex].content}</div>
+                {
+                    questionLst[currentQuestionIndex].choiceLst.map(item =>(
+                        <>
+                            <Checkbox 
+                                
+                                // key={item.label}
+                                onChange={()=>{
+                                    questionLst[currentQuestionIndex].pickedChoice = item;
+                                    setCurrentChoice(item.content);
+                                    console.log(questionLst[currentQuestionIndex].pickedChoice);
+                                }}
+                                checked={item.content === currentChoice}
+                                value={item.content}
+                            />
+                            <div>{item.content}</div>
+                        </>
+                    ))
+                }
+                {
+                    currentQuestionIndex < questionLst.length - 1 && 
+                    <>
+                        <Button onClick={()=>{
+                            setCurrentQuestionIndex(currentQuestionIndex-1)
+                        }}>Quay lại</Button>
+                        <Button onClick={()=>{
+                            setCurrentQuestionIndex(currentQuestionIndex+1)
+                        }}>Tiếp tục</Button>
+                    </>
+                }
+                {
+                    currentQuestionIndex >= questionLst.length - 1 && 
+                    <>
+                        <Button onClick={()=>{
+                            setCurrentQuestionIndex(currentQuestionIndex-1)
+                        }}>Quay lại</Button>
+                        <Button onClick={()=>{
+                            setShowResult(true)
+                            setShowQuestion(false)
+                        }}>Xem kết quả</Button>
+                    </>
+                }
+            </>
+        }
+        {
+            showResult &&
+            <div>
+                <div>Bạn phù hợp với các ngành</div>
+                <div>
+                    Chọn một ngành để xem nguyện vọng phù hợp với bản thân mình nha
+                </div>
+                <div onClick={()=>{
+                    props.showCareerAdvisor(false);
+                    props.showUniAdvisor(true);
+                }}>Bác sĩ</div>
+                <div onClick={()=>{
+                    props.showCareerAdvisor(false);
+                    props.showUniAdvisor(true);
+                }}>Thiết kế</div>
+                <div onClick={()=>{
+                    props.showCareerAdvisor(false);
+                    props.showUniAdvisor(true);
+                }}>Marketing</div>
+                <div onClick={()=>{
+                    props.showCareerAdvisor(false);
+                    props.showUniAdvisor(true);
+                }}>Kỹ sư cầu đường</div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', margin: '50px 20px 100px 140px', alignItems: 'center', width: '768px', height: '504px', borderRadius: 12, opacity: '1', backgroundColor: '#FFFFFF' }}>
-                <h3 className='title-advisor' style={{ margin: '70px 0 20px' }}>Vui lòng điền thông tin để được hỗ trợ tư vấn!</h3>
-                <Form
-                    name="form_advisor"
-                >
-                    <Form.Item
-                        style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
-                        label="Tên trường: "
-                        name="name"
-                        rules={[{ required: true, message: 'Vui lòng nhập tên trường' }]}
-                    >
-                        <Input
-                            autoComplete="off"
-                            style={{ width: 400, borderRadius: 12 }}
-                            placeholder='Nhập tên trường'
-                            id='form1'
-                            type='text'
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                    </Form.Item>
-
-                    <Form.Item
-                        style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
-                        label="Điểm thi: "
-                        name="score"
-                        rules={[{ required: true, message: 'Vui lòng nhập điểm thi' }]}
-                    >
-                        <Input
-                            autoComplete="off"
-                            style={{ width: 400, borderRadius: 12 }}
-                            placeholder='Nhập điểm thi'
-                            id='form1'
-                            type='number'
-                            min={1}
-                            onChange={(e) => setScore(e.target.value)}
-                        />
-                    </Form.Item>
-
-                    <Form.Item
-                        style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
-                        label="Tổ hợp: "
-                        name="combination"
-                        rules={[{ required: true, message: 'Vui lòng chọn tổ hợp thi' }]}
-                    >
-                        <Select
-                            style={{ width: 400, borderRadius: 12 }}
-                            mode="multiple"
-                            placeholder="Chọn tổ hợp thi"
-                            onChange={handleChange}
-                        >
-                            <Option value="A00">A00</Option>
-                            <Option value="A01">A01</Option>
-                            <Option value="A02">A02</Option>
-                        </Select>
-                    </Form.Item>
-                    <Form.Item >
-                        <CCareerAdvisorModal
-                            isShow={isShowModal}
-                            setIsShowModal={setIsShowModal}
-                        />
-                        <Button disabled={!checkButtonSubmitted} type="primary" htmlType="submit" onClick={() => { setIsShowModal(true); }}>
-                            Tìm kiếm thông tin
-                        </Button>
-                    </Form.Item>
-                </Form>  </div>
-        </div>
-
-    )
+        }
+        
+    </div>
+  )
 }
 
 export default CCareerAdvisor

@@ -70,21 +70,21 @@ const Home = () => {
             <Card
               hoverable
               headStyle={{borderRadius: '12px'}}
-              style={{ width: 350, borderRadius: '12px' }}
+              style={{ width: 430, height: 430, borderRadius: '12px' }}
               cover={<img style={{borderRadius:'12px'}} alt="example" src={Function1} />}
             >
               <Meta title="Europe Street beat" description="www.instagram.com" />
             </Card>
             <Card
               hoverable
-              style={{ width: 350, borderRadius: '12px'  }}
+              style={{ width: 430, height: 430, borderRadius: '12px'  }}
               cover={<img style={{borderRadius:'12px'}} alt="example" src={Function1} />}
             >
               <Meta title="Europe Street beat" description="www.instagram.com" />
             </Card>
             <Card
               hoverable
-              style={{ width: 350, borderRadius: '12px'  }}
+              style={{ width: 430, height: 430, borderRadius: '12px'  }}
               cover={<img style={{borderRadius:'12px'}} alt="example" src={Function1} />}
             >
               <Meta title="Europe Street beat" description="www.instagram.com" />
@@ -144,21 +144,27 @@ const Home = () => {
           </div>
         </div>
         <div style={{
-            background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)',
+            backgroundImage: `url(${JoinBackground})`,
+            backgroundSize: 'cover',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            height:'354px',
+            height:'544px',
             width: '100%'
         }}>
-            <div style={{fontWeight:'600',fontSize:'48px',lineHeight:'64px',color:'white'}}>
+            <div style={{fontWeight:'600',fontSize:'48px',lineHeight:'64px',color:'white', marginTop:'180px'}}>
                 Tham gia cộng đồng của chúng tôi trên
             </div>
             <div style={{fontWeight:'600',fontSize:'48px',lineHeight:'64px',color:'white', marginBottom: '32px'}}>
                 blog CAREER UP.
             </div>
-            <MDBBtn rounded style={{width:'320px',height: '64px',fontSize: '32px', fontWeight:'400'}} className='mx-2' color='info'>Đi tới Career Up</MDBBtn>
+            <MDBBtn 
+              rounded 
+              style={{width:'320px',height: '64px',fontSize: '32px', fontWeight:'400',}} className='mx-2' color='light'
+            >
+              <p style={{background:'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)',WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent',backgroundClip:'text'}}>Đi tới Career Up</p>
+            </MDBBtn>
         </div>
         <CFooter
         />

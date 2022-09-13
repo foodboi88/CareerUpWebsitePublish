@@ -60,7 +60,7 @@ const columns = [
 
 
 
-const CAllTaskModal = ({ isShow, setIsShowModal }: MyProps) => {
+const CUniAdvisorModal = ({ isShow, setIsShowModal }: MyProps) => {
 
 
     return (
@@ -86,4 +86,4 @@ const CAllTaskModal = ({ isShow, setIsShowModal }: MyProps) => {
     )
 }
 
-export default CAllTaskModal
+export default CUniAdvisorModal

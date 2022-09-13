@@ -3,6 +3,7 @@ import Home from './pages/home/Home'
 import './App.scss';
 import './App.less';
 import Advisor from './pages/advisor/Advisor';
+import CMainRouter from './components/CMainRouter';
 
 
 function App() {
@@ -10,8 +11,8 @@ function App() {
 
     return (
         <div className="App">
-            {/* <Home /> */}
-            <Advisor/>
+            <CMainRouter/>
+            {/* <Advisor/> */}
         </div>
     )
 }
