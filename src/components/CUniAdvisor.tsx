@@ -8,25 +8,24 @@ const CUniAdvisor = () => {
     const { Option } = Select;
     const [isShowModal, setIsShowModal] = useState<boolean>(false);
 
-    const [name, setName] = useState<String>();
     const [score, setScore] = useState<String>();
     const [combination, setCombination] = useState<String[]>();
+    const [career, setCareer] = useState<String[]>();
 
     const [checkButtonSubmitted, setCheckButtonSubmitted] = useState<boolean>(false);
 
     useEffect(() => {
-        if (!name || !score || !combination || combination.length == 0)
+        if (!career || !score || !combination || combination.length == 0)
             setCheckButtonSubmitted(false);
         else
             setCheckButtonSubmitted(true);
     });
 
-    const onClick = () => {
-        console.log(name, score, combination);
-    }
-
-    const handleChange = (value: string[]) => {
+    const handleChangeCombination = (value: string[]) => {
         setCombination(value);
+    };
+    const handleChangeCareer = (value: string[]) => {
+        setCareer(value);
     };
 
     return (
@@ -65,22 +64,6 @@ const CUniAdvisor = () => {
                 >
                     <Form.Item
                         style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
-                        label="Tên trường: "
-                        name="name"
-                        rules={[{ required: true, message: 'Vui lòng nhập tên trường' }]}
-                    >
-                        <Input
-                            autoComplete="off"
-                            style={{ width: 400, borderRadius: 12 }}
-                            placeholder='Nhập tên trường'
-                            id='form1'
-                            type='text'
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                    </Form.Item>
-
-                    <Form.Item
-                        style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
                         label="Điểm thi: "
                         name="score"
                         rules={[{ required: true, message: 'Vui lòng nhập điểm thi' }]}
@@ -98,19 +81,39 @@ const CUniAdvisor = () => {
 
                     <Form.Item
                         style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
-                        label="Tổ hợp: "
+                        label="Khối thi: "
                         name="combination"
-                        rules={[{ required: true, message: 'Vui lòng chọn tổ hợp thi' }]}
+                        rules={[{ required: true, message: 'Vui lòng chọn khối thi' }]}
                     >
                         <Select
+                            className='combination-section'
                             style={{ width: 400, borderRadius: 12 }}
                             mode="multiple"
                             placeholder="Chọn tổ hợp thi"
-                            onChange={handleChange}
+                            onChange={handleChangeCombination}
                         >
                             <Option value="A00">A00</Option>
                             <Option value="A01">A01</Option>
                             <Option value="A02">A02</Option>
+                        </Select>
+                    </Form.Item>
+
+                    <Form.Item
+                        style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
+                        label="Ngành: "
+                        name="career"
+                        rules={[{ required: true, message: 'Vui lòng chọn ngành' }]}
+                    >
+                        <Select
+                            className='career-section'
+                            style={{ width: 400, borderRadius: 12 }}
+                            placeholder="Chọn ngành"
+                            onChange={handleChangeCareer}
+                        >
+                            <Option value="CNTT">Công nghệ thông tin</Option>
+                            <Option value="CNDPT">Công nghệ đa phương tiện</Option>
+                            <Option value="TTĐPT">Truyền thông đa phương tiện</Option>
+                            <Option value="MKT">Marketing</Option>
                         </Select>
                     </Form.Item>
                     <Form.Item >

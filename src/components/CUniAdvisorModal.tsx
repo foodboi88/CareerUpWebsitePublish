@@ -1,63 +1,100 @@
 import { CloseOutlined } from '@ant-design/icons';
-import { Modal, Table } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
+import { Modal, Space, Table } from 'antd';
 import React from 'react';
 
 interface MyProps {
     isShow: boolean
     setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>,
 }
-
+interface DataType {
+    key: string;
+    college: string;
+    career: string;
+    careerCode: string;
+    ranking: string;
+}
 const dataSource = [
     {
         key: '1',
+        college: 'Đại học FPT',
         career: 'Công nghệ thông tin',
-        score: 27,
         careerCode: 'CNTT',
+        ranking: 'Đáng học',
     },
     {
         key: '2',
-        career: 'Công nghệ đa phương tiện',
-        score: 26.75,
-        careerCode: 'CNĐPT',
+        college: 'Đại học Bách Khoa',
+        career: 'Công nghệ thông tin',
+        careerCode: 'CNTT',
+        ranking: 'Đáng học',
     },
     {
         key: '3',
-        career: 'Truyền thông đa phương tiện',
-        score: 26.55,
-        careerCode: 'TTĐPT',
+        college: 'Đại học Công nghệ',
+        career: 'Công nghệ thông tin',
+        careerCode: 'CNTT',
+        ranking: 'Đáng học',
     },
     {
         key: '4',
-        career: 'Marketing',
-        score: 26.05,
-        careerCode: 'MKT',
+        college: 'HVCN Bưu Chính Viễn Thông',
+        career: 'Công nghệ thông tin',
+        careerCode: 'CNTT',
+        ranking: 'Đáng học',
     },
     {
         key: '5',
-        career: 'Thương mại điện tử',
-        score: 25.09,
-        careerCode: 'TMĐT',
+        college: 'Học viện Kỹ thuật Quân sự',
+        career: 'Công nghệ thông tin',
+        careerCode: 'CNTT',
+        ranking: 'Bình thường',
+    },
+    {
+        key: '6',
+        college: 'Đại học Hà Nội',
+        career: 'Công nghệ thông tin',
+        careerCode: 'CNTT',
+        ranking: 'Bình thường',
     },
 ];
 
-const columns = [
+const columns: ColumnsType<DataType> = [
+    {
+        title: 'STT',
+        dataIndex: 'key',
+        key: 'key',
+    },
+    {
+        title: 'Trường',
+        dataIndex: 'college',
+        key: 'college',
+    },
     {
         title: 'Ngành',
         dataIndex: 'career',
         key: 'career',
     },
     {
-        title: 'Điểm',
-        dataIndex: 'score',
-        key: 'score',
-    },
-    {
         title: 'Mã ngành',
         dataIndex: 'careerCode',
         key: 'careerCode',
     },
+    {
+        title: 'Xếp hạng',
+        dataIndex: 'ranking',
+        key: 'ranking',
+    },
+    {
+        title: 'Chi tiết',
+        key: 'viewDetails',
+        render: () => (
+            <Space size="middle">
+                <a>Xem chi tiết</a>
+            </Space>
+        ),
+    },
 ];
-
 
 
 const CUniAdvisorModal = ({ isShow, setIsShowModal }: MyProps) => {
@@ -74,7 +111,7 @@ const CUniAdvisorModal = ({ isShow, setIsShowModal }: MyProps) => {
             >
                 <div>
                     <div className='career-advisor-modal-title' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <div><h5>Danh sách điểm các ngành</h5></div>
+                        <div><h5>Danh sách các trường</h5></div>
                         <div><CloseOutlined style={{ fontSize: 20 }} alt="" onClick={() => setIsShowModal(false)} /></div>
                     </div>
                 </div>

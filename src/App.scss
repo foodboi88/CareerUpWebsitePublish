@@ -590,7 +590,7 @@ input::-webkit-inner-spin-button {
     font-weight: 400;
 }
 
-#form_advisor .ant-select-selection-item {
+#form_advisor .combination-section .ant-select-selection-item {
     background-color: #11B8F7 !important;
     border-radius: 12px;
     color: white;
@@ -613,10 +613,19 @@ input::-webkit-inner-spin-button {
     font-size: 18px;
     border: none;
 }
+.ant-modal.career-advisor-modal{
+    display: flex;
+    width: 100% !important;
+    justify-content: center;
+    align-items: center;
 
+}
 .ant-modal.career-advisor-modal .ant-modal-content {
+    display: flex;
+    justify-content: center;
     background: #FFFFFF;
     border-radius: 12px;
+    width: 70em;
 }
 
 .ant-modal.career-advisor-modal .ant-modal-content .ant-table-thead .ant-table-cell {
@@ -657,12 +666,14 @@ input::-webkit-inner-spin-button {
     border-radius: 30px;
     font-size: 25px;
 }
-.ant-btn.ant-btn-primary.btn-choose-career-advisor{
+
+.ant-btn.ant-btn-primary.btn-choose-career-advisor {
     width: 100px;
     height: 40px;
     border-radius: 30px;
     font-size: 17px;
 }
+
 .div-advisor-content {
     display: flex;
     justify-content: center;
@@ -689,6 +700,7 @@ input.ant-checkbox-input {
     width: 13.714286px;
     height: 23.142857px;
 }
+
 .form-check-input[type=checkbox] {
     margin-top: 6px !important;
 }
