@@ -1,5 +1,7 @@
 import { CloseOutlined } from '@ant-design/icons';
 import { Modal, Table } from 'antd';
+import styled from 'styled-components'
+import { Table as AntDTable } from 'antd'
 import React from 'react';
 
 interface MyProps {
