@@ -619,7 +619,7 @@ input::-webkit-inner-spin-button {
     border-radius: 12px;
 }
 
-.ant-modal.career-advisor-modal .ant-modal-content .ant-table-thead .ant-table-cell{
+.ant-modal.career-advisor-modal .ant-modal-content .ant-table-thead .ant-table-cell {
     font-weight: 600;
     font-size: 20px;
     line-height: 22px;
@@ -638,6 +638,7 @@ input::-webkit-inner-spin-button {
 .ant-modal.career-advisor-modal .ant-table-thead>tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
     display: none;
 }
+
 // .ant-modal.career-advisor-modal .ant-modal-footer{
 //     display: none;
 // }
@@ -648,4 +649,46 @@ input::-webkit-inner-spin-button {
 .career-advisor-modal-title .anticon.anticon-close:hover {
     transition: all 0.3s;
     opacity: 0.5;
+}
+
+.ant-btn.ant-btn-primary.btn-choose-advisor {
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 25px;
+}
+.ant-btn.ant-btn-primary.btn-choose-career-advisor{
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: 17px;
+}
+.div-advisor-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 600px;
+}
+
+input.ant-checkbox-input {
+    background-color: #008000;
+    width: 30px;
+    height: 30px;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #008000;
+    width: 30px;
+    height: 30px;
+
+}
+
+.ant-checkbox-inner::after {
+    width: 13.714286px;
+    height: 23.142857px;
+}
+.form-check-input[type=checkbox] {
+    margin-top: 6px !important;
 }
