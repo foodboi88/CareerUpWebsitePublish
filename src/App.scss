@@ -542,7 +542,13 @@ span.anticon.anticon-close.ant-tag-close-icon svg:hover {
 .ant-modal.create_meetings_calendar.allTaskModal .ant-modal-content .ant-modal-footer {
     display: none;
 }
-
+.footer-content{
+    color: #21292C;
+}
+.icon-footer{
+    padding: 10px;
+    cursor: pointer;
+}
 .ant-select-multiple .ant-select-selection-item {
     background: rgb(98, 101, 255) !important;
     border: none;
@@ -613,13 +619,15 @@ input::-webkit-inner-spin-button {
     font-size: 18px;
     border: none;
 }
-.ant-modal.career-advisor-modal{
+
+.ant-modal.career-advisor-modal {
     display: flex;
     width: 100% !important;
     justify-content: center;
     align-items: center;
 
 }
+
 .ant-modal.career-advisor-modal .ant-modal-content {
     display: flex;
     justify-content: center;
@@ -703,4 +711,17 @@ input.ant-checkbox-input {
 
 .form-check-input[type=checkbox] {
     margin-top: 6px !important;
+}
+
+.hearder-link {
+    color: #21292C;
+}
+
+.hearder-link:hover {
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
 }
