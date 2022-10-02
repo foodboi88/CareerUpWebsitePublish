@@ -6,6 +6,7 @@ export interface RouterItem {
 }
 
 export interface Question {
+    id: string;
     content: string;
     choiceLst: QuestionChoice[];
     pickedChoice: QuestionChoice|null;
@@ -13,5 +14,6 @@ export interface Question {
 }
 
 export interface QuestionChoice {
-    content: string
+    content: string;
+    score: number
 }
