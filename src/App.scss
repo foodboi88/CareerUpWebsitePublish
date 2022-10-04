@@ -542,13 +542,16 @@ span.anticon.anticon-close.ant-tag-close-icon svg:hover {
 .ant-modal.create_meetings_calendar.allTaskModal .ant-modal-content .ant-modal-footer {
     display: none;
 }
-.footer-content{
+
+.footer-content {
     color: #21292C;
 }
-.icon-footer{
+
+.icon-footer {
     padding: 10px;
     cursor: pointer;
 }
+
 .ant-select-multiple .ant-select-selection-item {
     background: rgb(98, 101, 255) !important;
     border: none;
@@ -671,8 +674,16 @@ input::-webkit-inner-spin-button {
 .ant-btn.ant-btn-primary.btn-choose-advisor {
     width: 150px;
     height: 50px;
-    border-radius: 30px;
+    border-radius: 12px;
     font-size: 25px;
+    background-color: #f3f9fe;
+    color: #007BEE;
+}
+
+.ant-btn.ant-btn-primary.btn-choose-advisor:hover {
+    background: linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%);
+    color: white;
+    // color: rgb(131, 59, 59) ;
 }
 
 .ant-btn.ant-btn-primary.btn-choose-career-advisor {
@@ -684,12 +695,29 @@ input::-webkit-inner-spin-button {
 
 .div-advisor-content {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
     width: 100%;
-    height: 1191px;
-    background-color: #D4FAFF;
+    height: 700px;
+    background: #f3f9fe;
+}
+.div-advisor-content.div-center{
+    justify-content: center;
+    align-items: center;
+}
+.title-advisor-intro {
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 150%;
+    color: #21292C;
+}
+
+.title-advisor-intro.color-title {
+    background: linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 input.ant-checkbox-input {

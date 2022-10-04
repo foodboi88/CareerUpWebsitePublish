@@ -1444,10 +1444,11 @@ const CCareerAdvisor = (props: MyProps) => {
     }, [currentChoice1,currentChoice2,currentChoice3,currentChoice4,currentChoice5])
 
     return (
-        <div className='div-advisor-content' style={{width:"100%",
+        <div className='div-advisor-content div-question-content' style={{width:"100%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            height: 1200
         }}>
             <div style={{margin:'20px',marginTop:'50px', backgroundColor:'white',borderRadius: '20px',marginBottom: '53px'}}>
             <div style={{
