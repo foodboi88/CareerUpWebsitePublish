@@ -64,6 +64,22 @@ const CUniAdvisor = () => {
                 >
                     <Form.Item
                         style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
+                        label="Tên ngành: "
+                        name="name"
+                        rules={[{ required: true, message: 'Vui lòng nhập tên ngành' }]}
+                    >
+                        <Input
+                            autoComplete="off"
+                            style={{ width: 400, borderRadius: 12 }}
+                            placeholder='Nhập tên ngành'
+                            id='form1'
+                            type='text'
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </Form.Item>
+
+                    <Form.Item
+                        style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
                         label="Điểm thi: "
                         name="score"
                         rules={[{ required: true, message: 'Vui lòng nhập điểm thi' }]}
@@ -125,7 +141,8 @@ const CUniAdvisor = () => {
                             Tìm kiếm thông tin
                         </Button>
                     </Form.Item>
-                </Form>  </div>
+                </Form> 
+            </div>
         </div>
 
     )
