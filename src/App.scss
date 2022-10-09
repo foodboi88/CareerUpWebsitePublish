@@ -639,6 +639,12 @@ input::-webkit-inner-spin-button {
     width: 70em;
 }
 
+.ant-modal.career-advisor-modal.unit-career-modal .ant-modal-content {
+    width: 60em;
+}
+.ant-modal.career-advisor-modal.unit-career-modal .ant-modal-content .ant-modal-body{
+    width: 100%;
+}
 .ant-modal.career-advisor-modal .ant-modal-content .ant-table-thead .ant-table-cell {
     font-weight: 600;
     font-size: 20px;
@@ -700,10 +706,12 @@ input::-webkit-inner-spin-button {
     height: 700px;
     background: #f3f9fe;
 }
-.div-advisor-content.div-center{
+
+.div-advisor-content.div-center {
     justify-content: center;
     align-items: center;
 }
+
 .title-advisor-intro {
     font-family: 'Lexend Deca';
     font-style: normal;
@@ -718,6 +726,13 @@ input::-webkit-inner-spin-button {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.intro-advisor-image {
+    width: 100%;
+    background-image: url('./images/intro_advisor_background.png');
+    background-repeat: no-repeat;
+    background-position: left;
 }
 
 input.ant-checkbox-input {
@@ -753,4 +768,82 @@ input.ant-checkbox-input {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 
+}
+
+.list-results-career {
+    background: #f3f9fe;
+    padding: 100px !important;
+}
+
+.list-results-career .rc-virtual-list-holder-inner {
+    background-color: white;
+    padding-bottom: 20px
+}
+
+.list-results-career .rc-virtual-list-holder-inner .ant-list-item {
+    padding: 10px 100px;
+}
+
+.list-results-career .ant-list-header {
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
+    color: rgb(0, 123, 238);
+    background: white;
+    border-radius: 12px 12px 0 0;
+    border-bottom: none !important;
+
+}
+
+.list-results-career .ant-list-item {
+    border-bottom: none !important;
+    margin-bottom: 10px;
+}
+
+.list-results-career .ant-list-item-meta-title {
+    text-decoration: underline;
+}
+
+.detail-career-modal .ant-modal-body {
+    width: 100%;
+}
+
+.detail-career-modal .ant-modal-body .career-advisor-modal-title {
+    justify-content: end;
+}
+
+.detail-career-modal .career-advisor-modal-content {
+    padding: 10px 50px;
+}
+.college-advisor{
+    background: #f3f9fe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+}
+.college-advisor .ant-table-cell{
+    background: white;
+    border: none;
+}
+.college-advisor .ant-table-cell::before{
+    display: none;
+}
+.college-advisor .ant-pagination.ant-table-pagination.ant-table-pagination-right{
+    display: none;
+}
+.college-advisor thead .ant-table-cell{
+    font-weight: bold;
+}
+.college-advisor .ant-select-selector{
+    border-radius: 12px !important;
+}
+.college-advisor .ant-table-wrapper{
+    margin-left: 200px;
 }
