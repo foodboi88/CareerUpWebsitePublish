@@ -9,7 +9,7 @@ export interface Question {
     id: string;
     content: string;
     choiceLst: QuestionChoice[];
-    pickedChoice: QuestionChoice|null;
+    pickedChoice: number|null;
 
 }
 

@@ -10,7 +10,7 @@ interface MyProps {
     showCareerAdvisor: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const questionLst: Question[] = [
+let questionLst: Question[] = [
     {
         id: '1',
         content: "Bạn đánh giá thế nào về khả năng viết văn/ làm thơ của mình?",
@@ -1443,6 +1443,8 @@ const CCareerAdvisor = (props: MyProps) => {
         else setShowBtnResult(false)
     }, [currentChoice1,currentChoice2,currentChoice3,currentChoice4,currentChoice5])
 
+   
+
     return (
         <div className='div-advisor-content' style={{width:"100%",
             display: "flex",
@@ -1472,13 +1474,13 @@ const CCareerAdvisor = (props: MyProps) => {
                             questionLst[currentQuestionIndex].choiceLst.map(item => (
                                 <div style={{ display: 'flex', padding: 20 }}>
                                     <input
-                                        onChange={() => {
-                                            questionLst[currentQuestionIndex].pickedChoice = item;
+                                        onChange={()=>{
+                                            questionLst[currentQuestionIndex].pickedChoice = item.score;
                                             setCurrentChoice1(item.content);
-                                            console.log(questionLst[currentQuestionIndex].pickedChoice);
                                         }}
-                                        checked={item.content === questionLst[currentQuestionIndex].pickedChoice?.content}
-                                        value={item.content} className="form-check-input"
+                                        checked={item.score === questionLst[currentQuestionIndex].pickedChoice}
+                                        name = {questionLst[currentQuestionIndex].content}
+                                        value={item.score} className="form-check-input"
                                         type="checkbox"
                                     />
                                     <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
@@ -1497,12 +1499,12 @@ const CCareerAdvisor = (props: MyProps) => {
                             questionLst[currentQuestionIndex+1].choiceLst.map(item => (
                                 <div style={{ display: 'flex', padding: 20 }}>
                                     <input
-                                        onChange={() => {
-                                            questionLst[currentQuestionIndex+1].pickedChoice = item;
-                                            setCurrentChoice1(item.content);
-                                            console.log(questionLst[currentQuestionIndex+1].pickedChoice);
+                                        onChange={()=>{
+                                            questionLst[currentQuestionIndex+1].pickedChoice = item.score;
+                                            setCurrentChoice2(item.content);
                                         }}
-                                        checked={item.content === questionLst[currentQuestionIndex+1].pickedChoice?.content}
+                                        checked={item.score === questionLst[currentQuestionIndex + 1].pickedChoice}
+                                        name = {questionLst[currentQuestionIndex + 1].content}
                                         value={item.content} className="form-check-input"
                                         type="checkbox"
                                     />
@@ -1522,12 +1524,12 @@ const CCareerAdvisor = (props: MyProps) => {
                             questionLst[currentQuestionIndex+2].choiceLst.map(item => (
                                 <div style={{ display: 'flex', padding: 20 }}>
                                     <input
-                                        onChange={() => {
-                                            questionLst[currentQuestionIndex+2].pickedChoice = item;
-                                            setCurrentChoice1(item.content);
-                                            console.log(questionLst[currentQuestionIndex+2].pickedChoice);
+                                        onChange={()=>{
+                                            questionLst[currentQuestionIndex+2].pickedChoice = item.score;
+                                            setCurrentChoice3(item.content);
                                         }}
-                                        checked={item.content === questionLst[currentQuestionIndex+2].pickedChoice?.content}
+                                        checked={item.score === questionLst[currentQuestionIndex+2].pickedChoice}
+                                        name = {questionLst[currentQuestionIndex+2].content}
                                         value={item.content} className="form-check-input"
                                         type="checkbox"
                                     />
@@ -1547,12 +1549,12 @@ const CCareerAdvisor = (props: MyProps) => {
                             questionLst[currentQuestionIndex+3].choiceLst.map(item => (
                                 <div style={{ display: 'flex', padding: 20 }}>
                                     <input
-                                        onChange={() => {
-                                            questionLst[currentQuestionIndex+3].pickedChoice = item;
-                                            setCurrentChoice1(item.content);
-                                            console.log(questionLst[currentQuestionIndex+3].pickedChoice);
+                                        onChange={()=>{
+                                            questionLst[currentQuestionIndex+3].pickedChoice = item.score;
+                                            setCurrentChoice4(item.content);
                                         }}
-                                        checked={item.content === questionLst[currentQuestionIndex+3].pickedChoice?.content}
+                                        checked={item.score === questionLst[currentQuestionIndex+3].pickedChoice}
+                                        name = {questionLst[currentQuestionIndex+3].content}
                                         value={item.content} className="form-check-input"
                                         type="checkbox"
                                     />
@@ -1572,12 +1574,12 @@ const CCareerAdvisor = (props: MyProps) => {
                             questionLst[currentQuestionIndex+4].choiceLst.map(item => (
                                 <div style={{ display: 'flex', padding: 20 }}>
                                     <input
-                                        onChange={() => {
-                                            questionLst[currentQuestionIndex+4].pickedChoice = item;
-                                            setCurrentChoice1(item.content);
-                                            console.log(questionLst[currentQuestionIndex+4].pickedChoice);
+                                        onChange={()=>{
+                                            questionLst[currentQuestionIndex+4].pickedChoice = item.score;
+                                            setCurrentChoice5(item.content);
                                         }}
-                                        checked={item.content === questionLst[currentQuestionIndex+4].pickedChoice?.content}
+                                        checked={item.score === questionLst[currentQuestionIndex+4].pickedChoice}
+                                        name = {questionLst[currentQuestionIndex+4].content}
                                         value={item.content} className="form-check-input"
                                         type="checkbox"
                                     />
@@ -1623,14 +1625,14 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                                 }}>2</a>
                             </li>
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className="page-item active"><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(11)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
                                 setCurrentChoice3(null)
                                 setCurrentChoice4(null)
                                 setCurrentChoice5(null)
-                                }}>3</a>
+                                }}>3<span className="visually-hidden"></span></a>
                             </li>
                             <li className="page-item"><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(16)
