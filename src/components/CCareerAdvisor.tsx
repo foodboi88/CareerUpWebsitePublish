@@ -1422,7 +1422,7 @@ const CCareerAdvisor = (props: MyProps) => {
     const history = useHistory();
     const [showQuestion, setShowQuestion] = useState(true);
     const [showResult, setShowResult] = useState(false);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(1);
     const [currentChoice1, setCurrentChoice1] = useState<string|null>();
     const [currentChoice2, setCurrentChoice2] = useState<string|null>();
     const [currentChoice3, setCurrentChoice3] = useState<string|null>();
@@ -1607,7 +1607,7 @@ const CCareerAdvisor = (props: MyProps) => {
                     <nav aria-label="...">
                         <ul className="pagination pagination-circle">
                         
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 1? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(1);
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
@@ -1616,7 +1616,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                             }}>1</a>
                             </li>
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 6? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(6)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
@@ -1625,7 +1625,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                                 }}>2</a>
                             </li>
-                            <li className="page-item active"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 11? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(11)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
@@ -1634,7 +1634,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                                 }}>3<span className="visually-hidden"></span></a>
                             </li>
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 16? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(16)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
@@ -1643,7 +1643,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                                 }}>4</a>
                             </li>
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 21? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(21)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
@@ -1652,7 +1652,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                                 }}>5</a>
                             </li>
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 26? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(26)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
@@ -1661,7 +1661,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                                 }}>6</a>
                             </li>
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 31? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(31)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
@@ -1670,7 +1670,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                                 }}>7</a>
                             </li>
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 36? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(36)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
@@ -1679,7 +1679,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                                 }}>8</a>
                             </li>
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 41? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(41)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
@@ -1688,7 +1688,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                                 }}>9</a>
                             </li>
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 46? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(46)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
@@ -1697,7 +1697,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                                 }}>10</a>
                             </li>
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 51? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(51)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
@@ -1706,7 +1706,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 setCurrentChoice5(null)
                                 }}>11</a>
                             </li>
-                            <li className="page-item"><a className="page-link" href="#" onClick={()=>{
+                            <li className={`page-item ${currentQuestionIndex === 56? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
                                 setCurrentQuestionIndex(56)
                                 setCurrentChoice1(null)
                                 setCurrentChoice2(null)
