@@ -1391,29 +1391,29 @@ let questionLst: Question[] = [
         ],
         pickedChoice: null
     },
-    {
-        id: '61',
-        content: "Bạn có thích trêu chó không",
-        choiceLst: [
-            {
-                content: 'Rất thấp',
-                score: 1
-            },
-            {
-                content: 'Thấp',
-                score: 2
-            },
-            {
-                content: 'Cao',
-                score: 3
-            },
-            {
-                content: 'Rất cao',
-                score: 4
-            }
-        ],
-        pickedChoice: null
-    },
+    // {
+    //     id: '61',
+    //     content: "Bạn có thích trêu chó không",
+    //     choiceLst: [
+    //         {
+    //             content: 'Rất thấp',
+    //             score: 1
+    //         },
+    //         {
+    //             content: 'Thấp',
+    //             score: 2
+    //         },
+    //         {
+    //             content: 'Cao',
+    //             score: 3
+    //         },
+    //         {
+    //             content: 'Rất cao',
+    //             score: 4
+    //         }
+    //     ],
+    //     pickedChoice: null
+    // },
 ]
 
 
@@ -1441,6 +1441,8 @@ const CCareerAdvisor = (props: MyProps) => {
         })
         if(check===true) setShowBtnResult(true);
         else setShowBtnResult(false)
+        console.log(showBtnResult)
+        console.log(questionLst)
     }, [currentChoice1,currentChoice2,currentChoice3,currentChoice4,currentChoice5])
 
    
@@ -1468,18 +1470,18 @@ const CCareerAdvisor = (props: MyProps) => {
                 showQuestion &&
                 <>
                     <h3>Câu {currentQuestionIndex}:</h3>
-                    <h4>{questionLst[currentQuestionIndex].content}</h4>
+                    <h4>{questionLst[currentQuestionIndex-1].content}</h4>
                     <div style={{ display: 'flex' }}>
                         {
-                            questionLst[currentQuestionIndex].choiceLst.map(item => (
+                            questionLst[currentQuestionIndex-1].choiceLst.map(item => (
                                 <div style={{ display: 'flex', padding: 20 }}>
                                     <input
                                         onChange={()=>{
-                                            questionLst[currentQuestionIndex].pickedChoice = item.score;
+                                            questionLst[currentQuestionIndex-1].pickedChoice = item.score;
                                             setCurrentChoice1(item.content);
                                         }}
-                                        checked={item.score === questionLst[currentQuestionIndex].pickedChoice}
-                                        name = {questionLst[currentQuestionIndex].content}
+                                        checked={item.score === questionLst[currentQuestionIndex-1].pickedChoice}
+                                        name = {questionLst[currentQuestionIndex-1].content}
                                         value={item.score} className="form-check-input"
                                         type="checkbox"
                                     />
@@ -1493,18 +1495,18 @@ const CCareerAdvisor = (props: MyProps) => {
                     </div>
                     
                     <h3>Câu {currentQuestionIndex + 1}:</h3>
-                    <h4>{questionLst[currentQuestionIndex+1].content}</h4>
+                    <h4>{questionLst[currentQuestionIndex].content}</h4>
                     <div style={{ display: 'flex' }}>
                         {
-                            questionLst[currentQuestionIndex+1].choiceLst.map(item => (
+                            questionLst[currentQuestionIndex].choiceLst.map(item => (
                                 <div style={{ display: 'flex', padding: 20 }}>
                                     <input
                                         onChange={()=>{
-                                            questionLst[currentQuestionIndex+1].pickedChoice = item.score;
+                                            questionLst[currentQuestionIndex].pickedChoice = item.score;
                                             setCurrentChoice2(item.content);
                                         }}
-                                        checked={item.score === questionLst[currentQuestionIndex + 1].pickedChoice}
-                                        name = {questionLst[currentQuestionIndex + 1].content}
+                                        checked={item.score === questionLst[currentQuestionIndex].pickedChoice}
+                                        name = {questionLst[currentQuestionIndex].content}
                                         value={item.content} className="form-check-input"
                                         type="checkbox"
                                     />
@@ -1518,6 +1520,31 @@ const CCareerAdvisor = (props: MyProps) => {
                     </div>
 
                     <h3>Câu {currentQuestionIndex+2 }:</h3>
+                    <h4>{questionLst[currentQuestionIndex+1].content}</h4>
+                    <div style={{ display: 'flex' }}>
+                        {
+                            questionLst[currentQuestionIndex+1].choiceLst.map(item => (
+                                <div style={{ display: 'flex', padding: 20 }}>
+                                    <input
+                                        onChange={()=>{
+                                            questionLst[currentQuestionIndex+1].pickedChoice = item.score;
+                                            setCurrentChoice3(item.content);
+                                        }}
+                                        checked={item.score === questionLst[currentQuestionIndex+1].pickedChoice}
+                                        name = {questionLst[currentQuestionIndex+1].content}
+                                        value={item.content} className="form-check-input"
+                                        type="checkbox"
+                                    />
+                                    <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
+
+                                </div>
+                            ))
+                            
+                        }
+                        
+                    </div>
+
+                    <h3>Câu {currentQuestionIndex+3}:</h3>
                     <h4>{questionLst[currentQuestionIndex+2].content}</h4>
                     <div style={{ display: 'flex' }}>
                         {
@@ -1526,7 +1553,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                     <input
                                         onChange={()=>{
                                             questionLst[currentQuestionIndex+2].pickedChoice = item.score;
-                                            setCurrentChoice3(item.content);
+                                            setCurrentChoice4(item.content);
                                         }}
                                         checked={item.score === questionLst[currentQuestionIndex+2].pickedChoice}
                                         name = {questionLst[currentQuestionIndex+2].content}
@@ -1542,7 +1569,7 @@ const CCareerAdvisor = (props: MyProps) => {
                         
                     </div>
 
-                    <h3>Câu {currentQuestionIndex+3}:</h3>
+                    <h3>Câu {currentQuestionIndex+4}:</h3>
                     <h4>{questionLst[currentQuestionIndex+3].content}</h4>
                     <div style={{ display: 'flex' }}>
                         {
@@ -1551,35 +1578,10 @@ const CCareerAdvisor = (props: MyProps) => {
                                     <input
                                         onChange={()=>{
                                             questionLst[currentQuestionIndex+3].pickedChoice = item.score;
-                                            setCurrentChoice4(item.content);
+                                            setCurrentChoice5(item.content);
                                         }}
                                         checked={item.score === questionLst[currentQuestionIndex+3].pickedChoice}
                                         name = {questionLst[currentQuestionIndex+3].content}
-                                        value={item.content} className="form-check-input"
-                                        type="checkbox"
-                                    />
-                                    <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
-
-                                </div>
-                            ))
-                            
-                        }
-                        
-                    </div>
-
-                    <h3>Câu {currentQuestionIndex+4}:</h3>
-                    <h4>{questionLst[currentQuestionIndex+4].content}</h4>
-                    <div style={{ display: 'flex' }}>
-                        {
-                            questionLst[currentQuestionIndex+4].choiceLst.map(item => (
-                                <div style={{ display: 'flex', padding: 20 }}>
-                                    <input
-                                        onChange={()=>{
-                                            questionLst[currentQuestionIndex+4].pickedChoice = item.score;
-                                            setCurrentChoice5(item.content);
-                                        }}
-                                        checked={item.score === questionLst[currentQuestionIndex+4].pickedChoice}
-                                        name = {questionLst[currentQuestionIndex+4].content}
                                         value={item.content} className="form-check-input"
                                         type="checkbox"
                                     />
