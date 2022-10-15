@@ -707,6 +707,22 @@ input::-webkit-inner-spin-button {
     background: #f3f9fe;
 }
 
+.div-career-advisor-result {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1844px;
+    background: #f3f9fe;
+}
+
+.div-career-advisor-question {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1315px;
+    background: #f3f9fe;
+}
+
 .div-advisor-content.div-center {
     justify-content: center;
     align-items: center;

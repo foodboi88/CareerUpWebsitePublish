@@ -163,7 +163,7 @@ const Home = () => {
                     rounded
                     style={{ width: '320px', height: '64px', fontSize: '32px', fontWeight: '400', }} className='mx-2' color='light'
                 >
-                    <p style={{ background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Đi tới Career Up</p>
+                    <p style={{ background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}><a target='_blank' href='https://www.facebook.com/careerupteamd19ptit'>Đi tới Career Up</a></p>
                 </MDBBtn>
             </div>
             <CFooter

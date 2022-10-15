@@ -80,10 +80,10 @@ const CResultsCareer = () => {
         setIsShow(e);
     }
     return (
-        <div>
+        <div className='div-career-advisor-result'>
             {isShow &&
                 <div>
-                    <div className='div-advisor-content div-center' >
+                    <div className='div-advisor-content div-center ' >
                         <h1 className='title-advisor-intro' style={{ marginBottom: -10 }}>Nhóm nghề</h1>
                         <h1 className='title-advisor-intro color-title'>Làm việc với con người</h1>
                         <img src={resulstCareerImg} />

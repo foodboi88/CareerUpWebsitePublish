@@ -1419,7 +1419,7 @@ let questionLst: Question[] = [
 
 
 
-const CCareerAdvisor = (props: MyProps) => {
+const CCareerAdvisor = (props: MyProps) => {    
     const history = useHistory();
     const [showQuestion, setShowQuestion] = useState(true);
     const [showResult, setShowResult] = useState(false);
@@ -1448,313 +1448,316 @@ const CCareerAdvisor = (props: MyProps) => {
    
 
     return (
-        <div className='div-advisor-content' style={{width:"100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-        }}>
-            <div style={{margin:'20px',marginTop:'50px', backgroundColor:'white',borderRadius: '20px',marginBottom: '53px'}}>
-            <div style={{
+        <div>
+        {   showQuestion &&
+            <div className='div-career-advisor-question' style={{width:"100%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "100%",
-                fontSize:'35px',
-                marginBottom: '60px',
-                marginTop: '77px'
             }}>
-                <div >Chọn câu trả lời phù hợp nhất với bạn nha</div>
-            </div>
-            <div style={{paddingLeft: 150,paddingRight:150}}>
-            {
-                showQuestion &&
-                <>
-                    <h3>Câu {currentQuestionIndex}:</h3>
-                    <h4>{questionLst[currentQuestionIndex-1].content}</h4>
-                    <div style={{ display: 'flex' }}>
-                        {
-                            questionLst[currentQuestionIndex-1].choiceLst.map(item => (
-                                <div style={{ display: 'flex', padding: 20 }}>
-                                    <input
-                                        onChange={()=>{
-                                            questionLst[currentQuestionIndex-1].pickedChoice = item.score;
-                                            setCurrentChoice1(item.content);
-                                        }}
-                                        checked={item.score === questionLst[currentQuestionIndex-1].pickedChoice}
-                                        name = {questionLst[currentQuestionIndex-1].content}
-                                        value={item.score} className="form-check-input"
-                                        type="checkbox"
-                                    />
-                                    <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
-
-                                </div>
-                            ))
-                            
-                        }
+                <div style={{margin:'20px',marginTop:'50px', backgroundColor:'white',borderRadius: '20px',marginBottom: '53px'}}>
+                    <div>
+                        <div style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            width: "100%",
+                            fontSize:'35px',
+                            marginBottom: '60px',
+                            marginTop: '77px'
+                        }}>
+                            <div >Chọn câu trả lời phù hợp nhất với bạn nha</div>
+                        </div>
+                        <div style={{paddingLeft: 150,paddingRight:150}}>
                         
-                    </div>
-                    
-                    <h3>Câu {currentQuestionIndex + 1}:</h3>
-                    <h4>{questionLst[currentQuestionIndex].content}</h4>
-                    <div style={{ display: 'flex' }}>
-                        {
-                            questionLst[currentQuestionIndex].choiceLst.map(item => (
-                                <div style={{ display: 'flex', padding: 20 }}>
-                                    <input
-                                        onChange={()=>{
-                                            questionLst[currentQuestionIndex].pickedChoice = item.score;
-                                            setCurrentChoice2(item.content);
-                                        }}
-                                        checked={item.score === questionLst[currentQuestionIndex].pickedChoice}
-                                        name = {questionLst[currentQuestionIndex].content}
-                                        value={item.content} className="form-check-input"
-                                        type="checkbox"
-                                    />
-                                    <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
+                            <>
+                                <h3>Câu {currentQuestionIndex}:</h3>
+                                <h4>{questionLst[currentQuestionIndex-1].content}</h4>
+                                <div style={{ display: 'flex' }}>
+                                    {
+                                        questionLst[currentQuestionIndex-1].choiceLst.map(item => (
+                                            <div style={{ display: 'flex', padding: 20 }}>
+                                                <input
+                                                    onChange={()=>{
+                                                        questionLst[currentQuestionIndex-1].pickedChoice = item.score;
+                                                        setCurrentChoice1(item.content);
+                                                    }}
+                                                    checked={item.score === questionLst[currentQuestionIndex-1].pickedChoice}
+                                                    name = {questionLst[currentQuestionIndex-1].content}
+                                                    value={item.score} className="form-check-input"
+                                                    type="checkbox"
+                                                />
+                                                <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
 
-                                                    </div>
-                                                ))
-
-                                            }
-
-                                        </div>
-
-                    <h3>Câu {currentQuestionIndex+2 }:</h3>
-                    <h4>{questionLst[currentQuestionIndex+1].content}</h4>
-                    <div style={{ display: 'flex' }}>
-                        {
-                            questionLst[currentQuestionIndex+1].choiceLst.map(item => (
-                                <div style={{ display: 'flex', padding: 20 }}>
-                                    <input
-                                        onChange={()=>{
-                                            questionLst[currentQuestionIndex+1].pickedChoice = item.score;
-                                            setCurrentChoice3(item.content);
-                                        }}
-                                        checked={item.score === questionLst[currentQuestionIndex+1].pickedChoice}
-                                        name = {questionLst[currentQuestionIndex+1].content}
-                                        value={item.content} className="form-check-input"
-                                        type="checkbox"
-                                    />
-                                    <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
-
-                                                    </div>
-                                                ))
-
-                                            }
-
-                                        </div>
-
-                    <h3>Câu {currentQuestionIndex+3}:</h3>
-                    <h4>{questionLst[currentQuestionIndex+2].content}</h4>
-                    <div style={{ display: 'flex' }}>
-                        {
-                            questionLst[currentQuestionIndex+2].choiceLst.map(item => (
-                                <div style={{ display: 'flex', padding: 20 }}>
-                                    <input
-                                        onChange={()=>{
-                                            questionLst[currentQuestionIndex+2].pickedChoice = item.score;
-                                            setCurrentChoice4(item.content);
-                                        }}
-                                        checked={item.score === questionLst[currentQuestionIndex+2].pickedChoice}
-                                        name = {questionLst[currentQuestionIndex+2].content}
-                                        value={item.content} className="form-check-input"
-                                        type="checkbox"
-                                    />
-                                    <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
-
-                                                    </div>
-                                                ))
-
-                                            }
-
-                                        </div>
-
-                    <h3>Câu {currentQuestionIndex+4}:</h3>
-                    <h4>{questionLst[currentQuestionIndex+3].content}</h4>
-                    <div style={{ display: 'flex' }}>
-                        {
-                            questionLst[currentQuestionIndex+3].choiceLst.map(item => (
-                                <div style={{ display: 'flex', padding: 20 }}>
-                                    <input
-                                        onChange={()=>{
-                                            questionLst[currentQuestionIndex+3].pickedChoice = item.score;
-                                            setCurrentChoice5(item.content);
-                                        }}
-                                        checked={item.score === questionLst[currentQuestionIndex+3].pickedChoice}
-                                        name = {questionLst[currentQuestionIndex+3].content}
-                                        value={item.content} className="form-check-input"
-                                        type="checkbox"
-                                    />
-                                    <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
-
-                                                    </div>
-                                                ))
-
-                                            }
-
-                                        </div>
-
-                    
-                </>
-            }
-            </div>
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-                marginTop: '40px'
-            }}>
-                <div>
-                    <nav aria-label="...">
-                        <ul className="pagination pagination-circle">
-                        
-                            <li className={`page-item ${currentQuestionIndex === 1? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(1);
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                            }}>1</a>
-                            </li>
-                            <li className={`page-item ${currentQuestionIndex === 6? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(6)
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                                }}>2</a>
-                            </li>
-                            <li className={`page-item ${currentQuestionIndex === 11? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(11)
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                                }}>3<span className="visually-hidden"></span></a>
-                            </li>
-                            <li className={`page-item ${currentQuestionIndex === 16? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(16)
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                                }}>4</a>
-                            </li>
-                            <li className={`page-item ${currentQuestionIndex === 21? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(21)
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                                }}>5</a>
-                            </li>
-                            <li className={`page-item ${currentQuestionIndex === 26? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(26)
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                                }}>6</a>
-                            </li>
-                            <li className={`page-item ${currentQuestionIndex === 31? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(31)
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                                }}>7</a>
-                            </li>
-                            <li className={`page-item ${currentQuestionIndex === 36? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(36)
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                                }}>8</a>
-                            </li>
-                            <li className={`page-item ${currentQuestionIndex === 41? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(41)
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                                }}>9</a>
-                            </li>
-                            <li className={`page-item ${currentQuestionIndex === 46? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(46)
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                                }}>10</a>
-                            </li>
-                            <li className={`page-item ${currentQuestionIndex === 51? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(51)
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                                }}>11</a>
-                            </li>
-                            <li className={`page-item ${currentQuestionIndex === 56? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
-                                setCurrentQuestionIndex(56)
-                                setCurrentChoice1(null)
-                                setCurrentChoice2(null)
-                                setCurrentChoice3(null)
-                                setCurrentChoice4(null)
-                                setCurrentChoice5(null)
-                                }}>12</a>
-                            </li>
-                            
-
-                                        </ul>
-                                    </nav>
+                                            </div>
+                                        ))
+                                        
+                                    }
+                                    
                                 </div>
+                                
+                                <h3>Câu {currentQuestionIndex + 1}:</h3>
+                                <h4>{questionLst[currentQuestionIndex].content}</h4>
+                                <div style={{ display: 'flex' }}>
+                                    {
+                                        questionLst[currentQuestionIndex].choiceLst.map(item => (
+                                            <div style={{ display: 'flex', padding: 20 }}>
+                                                <input
+                                                    onChange={()=>{
+                                                        questionLst[currentQuestionIndex].pickedChoice = item.score;
+                                                        setCurrentChoice2(item.content);
+                                                    }}
+                                                    checked={item.score === questionLst[currentQuestionIndex].pickedChoice}
+                                                    name = {questionLst[currentQuestionIndex].content}
+                                                    value={item.content} className="form-check-input"
+                                                    type="checkbox"
+                                                />
+                                                <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
+
+                                                                </div>
+                                                            ))
+
+                                                        }
+
+                                                    </div>
+
+                                <h3>Câu {currentQuestionIndex+2 }:</h3>
+                                <h4>{questionLst[currentQuestionIndex+1].content}</h4>
+                                <div style={{ display: 'flex' }}>
+                                    {
+                                        questionLst[currentQuestionIndex+1].choiceLst.map(item => (
+                                            <div style={{ display: 'flex', padding: 20 }}>
+                                                <input
+                                                    onChange={()=>{
+                                                        questionLst[currentQuestionIndex+1].pickedChoice = item.score;
+                                                        setCurrentChoice3(item.content);
+                                                    }}
+                                                    checked={item.score === questionLst[currentQuestionIndex+1].pickedChoice}
+                                                    name = {questionLst[currentQuestionIndex+1].content}
+                                                    value={item.content} className="form-check-input"
+                                                    type="checkbox"
+                                                />
+                                                <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
+
+                                                                </div>
+                                                            ))
+
+                                                        }
+
+                                                    </div>
+
+                                <h3>Câu {currentQuestionIndex+3}:</h3>
+                                <h4>{questionLst[currentQuestionIndex+2].content}</h4>
+                                <div style={{ display: 'flex' }}>
+                                    {
+                                        questionLst[currentQuestionIndex+2].choiceLst.map(item => (
+                                            <div style={{ display: 'flex', padding: 20 }}>
+                                                <input
+                                                    onChange={()=>{
+                                                        questionLst[currentQuestionIndex+2].pickedChoice = item.score;
+                                                        setCurrentChoice4(item.content);
+                                                    }}
+                                                    checked={item.score === questionLst[currentQuestionIndex+2].pickedChoice}
+                                                    name = {questionLst[currentQuestionIndex+2].content}
+                                                    value={item.content} className="form-check-input"
+                                                    type="checkbox"
+                                                />
+                                                <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
+
+                                                                </div>
+                                                            ))
+
+                                                        }
+
+                                                    </div>
+
+                                <h3>Câu {currentQuestionIndex+4}:</h3>
+                                <h4>{questionLst[currentQuestionIndex+3].content}</h4>
+                                <div style={{ display: 'flex' }}>
+                                    {
+                                        questionLst[currentQuestionIndex+3].choiceLst.map(item => (
+                                            <div style={{ display: 'flex', padding: 20 }}>
+                                                <input
+                                                    onChange={()=>{
+                                                        questionLst[currentQuestionIndex+3].pickedChoice = item.score;
+                                                        setCurrentChoice5(item.content);
+                                                    }}
+                                                    checked={item.score === questionLst[currentQuestionIndex+3].pickedChoice}
+                                                    name = {questionLst[currentQuestionIndex+3].content}
+                                                    value={item.content} className="form-check-input"
+                                                    type="checkbox"
+                                                />
+                                                <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
+
+                                                                </div>
+                                                            ))
+
+                                                        }
+
+                                                    </div>
+
+                                
+                            </>
+                        </div>
+                        <div style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            width: "100%",
+                            marginTop: '40px'
+                        }}>
+                            <div>
+                                <nav aria-label="...">
+                                    <ul className="pagination pagination-circle">
+                                    
+                                        <li className={`page-item ${currentQuestionIndex === 1? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(1);
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                        }}>1</a>
+                                        </li>
+                                        <li className={`page-item ${currentQuestionIndex === 6? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(6)
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                            }}>2</a>
+                                        </li>
+                                        <li className={`page-item ${currentQuestionIndex === 11? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(11)
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                            }}>3<span className="visually-hidden"></span></a>
+                                        </li>
+                                        <li className={`page-item ${currentQuestionIndex === 16? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(16)
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                            }}>4</a>
+                                        </li>
+                                        <li className={`page-item ${currentQuestionIndex === 21? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(21)
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                            }}>5</a>
+                                        </li>
+                                        <li className={`page-item ${currentQuestionIndex === 26? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(26)
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                            }}>6</a>
+                                        </li>
+                                        <li className={`page-item ${currentQuestionIndex === 31? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(31)
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                            }}>7</a>
+                                        </li>
+                                        <li className={`page-item ${currentQuestionIndex === 36? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(36)
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                            }}>8</a>
+                                        </li>
+                                        <li className={`page-item ${currentQuestionIndex === 41? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(41)
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                            }}>9</a>
+                                        </li>
+                                        <li className={`page-item ${currentQuestionIndex === 46? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(46)
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                            }}>10</a>
+                                        </li>
+                                        <li className={`page-item ${currentQuestionIndex === 51? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(51)
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                            }}>11</a>
+                                        </li>
+                                        <li className={`page-item ${currentQuestionIndex === 56? 'active': ''}`}><a className="page-link" href="#" onClick={()=>{
+                                            setCurrentQuestionIndex(56)
+                                            setCurrentChoice1(null)
+                                            setCurrentChoice2(null)
+                                            setCurrentChoice3(null)
+                                            setCurrentChoice4(null)
+                                            setCurrentChoice5(null)
+                                            }}>12</a>
+                                        </li>
+                                        
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                             </div>
 
-                            {
-                                // showBtnResult && 
-                                <div style={{
-                                    width: "100%",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    marginBottom: '30px'
-                                }}>
-                                    <MDBBtn
-                                        color='warning'
-                                        style={{ borderRadius: '20px' }}
-                                        onClick={() => {
-                                            setShowQuestion(false)
-                                            setIsShowResultCareer(true)
-                                        }}
-                                    >Xem kết quả
-                                    </MDBBtn>
-                                </div>
-                            }
-                        </div>
-                    }
+                        
+                        
 
-                </div >
-            }
-            {
-                isShowResultCareer && <CResultsCareer />
-            }
+                        {
+                            showBtnResult && 
+                            <div style={{
+                                width: "100%",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                marginBottom: '30px'
+                            }}>
+                                <MDBBtn
+                                    color='warning'
+                                    style={{ borderRadius: '20px' }}
+                                    onClick={() => {
+                                        setShowQuestion(false)
+                                        setShowBtnResult(false)
+                                        setIsShowResultCareer(true)
+                                    }}
+                                >Xem kết quả
+                                </MDBBtn>
+                            </div>
+                        }
+                        
+                </div>
+            </div>            
+        }
+        {
+            isShowResultCareer && <CResultsCareer />
+        }
         </div>
-
-
     )
 }
 
