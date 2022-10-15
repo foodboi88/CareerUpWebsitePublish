@@ -4,6 +4,7 @@ import { MDBBtn } from 'mdb-react-ui-kit';
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import { Question, QuestionChoice } from '../common/define-type'
+import CResultsCareer from './CResultsCareer';
 
 interface MyProps {
     showUniAdvisor: React.Dispatch<React.SetStateAction<boolean>>
@@ -152,7 +153,7 @@ let questionLst: Question[] = [
     {
         id: '7',
         content: "Khả năng sử dụng từ điển để tra nghĩa từ mới và sử dụng từ ngữ đó đúng ngữ cảnh?",
-        choiceLst:  [
+        choiceLst: [
             {
                 content: 'Rất thấp',
                 score: 1
@@ -1429,21 +1430,20 @@ const CCareerAdvisor = (props: MyProps) => {
     const [currentChoice4, setCurrentChoice4] = useState<string|null>();
     const [currentChoice5, setCurrentChoice5] = useState<string|null>();
 
-    const[showBtnResult,setShowBtnResult] = useState(false);
+    const [showBtnResult, setShowBtnResult] = useState(false);
+    const [isShowResultCareer, setIsShowResultCareer] = useState(false);
 
     useEffect(() => {
-        let check=true
+        let check = true
         questionLst.forEach(item => {
-            if(item.pickedChoice===null){
-                check=false
+            if (item.pickedChoice === null) {
+                check = false
                 return
             }
         })
-        if(check===true) setShowBtnResult(true);
+        if (check === true) setShowBtnResult(true);
         else setShowBtnResult(false)
-        console.log(showBtnResult)
-        console.log(questionLst)
-    }, [currentChoice1,currentChoice2,currentChoice3,currentChoice4,currentChoice5])
+    }, [currentChoice1, currentChoice2, currentChoice3, currentChoice4, currentChoice5])
 
    
 
@@ -1512,12 +1512,12 @@ const CCareerAdvisor = (props: MyProps) => {
                                     />
                                     <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
 
-                                </div>
-                            ))
-                            
-                        }
-                        
-                    </div>
+                                                    </div>
+                                                ))
+
+                                            }
+
+                                        </div>
 
                     <h3>Câu {currentQuestionIndex+2 }:</h3>
                     <h4>{questionLst[currentQuestionIndex+1].content}</h4>
@@ -1537,12 +1537,12 @@ const CCareerAdvisor = (props: MyProps) => {
                                     />
                                     <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
 
-                                </div>
-                            ))
-                            
-                        }
-                        
-                    </div>
+                                                    </div>
+                                                ))
+
+                                            }
+
+                                        </div>
 
                     <h3>Câu {currentQuestionIndex+3}:</h3>
                     <h4>{questionLst[currentQuestionIndex+2].content}</h4>
@@ -1562,12 +1562,12 @@ const CCareerAdvisor = (props: MyProps) => {
                                     />
                                     <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
 
-                                </div>
-                            ))
-                            
-                        }
-                        
-                    </div>
+                                                    </div>
+                                                ))
+
+                                            }
+
+                                        </div>
 
                     <h3>Câu {currentQuestionIndex+4}:</h3>
                     <h4>{questionLst[currentQuestionIndex+3].content}</h4>
@@ -1587,12 +1587,12 @@ const CCareerAdvisor = (props: MyProps) => {
                                     />
                                     <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
 
-                                </div>
-                            ))
-                            
-                        }
-                        
-                    </div>
+                                                    </div>
+                                                ))
+
+                                            }
+
+                                        </div>
 
                     
                 </>
@@ -1719,27 +1719,42 @@ const CCareerAdvisor = (props: MyProps) => {
                             </li>
                             
 
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            {
+                                // showBtnResult && 
+                                <div style={{
+                                    width: "100%",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    marginBottom: '30px'
+                                }}>
+                                    <MDBBtn
+                                        color='warning'
+                                        style={{ borderRadius: '20px' }}
+                                        onClick={() => {
+                                            setShowQuestion(false)
+                                            setIsShowResultCareer(true)
+                                        }}
+                                    >Xem kết quả
+                                    </MDBBtn>
+                                </div>
+                            }
+                        </div>
+                    }
+
+                </div >
+            }
             {
-                showBtnResult && 
-                <div style={{width:"100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    marginBottom: '30px'
-                }}>
-                    <MDBBtn color='warning' style={{
-                            borderRadius:'20px'
-                    }}>Xem kết quả</MDBBtn>
-                </div>
-                
-            }                
-            </div>
+                isShowResultCareer && <CResultsCareer />
+            }
         </div>
+
+
     )
 }
 

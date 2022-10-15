@@ -62,7 +62,7 @@ const CUniAdvisor = () => {
                 <Form
                     name="form_advisor"
                 >
-                    <Form.Item
+                    {/* <Form.Item
                         style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
                         label="Tên ngành: "
                         name="name"
@@ -76,7 +76,7 @@ const CUniAdvisor = () => {
                             type='text'
                             onChange={(e) => setName(e.target.value)}
                         />
-                    </Form.Item>
+                    </Form.Item> */}
 
                     <Form.Item
                         style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
