@@ -126,32 +126,8 @@ let questionLst: Question[] = [
             }
         ],
         pickedChoice: null
-    },
-    {
+    },{
         id: '6',
-        content: "Khả năng nhận ra các lỗi chính tả và ngữ pháp khi bạn đọc một đoạn văn/bài viết?",
-        choiceLst: [
-            {
-                content: 'Rất thấp',
-                score: 1
-            },
-            {
-                content: 'Thấp',
-                score: 2
-            },
-            {
-                content: 'Cao',
-                score: 3
-            },
-            {
-                content: 'Rất cao',
-                score: 4
-            }
-        ],
-        pickedChoice: null
-    },
-    {
-        id: '7',
         content: "Khả năng sử dụng từ điển để tra nghĩa từ mới và sử dụng từ ngữ đó đúng ngữ cảnh?",
         choiceLst: [
             {
@@ -174,8 +150,32 @@ let questionLst: Question[] = [
         pickedChoice: null
     },
     {
+        id: '7',
+        content: "Bạn có hay kiểm tra độ chính xác của câu từ, ngữ pháp và chính tả?",
+        choiceLst: [
+            {
+                content: 'Rất thấp',
+                score: 1
+            },
+            {
+                content: 'Thấp',
+                score: 2
+            },
+            {
+                content: 'Cao',
+                score: 3
+            },
+            {
+                content: 'Rất cao',
+                score: 4
+            }
+        ],
+        pickedChoice: null
+    },
+    
+    {
         id: '8',
-        content: "Mức độ tự tin của bạn khi đứng giữa một đám đông xa lạ?",
+        content: "Khả năng viết lên ý tưởng, suy nghĩ và trải nghiệm của bạn thành lời để mọi người thích đọc những gì bạn viết ra (Bài viết có thể viết dưới dạng bài văn, bài báo, truyện, thơ, báo cáo)?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -198,7 +198,7 @@ let questionLst: Question[] = [
     },
     {
         id: '9',
-        content: "Bạn thấy mình có phải một người nói chuyện thu hút trước đám đông?",
+        content: "Khả năng dùng lời nói để trình bày ý tưởng với mọi người, giảng dạy, thuyết trình, làm mẫu hoặc diễn thuyết của bạn như thế nào?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -221,7 +221,7 @@ let questionLst: Question[] = [
     },
     {
         id: '10',
-        content: "Hãy đánh giá khả năng đọc và hiểu những gì người khác viết ra của bạn?",
+        content: "Cách nói chuyện của bạn có cuốn hút người khác không (Sử dụng ngôn ngữ chính xác, nói rõ ràng mạch lạc)?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -244,7 +244,7 @@ let questionLst: Question[] = [
     },
     {
         id: '11',
-        content: "Bạn có thường tìm hiểu về phương pháp hoặc các loại hình kinh doanh hiệu quả mà bạn nhìn thấy xung quanh không?",
+        content: "Khả năng đọc hiểu những gì người khác viết ra, phát hiện ra sai sót trong văn bản viết của bạn như thế nào?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -267,7 +267,7 @@ let questionLst: Question[] = [
     },
     {
         id: '12',
-        content: "Khi giải một bài toán, bạn có thường phân tích sâu và tìm nhiều lời giải khác nhau cho nó?",
+        content: "Khi người khác nói, bạn có thể tập trung thấu hiểu và không bỏ sót chi tiết nào không?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -290,7 +290,7 @@ let questionLst: Question[] = [
     },
     {
         id: '13',
-        content: "Hãy đánh giá khả năng dự đoán kết quả của bạn,dựa trên những dữ kiện hoặc căn cứ có sẵn?",
+        content: "Bạn có hay dành nhiều sự chú ý tới các mô hình kinh doanh xung quanh mình không (Tìm ra điểm bất cập trong mô hình đó và đưa ra phương án cải thiện)?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -313,7 +313,7 @@ let questionLst: Question[] = [
     },
     {
         id: '14',
-        content: "Hãy đánh giá khả năng của bạn trong việc phân tích dữ liệu/ số liệu cụ thể để dự báo một xu hướng nào đó?",
+        content: "Khả năng đào sâu nghiên cứu để hiểu rõ ý nghĩa của 1 thông tin nào đó (Áp dụng toán học và thống kê để tìm ra điểm đặc biệt của thông tin từ đó suy ra xu hướng)?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -336,7 +336,7 @@ let questionLst: Question[] = [
     },
     {
         id: '15',
-        content: "Khả năng thu thập và sắp xếp thông tin, dữ liệu của bạn để người khác có thể dễ dàng hiểu và sử dụng nó?",
+        content: "Khả năng dự báo những thứ có thể xảy ra dựa trên tính toán dữ liệu có sẵn và đề ra kế hoạch tương lai?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -359,7 +359,7 @@ let questionLst: Question[] = [
     },
     {
         id: '16',
-        content: "Khả năng áp dụng một cách logic các thông tin và kiến thức để giải quyết vấn đề?",
+        content: "Bạn đánh giá sao về khả năng sử dụng con số, tìm kiếm bằng chứng và kiểm tra phép tính của mình nhỉ?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -382,7 +382,7 @@ let questionLst: Question[] = [
     },
     {
         id: '17',
-        content: "Khả năng áp dụng các nguyên tắc/công thức (Trong các môn học như Toán, Lý, Hóa,...) để tìm ra lời giải?",
+        content: "Khả năng sắp xếp thông tin theo trình tự để người khác dễ hiểu và dễ sử dụng của bạn như thế nào?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -405,7 +405,7 @@ let questionLst: Question[] = [
     },
     {
         id: '18',
-        content: "Hãy đánh giá độ nhanh nhạy và khéo léo của bạn khi đưa ra quyết định trong những tình huống cấp bách?",
+        content: "Khả năng giải ô chữ, giải quyết các vấn đề thuộc nhiều lĩnh vực bằng cách sử dụng kiến thức và thông tin chính xác của bạn như thế nào?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -428,7 +428,7 @@ let questionLst: Question[] = [
     },
     {
         id: '19',
-        content: "Hãy đánh giá khả năng thu thập, nghiên cứu và phân tích thông tin hoặc dữ liệu của bạn?",
+        content: "Khả năng sử dụng các nguyên tác toán học, thống kê, vật lý, hóa học để tìm hiểu và giải quyết vấn đề của bạn như thế nào?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -451,7 +451,7 @@ let questionLst: Question[] = [
     },
     {
         id: '20',
-        content: "Năng lực tính toán, làm việc với những con số của bạn?",
+        content: "Trong tình huống cấp bách, bạn có thể bình tĩnh nắm được những gì đang diễn ra để ứng biến và đưa ra hành động hợp lý tiếp theo hay không?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -474,7 +474,7 @@ let questionLst: Question[] = [
     },
     {
         id: '21',
-        content: "Hãy đánh giá khả năng sáng tạo ra những đồ vật mới từ ý tưởng của chính mình (Có thể là đồ dùng hàng ngày như quần áo, giày dép,... cho tới đồ vật lưu niệm)?",
+        content: "Khả năng xác định vấn đề, xây dụng các phương pháp nghiên cứu, thu thập và phân tích thông tin để hiểu rõ hoặc giải quyết vấn đề của bạn như thế nào nhỉ?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -497,7 +497,7 @@ let questionLst: Question[] = [
     },
     {
         id: '22',
-        content: "Hãy đánh giá khả năng tạo ra mô hình đồ vật (bản sao) từ những đồ vật có sẵn?",
+        content: "Bạn có hay áp dụng các nguyên tác số học và đại số để tìm hiểu vấn đề hoặc thực hiện nhiệm vụ hay không?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -520,7 +520,7 @@ let questionLst: Question[] = [
     },
     {
         id: '23',
-        content: "Hãy đánh giá khả năng của bạn trong việc sắp đặt các hình ảnh hoặc đồ vật theo trình tự đẹp mắt, nghệ thuật?",
+        content: "Bạn có thích làm việc với các con số, thường xuyên áp dụng số học và đại số vào đời sống?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -543,7 +543,7 @@ let questionLst: Question[] = [
     },
     {
         id: '24',
-        content: "Khả năng vẽ phác họa của bạn (Sử dụng chì, màu nước, sơn hoặc bất cứ chất liệu nào để sao chép lại hình ảnh/ sự vật)?",
+        content: "Bạn đánh giá sao về độ tỉ mỉ của bản thân như thế nào khi áp dụng cộng, trừ, nhân, chia, áp dụng công thức để ra đáp áp chính xac?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -566,7 +566,7 @@ let questionLst: Question[] = [
     },
     {
         id: '25',
-        content: "Khả năng trang trí, phối hợp màu các màu sắc sao cho đẹp mắt của bạn?",
+        content: "Khả năng suy nghĩ, sáng tạo để tạo ra đồ vật hoàn toàn mới?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -589,7 +589,7 @@ let questionLst: Question[] = [
     },
     {
         id: '26',
-        content: "Khả năng minh họa những suy nghĩ, ý tưởng của bạn dưới dạng hình ảnh để người khác dễ hiểu được (Vẽ tranh, điêu khắc, thêu thùa,...)?",
+        content: "Khả năng tạo ra bản sao của các vật thông qua quan sát và tưởng tượng?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -612,7 +612,7 @@ let questionLst: Question[] = [
     },
     {
         id: '27',
-        content: "Khả năng vẽ tranh của bạn (Sử dụng nhiều công cụ để tạo thành tác phẩm nghệ thuật)?",
+        content: "Khả năng sắp đặt bố trí các vật thể cho đẹp hoặc tạo ra các sản phẩm hữu dụng từ các chất liệu khác nhau (gỗ, vải, đất sét,..)?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -635,7 +635,7 @@ let questionLst: Question[] = [
     },
     {
         id: '28',
-        content: "Khả năng làm việc với hình khối/ sử dụng các nguyên tắc hình học không gian để ứng dụng trong mỹ thuật hoặc đời sống?",
+        content: "Khả năng hội họa bằng các vật liệu khác nhau như sơn, bút chì, than hoặc các vật liệu bất kỳ?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -658,7 +658,7 @@ let questionLst: Question[] = [
     },
     {
         id: '29',
-        content: "Khả năng làm ra các sản phẩm handmade (Thêu thùa, gấp, uốn, đính kết,... các vật liệu)?",
+        content: "Khả năng phối hợp màu sắc, trang trí để không gian hoặc đồ vật trông đẹp mắt hơn của bạn ra sao?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -681,7 +681,7 @@ let questionLst: Question[] = [
     },
     {
         id: '30',
-        content: "Khả năng làm đẹp cho bản thân và mọi người (Trang trí lại/trang điểm hoặc phối chọn quần áo,...)?",
+        content: "Khả năng hình tượng hóa ý tưởng, trải nghiệm của bạn để mọi người thấy hứng thú (Có thể là tranh vẽ, tượng, điêu khắc, thuê thùa, sơn mài,..)?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -704,7 +704,7 @@ let questionLst: Question[] = [
     },
     {
         id: '31',
-        content: "Hãy đánh giá khả năng lãnh đạo nhóm của bạn (Năng lực đề xuất và giải quyết các vấn đề)?",
+        content: "Khả năng tạo ra các sản phẩm dùng hằng ngày từ trí tưởng tượng của bạn (Quần áo, vật dụng, đồ trang sức,..)?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -727,7 +727,7 @@ let questionLst: Question[] = [
     },
     {
         id: '32',
-        content: "Khả năng hòa nhập và gắn kết với nhóm, cùng mọi người hoàn thành tốt mục tiêu?",
+        content: "Khả năng tạo ra công trình kiến trúc, cầu đường, ô tô, máy móc từ trí tưởng tượng của bạn?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -750,7 +750,7 @@ let questionLst: Question[] = [
     },
     {
         id: '33',
-        content: "Khả năng lập kế hoạch cho các hoạt động và sự kiện của bạn?",
+        content: "Khả năng thành thạo sác công cụ, vật liệu như: cọ vẽ, bút chì, khuôn,.. để vẽ và tạo ra các sản phẩm có tính nghệ thuật?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -773,7 +773,7 @@ let questionLst: Question[] = [
     },
     {
         id: '34',
-        content: "Khả năng nhận biết và am hiểu tính cách, mối tương quan lẫn nhau giữa người với người?",
+        content: "Khả năng áp dụng các định lý hình học để xây dựng, sáng tạo và gia cố các sản phẩm hoặc có hứng thú khi làm việc với các hình khối khác nhau?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -796,7 +796,7 @@ let questionLst: Question[] = [
     },
     {
         id: '35',
-        content: "Khả năng vận dụng sự thấu hiểu của mình để giúp hòa giải các mối quan hệ khi có xung đột?",
+        content: "Bạn có khả năng uốn, gấp, ghép, đính và nối các vật liệu để tạo ra sản phẩm không?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -819,7 +819,7 @@ let questionLst: Question[] = [
     },
     {
         id: '36',
-        content: "Khả năng động viên, dẫn dắt giúp mọi người hiểu rõ bản thân và các cơ hội để đưa ra quyết định?",
+        content: "Khả năng trang trí lại các đồ vật cho đẹp mắt hơn. Sử  dụng các kỹ thuật, mỹ phẩm, quần áo, trang sức khác nhau để làm đẹp cho mọi người, đồ vật của bạn ra sao?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -842,7 +842,7 @@ let questionLst: Question[] = [
     },
     {
         id: '37',
-        content: "Khả năng lý giải được cảm giác và hành vi của những người xung quanh?",
+        content: "Bạn đánh giá sao về khả năng lãnh đạo nhóm của mình (Đề ra phương thức làm việc cùng nhau, cùng nhau giải quyết vấn đề, cùng làm việc theo nhóm để thực hiện mục tiêu)?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -865,7 +865,7 @@ let questionLst: Question[] = [
     },
     {
         id: '38',
-        content: "Khả năng làm việc với người đau ốm hoặc khiếm khuyết về mặt thể chất?",
+        content: "Bạn có hứng thú với việc tìm hiểu cách hoạt động kinh doanh. Tìm hiểu những con người trong đó và cách hành xử của họ. Giúp mọi người hoàn thành tốt trách nhiệm của họ trong kinh doanh?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -888,7 +888,7 @@ let questionLst: Question[] = [
     },
     {
         id: '39',
-        content: "Khả năng trình bày ý tưởng để thuyết phục mọi người mua một đồ vật hoặc đồng ý với một đề xuất của mình?",
+        content: "Khả năng lên kế hoạch tổ chức hội họp và hoạt động, sắp xếp các buổi gặp gỡ, quản lý các sự kiện của bạn như thế nào?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -911,7 +911,7 @@ let questionLst: Question[] = [
     },
     {
         id: '40',
-        content: "Khả năng làm quen, trò chuyện với người lạ?",
+        content: "Bạn có khả năng giúp mọi người trong một nhóm hoạt động hiệu quả hài hòa với nhau hay không?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -934,7 +934,7 @@ let questionLst: Question[] = [
     },
     {
         id: '41',
-        content: "Bạn có thường xuyên tìm tòi, khám phá cấu tạo hoặc cơ chế hoạt động của máy móc, thiết bị, công cụ dụng cụ,...?",
+        content: "Bạn có chủ động tìm hiểu một nhóm hoạt động như thế nào hay không, hoặc để ý xem những thành viên trong nhóm ảnh hưởng lẫn nhau như thế nào hay không?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -957,7 +957,7 @@ let questionLst: Question[] = [
     },
     {
         id: '42',
-        content: "Khả năng đánh giá rủi ro và tìm tòi sửa chữa máy móc, thiết bị, công cụ dụng cụ hoặc áp dụng các kiến thức, mẹo vặt để chúng vận hành trơn tru?",
+        content: "Bạn có nắm được mối quan hệ giữa người với người và sử dụng khéo léo các phương pháp tâm lý để giúp mọi người quan hệ với nhau theo cách tích cực hay không?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -980,7 +980,7 @@ let questionLst: Question[] = [
     },
     {
         id: '43',
-        content: "Bạn thường dành nhiều thời gian để làm việc ngoài trời như đồng ruộng, rừng, công trình xây dựng,... ?",
+        content: "Bạn giúp người khác hiểu được nguyện vọng và mục tiêu của họ, giúp họ chọn ra con đường tốt nhất để đạt được mục tiêu?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1003,7 +1003,7 @@ let questionLst: Question[] = [
     },
     {
         id: '44',
-        content: "Bạn có năng khiếu trong chuyện tìm hiểu khoa học như các nguyên lý, định luật vật lý giúp cho máy móc hoặc thiết bị vận hành?",
+        content: "Dễ dàng đồng cảm, thấu hiểu cảm xúc của người khác. Chủ động đặt mình vào hoàn cảnh của họ để hiểu được lý do vì sao họ lại làm vậy?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1026,7 +1026,7 @@ let questionLst: Question[] = [
     },
     {
         id: '45',
-        content: "Khả năng vận động yêu cầu phối hợp tốt giữa tay, chân và nhiều bộ phận cơ thể khác không?",
+        content: "Có khả năng áp dụng kiến thức y tế để chăm sóc người đau ốm về mặt thể chất, luôn luôn nhiệt tình giúp đỡ mỗi khi họ cần?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1049,7 +1049,7 @@ let questionLst: Question[] = [
     },
     {
         id: '46',
-        content: "Sức bền và sức mạnh thể chất của bạn như thế nào (Ví dụ yêu cầu chạy bộ cự li dài, luyện tập cường độ cao,...)?",
+        content: "Có khả năng sử dụng các kỹ thuật để giúp đỡ những người khủng hoảng tâm lý. Nhạy cảm với tâm trạng và cảm xúc của mọi người?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1072,7 +1072,7 @@ let questionLst: Question[] = [
     },
     {
         id: '47',
-        content: "Khả năng điều khiển chuyển động của tay để thực hiện những công việc đòi hỏi sự khéo léo, tinh xảo?",
+        content: "Khả năng trình bày cũng như thuyết phục người khác với ý kiến của bạn?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1095,7 +1095,7 @@ let questionLst: Question[] = [
     },
     {
         id: '48',
-        content: "Khả năng giữ thăng bằng của bạn như thế nào?",
+        content: "Khả năng tự tin cởi mở và hòa nhập của bạn với một đám đông người lạ mặt?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1118,7 +1118,7 @@ let questionLst: Question[] = [
     },
     {
         id: '49',
-        content: "Khả năng của bạn nếu được yêu cầu làm công việc phải khuân vác nặng?",
+        content: "Bạn nghĩ bản thân mình có phù hợp làm việc tại nơi có nhiều máy móc, dụng cụ lao động sản xuất hay không?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1141,7 +1141,7 @@ let questionLst: Question[] = [
     },
     {
         id: '50',
-        content: "Hãy đánh giá mức độ thể trạng của bạn (Mức độ khỏe manh, không dễ mắc bệnh như cảm cúm, nhức đầu,...)?",
+        content: "Bạn đánh giá khả năng làm việc với máy móc, hứng thú với chúng và chủ động tìm kiếm nguyên nhân máy móc hỏng hóc để sửa chữa và phòng tránh ra sao?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1164,7 +1164,7 @@ let questionLst: Question[] = [
     },
     {
         id: '51',
-        content: "Bạn có thích trêu chó không",
+        content: "Bạn có thích làm việc ngoài trời như ở vườn ruộng, công trường, rừng, sân chơi, ...",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1187,7 +1187,7 @@ let questionLst: Question[] = [
     },
     {
         id: '52',
-        content: "Bạn có thích trêu chó không",
+        content: "Bạn có hay nghiên cứu cơ chế hoạt động của máy móc dựa trên các nguyên tắc vật lý hay không (đòn bẩy, quán tính, nhiệt độ, ma sát,...)",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1210,7 +1210,7 @@ let questionLst: Question[] = [
     },
     {
         id: '53',
-        content: "Bạn có thích trêu chó không",
+        content: "Khả năng vận động cơ thể, kết hợp các nhóm cơ để thực hiện các động tác thể thao một cách điêu luyện",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1233,7 +1233,7 @@ let questionLst: Question[] = [
     },
     {
         id: '54',
-        content: "Bạn có thích trêu chó không",
+        content: "Khả năng vận động cơ thể dưới một cường độ cao liên tục khi chơi thể thao của bạn ra sao (Các hoạt động này đòi hỏi bạn phải tiêu tốn lượng lớn năng lượng trong 1 khoảng thời gian dài mà không bị mệt mỏi)",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1256,7 +1256,7 @@ let questionLst: Question[] = [
     },
     {
         id: '55',
-        content: "Bạn có thích trêu chó không",
+        content: "Khả năng sửa chữa máy móc và làm nó hoạt động trơn chu hiệu quả trở lại ?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1279,7 +1279,7 @@ let questionLst: Question[] = [
     },
     {
         id: '56',
-        content: "Bạn có thích trêu chó không",
+        content: "Tham gia các công việc đòi hỏi nhiều thể lực mà không hề mệt mỏi?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1302,7 +1302,7 @@ let questionLst: Question[] = [
     },
     {
         id: '57',
-        content: "Bạn có thích trêu chó không",
+        content: "Bạn đánh giá khả năng thành thạo các loại máy móc để làm việc của mình cao không (máy nâng, cắt, uốn, cuộn, ghép, khoan các vật liệu như kim loại, đá đất, các vật liệu nhân tạo,...) như thế nào",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1325,7 +1325,7 @@ let questionLst: Question[] = [
     },
     {
         id: '58',
-        content: "Bạn có thích trêu chó không",
+        content: "Khả năng sử dụng cơ thể để thực hiện một loạt các động tác trong một khoảng thời gian ngắn mà không có sự sai sót?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1348,7 +1348,7 @@ let questionLst: Question[] = [
     },
     {
         id: '59',
-        content: "Bạn có thích trêu chó không",
+        content: "Khả năng sử dụng chuyển động tay để làm các nhiệm vụ đòi hỏi sự tinh xảo của bạn như thế nào?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1371,7 +1371,7 @@ let questionLst: Question[] = [
     },
     {
         id: '60',
-        content: "Bạn có thích trêu chó không",
+        content: "Bạn có khả năng uốn dẻo các khớp, kéo căng và di chuyển cơ thể một cách uyển chuyển ở những tư thế khó (thể thao chuyên nghiệp hoặc nhảy múa, ...) hay không?",
         choiceLst: [
             {
                 content: 'Rất thấp',
@@ -1730,7 +1730,7 @@ const CCareerAdvisor = (props: MyProps) => {
                         
 
                         {
-                            // showBtnResult && 
+                            showBtnResult && 
                             <div style={{
                                 width: "100%",
                                 display: "flex",
