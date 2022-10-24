@@ -8,7 +8,7 @@ const CHeader = () => {
   const history = useHistory();
   return (
     <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between',fontSize:'18px'}}
-      className='shadow-5 fw-bold'
+      className='shadow-5'
     >
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'136px',width:'151px',height:'54px',marginTop:'10px', marginBottom:'8px'}}
             onClick={()=> history.push('/home')}

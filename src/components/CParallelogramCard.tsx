@@ -1,4 +1,6 @@
 import React from 'react'
+import "../App.scss";
+import "antd/dist/antd.css";
 
 interface MyProps{
     imgSrc: string,
@@ -7,10 +9,14 @@ interface MyProps{
     quote?: string,
 }
 
+
+
 const CParallelogramCard = (props: MyProps) => {
   return (
-    <div style={{display:'flex'}}>
-        <div style={{
+    <div style={{display:'flex'}} >
+        <div 
+        className='box-shadow'
+        style={{
             borderTop: '1px solid #E0E0E0',
             borderLeft: '1px solid #E0E0E0',
             borderBottom: '1px solid #E0E0E0',
@@ -22,7 +28,7 @@ const CParallelogramCard = (props: MyProps) => {
             margin: '20px 0',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
         }}>
             <img
                 style={{
@@ -38,7 +44,9 @@ const CParallelogramCard = (props: MyProps) => {
                 src={props.imgSrc}
             />
         </div>
-        <div style={{
+        <div 
+        className='box-shadow'
+        style={{
             borderTop: '1px solid #E0E0E0',
             borderRight: '1px solid #E0E0E0',
             borderBottom: '1px solid #E0E0E0',

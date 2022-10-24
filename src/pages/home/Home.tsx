@@ -6,8 +6,16 @@ import CFooter from '../../components/CFooter'
 import CHeader from '../../components/CHeader'
 import HomeImage1 from '../../images/HomeImage1.png'
 import Function1 from '../../images/Function1.png'
+import Function2 from '../../images/Function2.png'
+import Function3 from '../../images/Function3.jpg'
 import BornReason from '../../images/BornReason.png'
 import DeveloperHC from '../../images/DeveloperHC.png'
+import DeveloperHD from '../../images/DeveloperHD.png'
+import DeveloperKN from '../../images/DeveloperKN.png'
+import DeveloperAN from '../../images/DeveloperAN.png'
+import Carousel1 from '../../images/Carousel1.png'
+
+
 import JoinBackground from '../../images/JoinBackground.png'
 import "../../App.scss";
 import "antd/dist/antd.css";
@@ -48,7 +56,7 @@ const Home = () => {
               </div>
             </div> */}
                     <div>
-                        <h3 style={contentStyle}>1</h3>
+                        <img style={{width:"100%"}} src={Carousel1}/>
                     </div>
                     <div>
                         <h3 style={contentStyle}>2</h3>
@@ -70,24 +78,32 @@ const Home = () => {
                     <Card
                         hoverable
                         headStyle={{ borderRadius: '12px' }}
-                        style={{ width: 430, height: 430, borderRadius: '12px' }}
+                        style={{ width: 430, height: 564, borderRadius: '12px' }}
                         cover={<img style={{ borderRadius: '12px' }} alt="example" src={Function1} />}
                     >
-                        <Meta title="Europe Street beat" description="www.instagram.com" />
+                        <p style={{fontWeight: 600,fontSize: '20px'}}>Tư vấn trực tiếp cùng chuyên gia</p>
+                        <p>Trò chuyện trực tiếp cùng chuyên gia có kinh nghiệm chuyên sâu về tuyển sinh sẽ giúp bạn giải quyết triệt để các vấn đề đang gặp phải</p>
+                        <p style={{marginTop:118,fontWeight: 500, fontSize: 20, color: '#FFB507'}}>Trải nghiệm ngay</p>
+
                     </Card>
                     <Card
                         hoverable
-                        style={{ width: 430, height: 430, borderRadius: '12px' }}
-                        cover={<img style={{ borderRadius: '12px' }} alt="example" src={Function1} />}
+                        style={{ width: 430, height: 564, borderRadius: '12px' }}
+                        cover={<img style={{ borderRadius: '12px', height:231 }} alt="example" src={Function2} />}
                     >
-                        <Meta title="Europe Street beat" description="www.instagram.com" />
+                        <p style={{fontWeight: 600,fontSize: '20px'}}>Tư vấn nguyện vọng phù hợp với Trắc nghiệm nghề nghiệp ILO</p>
+                        <p>Bạn chưa xác định được bản thân phù hợp với nguyện vọng nào ư? Đừng lo, chức năng này ra đời là dành cho bạn đó</p>
+                        <p style={{marginTop: 87,fontWeight: 500, fontSize: 20, color: '#FFB507'}}>Trải nghiệm ngay</p>
+
                     </Card>
                     <Card
                         hoverable
-                        style={{ width: 430, height: 430, borderRadius: '12px' }}
-                        cover={<img style={{ borderRadius: '12px' }} alt="example" src={Function1} />}
+                        style={{ width: 430, height: 564, borderRadius: '12px' }}
+                        cover={<img style={{ borderRadius: '12px', height:231 }} alt="example" src={Function3} />}
                     >
-                        <Meta title="Europe Street beat" description="www.instagram.com" />
+                        <p style={{fontWeight: 600,fontSize: '20px'}}>Tư vấn nguyện vọng có chương trình đào tạo tương đồng bằng công nghệ AI</p>
+                        <p>Bạn lo lắng mức điểm của mình khó đỗ được nguyện vọng mình mong muốn? CareerUp sẽ đưa ra các nguyện vọng có chương trình đào tạo tương tự với mức điểm mềm hơn để giúp các bạn có thể tiếp tục theo đuổi đam mê của mình</p>
+                        <p style={{fontWeight: 500, fontSize: 20, color: '#FFB507'}}>Trải nghiệm ngay</p>
                     </Card>
                 </div>
 
@@ -122,21 +138,21 @@ const Home = () => {
                                 role='AI Developer'
                             />
                             <CParallelogramCard
-                                imgSrc={DeveloperHC}
-                                name="Hoang Chu"
-                                role='AI Developer'
+                                imgSrc={DeveloperHD}
+                                name="Hieu Do"
+                                role='Front-End Developer'
                             />
                         </div>
                         <div >
                             <CParallelogramCard
-                                imgSrc={DeveloperHC}
-                                name="Hoang Chu"
-                                role='AI Developer'
+                                imgSrc={DeveloperKN}
+                                name="Kien Nguyen"
+                                role='Front-End Developer'
                             />
                             <CParallelogramCard
-                                imgSrc={DeveloperHC}
-                                name="Hoang Chu"
-                                role='AI Developer'
+                                imgSrc={DeveloperAN}
+                                name="Anh Nguyen"
+                                role='Back-End Developer'
                             />
                         </div>
                     </div>
