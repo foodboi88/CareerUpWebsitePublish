@@ -18,7 +18,7 @@ const CHeader = () => {
       <div style={{display: 'flex', flexDirection: 'row', marginTop:'22px', marginBottom:'22px'}}>
         <div onClick={()=> history.push('/home')}><a className='hearder-link'>Trang chủ</a></div>
         <div style={{marginLeft:'48px'}} onClick={()=> history.push('/advisor')}><a className='hearder-link' >Tư vấn</a></div>
-        <div style={{marginLeft:'48px'}}><a className='hearder-link' >Thông tin tuyển sinh</a></div>
+        <div style={{marginLeft:'48px'}} onClick={()=> history.push('/ask_expert')}><a className='hearder-link' >Hỏi chuyên gia</a></div>
         <div style={{marginLeft:'48px'}}><a className='hearder-link' >Về chúng tôi</a></div>
       </div>
       <div style={{display: 'flex', flexDirection: 'row', marginRight:'136px'}}>

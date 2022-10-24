@@ -642,9 +642,11 @@ input::-webkit-inner-spin-button {
 .ant-modal.career-advisor-modal.unit-career-modal .ant-modal-content {
     width: 60em;
 }
-.ant-modal.career-advisor-modal.unit-career-modal .ant-modal-content .ant-modal-body{
+
+.ant-modal.career-advisor-modal.unit-career-modal .ant-modal-content .ant-modal-body {
     width: 100%;
 }
+
 .ant-modal.career-advisor-modal .ant-modal-content .ant-table-thead .ant-table-cell {
     font-weight: 600;
     font-size: 20px;
@@ -836,7 +838,8 @@ input.ant-checkbox-input {
 .detail-career-modal .career-advisor-modal-content {
     padding: 10px 50px;
 }
-.college-advisor{
+
+.college-advisor {
     background: #f3f9fe;
     display: flex;
     flex-direction: column;
@@ -844,22 +847,141 @@ input.ant-checkbox-input {
     align-items: center;
     padding: 20px 40px;
 }
-.college-advisor .ant-table-cell{
+
+.college-advisor .ant-table-cell {
     background: white;
     border: none;
 }
-.college-advisor .ant-table-cell::before{
+
+.college-advisor .ant-table-cell::before {
     display: none;
 }
-.college-advisor .ant-pagination.ant-table-pagination.ant-table-pagination-right{
+
+.college-advisor .ant-pagination.ant-table-pagination.ant-table-pagination-right {
     display: none;
 }
-.college-advisor thead .ant-table-cell{
+
+.college-advisor thead .ant-table-cell {
     font-weight: bold;
 }
-.college-advisor .ant-select-selector{
+
+.college-advisor .ant-select-selector {
     border-radius: 12px !important;
 }
-.college-advisor .ant-table-wrapper{
+
+.college-advisor .ant-table-wrapper {
     margin-left: 200px;
+}
+
+.div-video-ask-expert {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+    background: #f3f9fe;
+}
+
+.d-v-ask-expert-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto;
+    width: 80%;
+    height: 500px;
+    background: #FFFFFF;
+    box-shadow: 1px 2px 50px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.d-v-ask-expert-content>div:first-child {
+    width: 850px !important;
+    height: 500px !important;
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.d-v-ask-expert-content>div>div:first-child {
+    height: 450px !important;
+}
+
+.d-v-ask-expert-content iframe#widget2 {
+    border-radius: 15px;
+}
+
+.div-video-ask-expert-title {
+    font-size: 26px;
+}
+
+.div-video-ask-expert-text {
+    display: flex;
+    align-items: baseline;
+    margin: 20px 0px;
+}
+
+.div-video-ask-expert-text .anticon.anticon-audio {
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.div-video-ask-expert-text-detail {
+    font-size: 18px;
+}
+
+.bnt-ask-expert-content {
+    width: 490px;
+    height: 44px !important;
+    border-radius: 12px !important;
+    font-size: 25px;
+    background: linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%);
+}
+
+@media (max-width: 1260px) {
+    .div-video-ask-expert-text-detail {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 970px) {
+    .div-video-ask-expert-text-detail {
+        font-size: 13px;
+    }
+
+    .div-video-ask-expert-text .anticon.anticon-audio {
+        font-size: 16px;
+        margin-right: 15px;
+    }
+
+    .div-video-ask-expert-title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 760px) {
+    .div-video-ask-expert-text-detail {
+        font-size: 11px;
+    }
+
+    .div-video-ask-expert-text .anticon.anticon-audio {
+        font-size: 12px;
+        margin-right: 15px;
+    }
+
+    .div-video-ask-expert-title {
+        font-size: 17px;
+    }
+}
+.div-expert-followed .ant-card-meta-title{
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    color: #21292C;
+}
+.action-cart-ask-expert {
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
 }
