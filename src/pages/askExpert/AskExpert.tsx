@@ -1,7 +1,7 @@
-import { Button, Card, Carousel, Image } from 'antd'
+import { Button, Card, Image, List } from 'antd'
 import Meta from 'antd/lib/card/Meta';
 import { MDBBtn } from 'mdb-react-ui-kit';
-import React from 'react'
+import React, { useState } from 'react'
 import CFooter from '../../components/CFooter'
 import CHeader from '../../components/CHeader'
 import HomeImage1 from '../../images/HomeImage1.png'
@@ -14,6 +14,9 @@ import "../../App.scss";
 import "antd/dist/antd.css";
 import CParallelogramCard from '../../components/CParallelogramCard';
 import ReactPlayer from 'react-player';
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
+
 
 const contentStyle: React.CSSProperties = {
     height: '160px',
@@ -22,7 +25,26 @@ const contentStyle: React.CSSProperties = {
     textAlign: 'center',
     background: '#364d79',
 };
-
+const eventData: any = [
+    {
+        src: "/src/images/tuvantuyensinh1.png"
+    },
+    {
+        src: "/src/images/tuvantuyensinh2.png"
+    },
+    {
+        src: "/src/images/tuvantuyensinh3.png"
+    },
+    {
+        src: "/src/images/tuvantuyensinh1.png"
+    },
+    {
+        src: "/src/images/tuvantuyensinh2.png"
+    },
+    {
+        src: "/src/images/tuvantuyensinh3.png"
+    },
+];
 const expertFollowedData: any = [
     {
         key: 1,
@@ -42,8 +64,6 @@ const expertFollowedData: any = [
         name: 'Nguyễn Thị Hoa',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus viverra mauris.'
     },
-]
-const expertRecommendData: any = [
     {
         key: 1,
         image: '/src/images/chuyen_gia_1.png',
@@ -62,8 +82,112 @@ const expertRecommendData: any = [
         name: 'Nguyễn Thị Hoa',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus viverra mauris.'
     },
-]
+];
+const expertRecommendData: any = [
+    {
+        key: 1,
+        image: '/src/images/chuyen_gia_4.png',
+        name: 'Hà Thị Hồng Ngân',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus viverra mauris.'
+    },
+    {
+        key: 2,
+        image: '/src/images/chuyen_gia_5.png',
+        name: 'Phạm Văn Thuận',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus viverra mauris.'
+    },
+    {
+        key: 3,
+        image: '/src/images/chuyen_gia_6.png',
+        name: 'Hồ Đức Thuận',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus viverra mauris.'
+    },
+    {
+        key: 1,
+        image: '/src/images/chuyen_gia_4.png',
+        name: 'Hà Thị Hồng Ngân',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus viverra mauris.'
+    },
+    {
+        key: 2,
+        image: '/src/images/chuyen_gia_5.png',
+        name: 'Phạm Văn Thuận',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus viverra mauris.'
+    },
+    {
+        key: 3,
+        image: '/src/images/chuyen_gia_6.png',
+        name: 'Hồ Đức Thuận',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus viverra mauris.'
+    },
+];
+const exploreExpertData = [
+    {
+        img: '/src/images/chuyen_gia_7.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_8.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_9.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_10.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_11.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_12.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_13.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_14.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_15.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_16.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_17.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_18.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_19.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_20.png',
+    },
+    {
+        img: '/src/images/chuyen_gia_21.png',
+    },
+];
+const responsive = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 3,
+        slidesToSlide: 3
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2,
+        slidesToSlide: 2
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+        slidesToSlide: 1
+    }
+};
+
 const AskExpert = () => {
+
     return (
         <div>
             <CHeader />
@@ -72,7 +196,7 @@ const AskExpert = () => {
                     <ReactPlayer
                         url='https://www.youtube.com/watch?v=FfqWUzvv1xU'
                         controls={true}
-                        playing={true}
+                    // playing={true}
                     />
                     <div style={{ padding: 20, width: '35%' }}>
                         <h3 className='div-video-ask-expert-title'>Tóm tắt nội dung</h3>
@@ -95,166 +219,129 @@ const AskExpert = () => {
 
                 </div>
             </div>
-            <div style={{ marginTop: '100px', marginLeft: '300px', marginRight: '300px' }}>
+            <div style={{ marginTop: '100px', marginLeft: '200px', marginRight: '200px' }}>
                 <div style={{ marginBottom: '35px' }}>
                     <div style={{ background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontWeight: '500', fontSize: '32px', lineHeight: '150%' }}>Shorts</div>
                     <div style={{ fontWeight: '600', fontSize: '48px', lineHeight: '150%' }}>Tư vấn tuyển sinh</div>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Image
-                        width={300}
-                        src="/src/images/tuvantuyensinh1.png"
-                        preview={false}
-                    />
-                    <Image
-                        width={300}
-                        src="/src/images/tuvantuyensinh2.png"
-                        preview={false}
-                    />
-                    <Image
-                        width={300}
-                        src="/src/images/tuvantuyensinh3.png"
-                        preview={false}
-                    />
+                    <Carousel
+                        responsive={responsive}
+                        ssr
+                        infinite={false}
+                        containerClass="first-carousel-container container"
+                    >
+                        {eventData.map((item: any) => {
+                            return <Card
+                                hoverable
+                                headStyle={{ borderRadius: '12px' }}
+                                style={{ width: 350, borderRadius: '12px' }}
+                                cover={
+                                    <Image
+                                        style={{ borderRadius: '10px' }}
+                                        src={item.src}
+                                        preview={false} />
+                                }
+                            >
+                            </Card>
+                        })}
+                    </Carousel>
                 </div>
 
             </div>
-            <div style={{ marginTop: '100px', marginLeft: '300px', marginRight: '300px' }}>
+            <div style={{ marginTop: '100px', marginLeft: '200px', marginRight: '200px' }}>
                 <div style={{ marginBottom: '35px' }}>
                     <div style={{ background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontWeight: '500', fontSize: '32px', lineHeight: '150%' }}>Chuyên gia</div>
                     <div style={{ fontWeight: '600', fontSize: '48px', lineHeight: '150%' }}>Bạn đã theo dõi</div>
                 </div>
                 <div className='div-expert-followed' style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    {/* <Carousel > */}
-                        {/* <div> */}
-                            {expertFollowedData.map((expert: any) => {
-                                return <Card
-                                    hoverable
-                                    headStyle={{ borderRadius: '12px' }}
-                                    style={{ width: 350, borderRadius: '12px' }}
-                                    cover={
-                                        <Image
-                                            style={{ borderRadius: '10px' }}
-                                            src={expert.image}
-                                            preview={false} />
-                                    }
-                                    actions={[
-                                        <div className='action-cart-ask-expert'>Đặt lịch</div>,
-                                    ]}
-                                >
-                                    <Meta title={expert.name} description={expert.description} />
+                    <Carousel
+                        responsive={responsive}
+                        ssr
+                        infinite={false}
+                        containerClass="first-carousel-container container"
+                    >
+                        {expertFollowedData.map((expert: any) => {
+                            return <Card
+                                hoverable
+                                headStyle={{ borderRadius: '12px' }}
+                                style={{ width: 350, borderRadius: '12px' }}
+                                cover={
+                                    <Image
+                                        style={{ borderRadius: '10px' }}
+                                        src={expert.image}
+                                        preview={false} />
+                                }
+                                actions={[
+                                    <div className='action-cart-ask-expert'>Đặt lịch</div>,
+                                ]}
+                            >
+                                <Meta title={expert.name} description={expert.description} />
 
-                                </Card>
-                            })}
-                        {/* </div> */}
-                    {/* </Carousel> */}
+                            </Card>
+                        })}
+                    </Carousel>
                 </div>
 
             </div>
-            <div style={{ marginTop: '100px', marginLeft: '300px', marginRight: '300px' }}>
+            <div style={{ marginTop: '100px', marginLeft: '200px', marginRight: '200px' }}>
                 <div style={{ marginBottom: '35px' }}>
                     <div style={{ background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontWeight: '500', fontSize: '32px', lineHeight: '150%' }}>Các chức năng</div>
                     <div style={{ fontWeight: '600', fontSize: '48px', lineHeight: '150%' }}>Hỗ trợ tư vấn</div>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                    <Card
-                        hoverable
-                        headStyle={{ borderRadius: '12px' }}
-                        style={{ width: 430, height: 430, borderRadius: '12px' }}
-                        cover={<img style={{ borderRadius: '12px' }} alt="example" src={Function1} />}
+                    <Carousel
+                        responsive={responsive}
+                        ssr
+                        infinite={false}
+                        containerClass="first-carousel-container container"
                     >
-                        <Meta title="Europe Street beat" description="www.instagram.com" />
-                    </Card>
-                    <Card
-                        hoverable
-                        style={{ width: 430, height: 430, borderRadius: '12px' }}
-                        cover={<img style={{ borderRadius: '12px' }} alt="example" src={Function1} />}
-                    >
-                        <Meta title="Europe Street beat" description="www.instagram.com" />
-                    </Card>
-                    <Card
-                        hoverable
-                        style={{ width: 430, height: 430, borderRadius: '12px' }}
-                        cover={<img style={{ borderRadius: '12px' }} alt="example" src={Function1} />}
-                    >
-                        <Meta title="Europe Street beat" description="www.instagram.com" />
-                    </Card>
-                </div>
+                        {expertRecommendData.map((expert: any) => {
+                            return <Card
+                                hoverable
+                                headStyle={{ borderRadius: '12px' }}
+                                style={{ width: 350, borderRadius: '12px' }}
+                                cover={
+                                    <Image
+                                        style={{ borderRadius: '10px' }}
+                                        src={expert.image}
+                                        preview={false} />
+                                }
+                                actions={[
+                                    <div className='action-cart-ask-expert'>Đặt lịch</div>,
+                                ]}
+                            >
+                                <Meta title={expert.name} description={expert.description} />
 
-            </div>
-            <div >
-                <div style={{ zIndex: 10, position: 'absolute', marginTop: '-208px' }}>
-                    <img src={BornReason} />
-                </div>
-                <div style={{ backgroundColor: '#D4F6FF', width: '100%', height: '520px', marginTop: '209px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div style={{ marginLeft: '631px', marginRight: '135px' }}>
-                        <div style={{ fontSize: '32px', fontWeight: '500', lineHeight: '30px', background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                            Lý do
-                        </div>
-                        <div style={{ fontSize: '48px', fontWeight: '600', lineHeight: '72px' }}>
-                            Ra đời của CAREERUP
-                        </div>
-                        <div style={{ fontSize: '20px', fontWeight: '400', lineHeight: '30px', marginTop: '14px' }}>
-                            Dự án của chúng tôi bắt đầu từ cảm hứng của bốn bạn trẻ sinh viên, với hy vọng giúp đỡ các bạn sinh viên đang đứng giữa ngã ba lựa chọn của tương lai. Sản phẩm đã trải qua rất nhiều giai đoạn khó khăn, kể từ khi lắng nghe được nỗi đau của mỗi người học sinh cho tới khi ý tưởng được ra đời và đang dần hoàn thiện. Dù tiềm lực của team là nhỏ bé nhưng tôi tin với ước mơ đẹp đẽ, một ngày không xa những câu hỏi nan giải sẽ có lời giải đáp tốt nhất.
-                        </div>
-                    </div>
+                            </Card>
+                        })}
+                    </Carousel>
                 </div>
             </div>
-            <div>
-                <div style={{ padding: 100 }}>
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontWeight: '500', fontSize: '32px', lineHeight: '150%' }}>Nhóm</div>
-                    <div style={{ display: 'flex', justifyContent: 'flex-end', fontWeight: '600', fontSize: '48px', lineHeight: '150%', marginBottom: '30px' }}>Phát triển dự án</div>
-                    <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-                        <div >
-                            <CParallelogramCard
-                                imgSrc={DeveloperHC}
-                                name="Hoang Chu"
-                                role='AI Developer'
-                            />
-                            <CParallelogramCard
-                                imgSrc={DeveloperHC}
-                                name="Hoang Chu"
-                                role='AI Developer'
-                            />
-                        </div>
-                        <div >
-                            <CParallelogramCard
-                                imgSrc={DeveloperHC}
-                                name="Hoang Chu"
-                                role='AI Developer'
-                            />
-                            <CParallelogramCard
-                                imgSrc={DeveloperHC}
-                                name="Hoang Chu"
-                                role='AI Developer'
-                            />
-                        </div>
-                    </div>
-
+            <div style={{ background: '#f3f9fe', width: '100%', marginTop: 100, padding: '0 200px' }}>
+                <div style={{ marginBottom: '35px' }}>
+                    <div style={{paddingTop: 50, background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontWeight: '500', fontSize: '32px', lineHeight: '150%' }}>Khám phá</div>
+                    <div style={{ fontWeight: '600', fontSize: '48px', lineHeight: '150%' }}>Chuyên gia khác</div>
                 </div>
-            </div>
-            <div style={{
-                backgroundImage: `url(${JoinBackground})`,
-                backgroundSize: 'cover',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '544px',
-                width: '100%'
-            }}>
-                <div style={{ fontWeight: '600', fontSize: '48px', lineHeight: '64px', color: 'white', marginTop: '180px' }}>
-                    Tham gia cộng đồng của chúng tôi trên
+                <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: 50 }}>
+                    <List
+                        grid={{ gutter: 15, column: 5 }}
+                        dataSource={exploreExpertData}
+                        renderItem={item => (
+                            <List.Item>
+                                <Image
+                                    width={150}
+                                    src={item.img}
+                                    preview={false}
+                                    style={{ cursor: 'pointer' }}
+                                />
+                            </List.Item>
+                        )}
+                    />
                 </div>
-                <div style={{ fontWeight: '600', fontSize: '48px', lineHeight: '64px', color: 'white', marginBottom: '32px' }}>
-                    blog CAREER UP.
+                <div className='loadMore'>
+                    Xem tất cả
                 </div>
-                <MDBBtn
-                    rounded
-                    style={{ width: '320px', height: '64px', fontSize: '32px', fontWeight: '400', }} className='mx-2' color='light'
-                >
-                    <p style={{ background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}><a target='_blank' href='https://www.facebook.com/careerupteamd19ptit'>Đi tới Career Up</a></p>
-                </MDBBtn>
             </div>
             <CFooter
             />

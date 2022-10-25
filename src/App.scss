@@ -970,7 +970,8 @@ input.ant-checkbox-input {
         font-size: 17px;
     }
 }
-.div-expert-followed .ant-card-meta-title{
+
+.div-expert-followed .ant-card-meta-title {
     font-family: 'Lexend Deca';
     font-style: normal;
     font-weight: 600;
@@ -978,10 +979,32 @@ input.ant-checkbox-input {
     line-height: 28px;
     color: #21292C;
 }
+
 .action-cart-ask-expert {
     font-family: 'Lexend Deca';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 28px;
+
+}
+
+.loadMore {
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+    padding-bottom: 50px;
+    cursor: pointer;
+    /* identical to box height, or 140% */
+
+    text-align: center;
+
+    /* Màu chính */
+
+    background: linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }

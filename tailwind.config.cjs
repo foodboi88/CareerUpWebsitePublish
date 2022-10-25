@@ -4,7 +4,9 @@ const plugin = require('tailwindcss/plugin');
 const {palette} = themeDefine;
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  content: [],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {
 
