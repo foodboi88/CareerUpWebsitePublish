@@ -1,17 +1,17 @@
 import { AnyAction } from "redux";
 import { Epic } from "redux-observable";
-// import { RootState } from "../redux/root.reducer";
-// import { ThemePalette } from "theme";
-// import { IconName } from "./define-icon";
+import { RootState } from "../redux/root.reducer";
+import { ThemePalette } from "../theme";
+import { IconName } from "./define-icon";
 
-// export type RootEpic = Epic<AnyAction, AnyAction, RootState>;
+export type RootEpic = Epic<AnyAction, AnyAction, RootState>;
 export interface SystemConfig {
     protocol: 'http' | 'https';
     hostIdentity: string;
-    hostMailService: string,
-    hostMeetings: string,
-    hostMember: string,
-    hostTask: string,
+    // hostMailService: string,
+    // hostMeetings: string,
+    // hostMember: string,
+    // hostTask: string,
 }
 export interface RouterItem {
     path: string;
@@ -52,7 +52,7 @@ export interface UserResponse {
     sub: string
 }
 
-// export type ColorCustom = keyof ThemePalette;
+export type ColorCustom = keyof ThemePalette;
 export type Size = "default" | "mini" | "small" | "medium" | "big" | "large";
 type RotateDeg = 0 | 45 | 90 | 135 | 180 | 225 | 270;
 export type Placement =
@@ -73,14 +73,14 @@ export interface TooltipPropsIcon {
     title: string;
     placement?: Placement;
 }
-// export interface PropsIcon extends Props {
-//     name?: IconName | string;
-//     colorSvg?: ColorCustom;
-//     hexColor?: string;
-//     svgSize?: Size;
-//     rotateDeg?: RotateDeg;
-//     tooltip?: TooltipPropsIcon;
-// }
+export interface PropsIcon extends Props {
+    name?: IconName | string;
+    colorSvg?: ColorCustom;
+    hexColor?: string;
+    svgSize?: Size;
+    rotateDeg?: RotateDeg;
+    tooltip?: TooltipPropsIcon;
+}
 export enum KeyCode {
     num0 = "0",
     num1 = "1",
@@ -237,24 +237,3 @@ export interface GetAllMembersWithRoleReq extends Paging{
 export interface GetAllTaskReq extends Paging{
     name?: string
 }
-
-export interface RouterItem {
-    path: string;
-    component: React.ComponentClass | React.FunctionComponent;
-    noExact?: boolean;
-    isPrivate?: boolean;
-}
-
-export interface Question {
-    id: string;
-    content: string;
-    choiceLst: QuestionChoice[];
-    pickedChoice: number|null;
-
-}
-
-export interface QuestionChoice {
-    content: string;
-    score: number
-}
-
