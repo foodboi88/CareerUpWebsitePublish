@@ -32,6 +32,9 @@ const SYSTEM_CONSTANTS = {
         },
         MAIL_SERVICE: {
             MEETING_INVITATION: 'meetingInvitation'
+        },
+        ADVISOR:{
+            SEND_ANSWERS: 'sendanswers'
         }
     },
     IMAGE: {

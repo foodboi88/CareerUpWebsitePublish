@@ -8,6 +8,7 @@ export type RootEpic = Epic<AnyAction, AnyAction, RootState>;
 export interface SystemConfig {
     protocol: 'http' | 'https';
     hostIdentity: string;
+    hostAdvisor: string;
     // hostMailService: string,
     // hostMeetings: string,
     // hostMember: string,
@@ -236,4 +237,23 @@ export interface GetAllMembersWithRoleReq extends Paging{
 }
 export interface GetAllTaskReq extends Paging{
     name?: string
+}
+
+export interface Question{
+    id: string,
+    content: string,
+    choiceLst: QuestionChoice[],
+    pickedChoice: number | null
+}
+export interface QuestionChoice{
+    content: string,
+    score: number
+}
+
+export interface Specialized{
+    id: string,
+    name: string,
+    description: string,
+    personalityId: string,
+    branchId: string
 }

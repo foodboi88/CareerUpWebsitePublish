@@ -1,0 +1,6 @@
+{
+    "protocol": "http",
+    "hostIdentity": "http://127.0.0.1:5173",
+    "hostAdvisor": "http://127.0.0.1:5173"
+}
+

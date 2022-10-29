@@ -15,7 +15,7 @@ const initialStateBootstrap: HeaderState = {
 };
 
 const headerSlice = createSlice({
-    name: 'tasks',
+    name: 'header',
     initialState: initialStateBootstrap,
     reducers: {
 //         // Get task Request
