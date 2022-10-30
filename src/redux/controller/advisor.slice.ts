@@ -24,9 +24,9 @@ const advisorSlice = createSlice({
             state.loading = true;
         },
         sendAnswersSuccess: (state: AdvisorState,action: PayloadAction<Specialized[]>) =>{
+            state.specializedLst = action.payload
             state.loading = false;
             console.log(action.payload)
-            // state.specializedLst = action.payload
         },
         sendAnswersFail: (state: AdvisorState, action: any) => {
             state.loading = false;
@@ -67,6 +67,7 @@ const advisorSlice = createSlice({
 const sendAnswers$: RootEpic = action$ =>
     action$.pipe(filter(sendAnswersRequest.match),
         switchMap((re: any) => {
+            console.log(re);
             return AdvisorApi.sendAnswers(re).pipe(
                 mergeMap((res: any) => {
                     console.log(res);
@@ -97,6 +98,6 @@ export const AdvisorEpics = [
 
 ];
 export const {
-    sendAnswersRequest
+    sendAnswersRequest,
 } = advisorSlice.actions;
 export const advisorReducer = advisorSlice.reducer;

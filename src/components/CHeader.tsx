@@ -21,7 +21,7 @@ const CHeader = () => {
       <div style={{display: 'flex', flexDirection: 'row', marginTop:'22px', marginBottom:'22px'}}>
         <div onClick={()=> {
           dispatch(setHeaderStatusRequest(1))
-          console.log(process.env)
+          // console.log(process.env)
           history.push('/home')
           
         }}><a className='hearder-link'>Trang chủ</a></div>

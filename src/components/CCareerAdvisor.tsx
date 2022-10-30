@@ -4,6 +4,8 @@ import { MDBBtn } from 'mdb-react-ui-kit';
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import { Question, QuestionChoice } from '../common/define-type'
+import { sendAnswersRequest } from '../redux/controller';
+import { useDispatchRoot } from '../redux/store';
 import CResultsCareer from './CResultsCareer';
 
 interface MyProps {
@@ -1421,6 +1423,7 @@ let questionLst: Question[] = [
 
 const CCareerAdvisor = (props: MyProps) => {    
     const history = useHistory();
+    const dispatch = useDispatchRoot();
     const [showQuestion, setShowQuestion] = useState(true);
     const [showResult, setShowResult] = useState(false);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(1);
@@ -1742,11 +1745,14 @@ const CCareerAdvisor = (props: MyProps) => {
                                     color='warning'
                                     style={{ borderRadius: '20px' }}
                                     onClick={() => {
+                                        dispatch(sendAnswersRequest(questionLst))
                                         setShowQuestion(false)
                                         setShowBtnResult(false)
                                         setIsShowResultCareer(true)
+                                        
                                     }}
-                                >Xem kết quả
+                                >
+                                    Xem kết quả
                                 </MDBBtn>
                             </div>
                         }

@@ -4,6 +4,8 @@ import { filter, map, switchMap } from "rxjs/operators";
 
 import { ajax } from "rxjs/ajax";
 import IdentityApi from "../../api/identity/identity.api";
+import Advisor from "../../pages/advisor/Advisor";
+import AdvisorApi from "../../api/Advisor/advisor.api";
 // import MailServiceAPI from "../../api/mail/mailservice.api";
 // import MeetingsApi from "../../api/meetings/meetings.api";
 // import MemberApi from "../../api/member/member.api";
@@ -13,7 +15,8 @@ interface BootstrapState {
     systemConfig: SystemConfig;
     isSuccess: boolean
 }
-// const PATH_SYSTEM_CONFIG = `${process.env.PUBLIC_URL}/assets/system-config.json`;
+// console.log(import.meta.env)
+// const PATH_SYSTEM_CONFIG = `${import.meta.env.VITE_PUBLIC_URL}/assets/system-config.json`;
 const IS_CONFIG_LOCAL = false;
 const DEFAULT_CONFIG: SystemConfig = {
     protocol: 'http',
@@ -31,6 +34,7 @@ const initialStateBootstrap: BootstrapState = {
 
 function updateHostService(host: SystemConfig) {
     IdentityApi.host = host.hostIdentity;
+    AdvisorApi.host = host.hostAdvisor;
     // MailServiceAPI.host = host.hostMailService
     // MeetingsApi.host = host.hostMeetings;
     // MemberApi.host = host.hostMember;
