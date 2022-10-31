@@ -215,7 +215,7 @@ export interface Role {
     name: string
 }
 
-export interface Paging{
+export interface Paging {
     offset: number,
     size: number
 }
@@ -227,19 +227,19 @@ export interface MemberMeeting {
     roleID: string
 }
 
-export interface GetAllMemberReq extends Paging{
+export interface GetAllMemberReq extends Paging {
     startTime: Date,
     endTime: Date
 }
 
-export interface GetAllMembersWithRoleReq extends Paging{
+export interface GetAllMembersWithRoleReq extends Paging {
 
 }
-export interface GetAllTaskReq extends Paging{
+export interface GetAllTaskReq extends Paging {
     name?: string
 }
 
-export interface Question{
+export interface Question {
     id: string,
     content: string,
     choiceLst: QuestionChoice[],
@@ -249,12 +249,13 @@ export interface QuestionRequest{
     question_id: number,
     score: number
 }
-export interface QuestionChoice{
+
+export interface QuestionChoice {
     content: string,
     score: number
 }
 
-export interface Specialized{
+export interface Specialized {
     id: string,
     branch_name: string,
     branch_description: string,
@@ -262,6 +263,54 @@ export interface Specialized{
     branch_suitable_personality: string,
     branch_advice: string
 }
+
+export interface Subject {
+    id: string,
+    name: string,
+}
+
+export interface Unit {
+    id: string,
+    name: string
+    subjectId: string,
+}
+export interface CareerAdvisor {
+    id: string,
+    score: number,
+    unit: Unit[],
+    specialized: Specialized
+}
+export interface Area {
+    id: string,
+    name: string,
+    description: string
+}
+
+export interface School {
+    id: string,
+    name: string,
+    shortName: string,
+    description: string,
+    logo: string,
+    numberOfStudent: string,
+    rank: string;
+    areaId: string;
+}
+export interface SpecializedOfSchool {
+    id: string,
+    name: string,
+    code: string,
+    year: string,
+    kpi: string,
+    way: string,
+    description: string,
+    advice: string,
+    status: string,
+    fee: string,
+    schoolId: string,
+    specializedId: string,
+}
+
 
 export interface Personality{
     id: string,
