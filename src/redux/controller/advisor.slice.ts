@@ -29,8 +29,7 @@ const advisorSlice = createSlice({
             console.log(action.payload)
         },
         sendAnswersFail: (state: AdvisorState, action: any) => {
-            state.loading = false;
-            
+            state.loading = false; 
         }
 //         // Get task Request
 //         getTasksRequest: (state: { loading: boolean; }, action: PayloadAction<void>) => {

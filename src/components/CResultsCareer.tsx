@@ -3,15 +3,14 @@ import { Avatar, List, message } from 'antd';
 import Link from 'antd/lib/typography/Link';
 import VirtualList from 'rc-virtual-list';
 import { useEffect, useState } from 'react';
+import { Personality, personalityLst, Specialized } from '../common/define-type';
 import resulstCareerImg from '../images/results_career_img.png';
+import { useSelectorRoot } from '../redux/store';
 import CCareerDetailModel from './CCareerDetailModel';
 import CCollegeAdvisor from './CCollegeAdvisor';
 import CUnitCareerModel from './CUnitCareerModel';
 
-interface ResultsCareer {
-    key: number;
-    career: string;
-}
+
 
 const data = [
     {
@@ -59,9 +58,18 @@ const data = [
 ]
 
 const CResultsCareer = () => {
+    const { specializedLst} = useSelectorRoot(state => state.advisor);
+
     const [isShow, setIsShow] = useState<boolean>(true);
     const [isShowDetailCareerModal, setIsShowDetailCareerModal] = useState<boolean>(false);
     const [isShowUnitCareerModal, setIsShowUnitCareerModal] = useState<boolean>(false);
+    const [personality,setPersonality] = useState<Personality>(
+        {
+            id: '0',
+            name: 'Loading....'
+        }
+    );
+    const [clickedSpecialized,setClickedSpecialized] = useState<Specialized>()
 
     useEffect(() => {
         document.body.scrollTop = 0;
@@ -72,33 +80,43 @@ const CResultsCareer = () => {
         setIsShowDetailCareerModal(true);
     }
 
-    const onClickCareerUnit = () => {
+    const onClickCareerUnit = (item: Specialized) => {
+        setClickedSpecialized(item);
         setIsShowUnitCareerModal(true);
     }
 
     const ontoggle = (e: any) => {
         setIsShow(e);
     }
+
+    useEffect(()=>{
+        let newPersonality: Personality = personality
+        if(specializedLst) {
+            newPersonality = personalityLst[parseInt(specializedLst[0].id,10)]
+        }
+        setPersonality(newPersonality)
+    },[specializedLst])
+
     return (
         <div className='div-career-advisor-result'>
             {isShow &&
                 <div>
                     <div className='div-advisor-content div-center ' >
                         <h1 className='title-advisor-intro' style={{ marginBottom: -10 }}>Nhóm nghề</h1>
-                        <h1 className='title-advisor-intro color-title'>Làm việc với con người</h1>
+                        <h1 className='title-advisor-intro color-title'>{personality.name}</h1>
                         <img src={resulstCareerImg} />
                     </div>
                     <List className='list-results-career'
                         header={<div style={{ fontSize: 25 }}>Kết quả tìm kiếm thuộc nhóm ngành này</div>}
                     >
                         <VirtualList
-                            data={data}
+                            data={specializedLst}
                             itemKey="email"
                         >
-                            {(item: ResultsCareer) => (
-                                <List.Item key={item.key}>
+                            {(item: Specialized) => (
+                                <List.Item key={item.id}>
                                     <List.Item.Meta
-                                        title={<Link onClick={onClickCareerUnit} style={{ fontSize: 20 }}>{item.career}</Link>}
+                                        title={<Link onClick={()=>onClickCareerUnit(item)} style={{ fontSize: 20 }}>{item.name}</Link>}
                                     />
                                     <Link onClick={onClickCareerDetail} style={{ fontStyle: 'normal', fontWeight: 400, fontSize: 20, color: '#FFB507' }}>Xem chi tiết</Link>
                                 </List.Item>
@@ -113,6 +131,7 @@ const CResultsCareer = () => {
                         isShow={isShowUnitCareerModal}
                         setIsShowModal={setIsShowUnitCareerModal}
                         toogle={ontoggle}
+                        clickedSpecialized = {clickedSpecialized}
                     />
                 </div>
             }
