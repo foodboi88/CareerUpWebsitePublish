@@ -304,3 +304,31 @@ export interface SpecializedOfSchool {
     schoolId: string,
     specializedId: string,
 }
+
+
+export interface Personality{
+    id: string,
+    name: string,
+}
+
+export const personalityLst: Personality[] = [
+    {
+        id: '1',
+        name: 'Ngôn ngữ'
+    },{
+        id: '2',
+        name: 'Phân tích-Logic'
+    },
+    {
+        id: '3',
+        name: 'Hình học - Màu sắc - Thiết kế'
+    },
+    {
+        id: '4',
+        name: 'Làm việc với con người'
+    },{
+        id: '5',
+        name: 'Thể chất cơ khí'
+    }
+
+]

@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import { Question, QuestionChoice } from '../common/define-type'
 import { sendAnswersRequest } from '../redux/controller';
-import { useDispatchRoot } from '../redux/store';
+import { useDispatchRoot, useSelectorRoot } from '../redux/store';
 import CResultsCareer from './CResultsCareer';
 
 interface MyProps {
@@ -1424,6 +1424,8 @@ let questionLst: Question[] = [
 const CCareerAdvisor = (props: MyProps) => {    
     const history = useHistory();
     const dispatch = useDispatchRoot();
+    const { specializedLst} = useSelectorRoot(state => state.advisor);
+
     const [showQuestion, setShowQuestion] = useState(true);
     const [showResult, setShowResult] = useState(false);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(1);
@@ -1448,7 +1450,7 @@ const CCareerAdvisor = (props: MyProps) => {
         else setShowBtnResult(false)
     }, [currentChoice1, currentChoice2, currentChoice3, currentChoice4, currentChoice5])
 
-   
+    
 
     return (
         <div>
@@ -1761,7 +1763,7 @@ const CCareerAdvisor = (props: MyProps) => {
             </div>            
         }
         {
-            isShowResultCareer && <CResultsCareer />
+            isShowResultCareer && specializedLst && <CResultsCareer />
         }
         </div>
     )

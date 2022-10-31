@@ -1,11 +1,13 @@
 import { CloseOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Modal, Select } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { Specialized } from '../common/define-type';
 
 interface MyProps {
     isShow: boolean
     setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>,
-    toogle: (e: boolean) => void
+    toogle: (e: boolean) => void,
+    clickedSpecialized?: Specialized
 }
 
 const CUnitCareerModel = ({ isShow, setIsShowModal, toogle }: MyProps) => {
