@@ -33,14 +33,19 @@ const SYSTEM_CONSTANTS = {
         MAIL_SERVICE: {
             MEETING_INVITATION: 'meetingInvitation'
         },
-        ADVISOR:{
+        ADVISOR: {
             SEND_ANSWERS: 'sendanswers',
             SEND_CAREER_ADVISOR: 'sendCareerAdvisor',
         },
         SPECIALIZED: {
             GET_ALL: 'specialized/getAll',
             GET_MEETING_BY_ID: 'specialized/{specializedId}'
-        }
+        },
+        SPECIALIZED_OF_SCHOOL: {
+            GET_ALL: 'specializedOfSchool/getAll',
+            GET_SPECIALIZED_OF_SCHOOL_BY_ID: 'specializedOfSchool/{specializedOfSchoolId}'
+        },
+
     },
     IMAGE: {
         IMAGE_HOTEL: "dms/Document/file"

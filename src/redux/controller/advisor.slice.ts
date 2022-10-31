@@ -3,9 +3,9 @@ import { CareerAdvisor, Question, RootEpic, Specialized, SpecializedOfSchool } f
 import { catchError, filter, mergeMap, switchMap } from "rxjs/operators";
 import AdvisorApi from "../../api/Advisor/advisor.api";
 interface AdvisorState {
-    specializedLst: Specialized[] | null,
+    specializedLst: Specialized[],
     loading: boolean,
-    specializedOfSchoolLst: SpecializedOfSchool[] | null,
+    specializedOfSchoolLst: SpecializedOfSchool[],
     //     lstTasks: ITask[] | null,
 
 }
@@ -40,7 +40,7 @@ const advisorSlice = createSlice({
             state.loading = true;
         },
 
-        getSpecializedSuccess: (state: AdvisorState, action: PayloadAction<Specialized[] | null>) => {
+        getSpecializedSuccess: (state: AdvisorState, action: PayloadAction<Specialized[]>) => {
             state.specializedLst = action.payload
             state.loading = false;
         },
@@ -54,7 +54,7 @@ const advisorSlice = createSlice({
         getSpecializedByIdRequest: (state, action: PayloadAction<String>) => {
             state.loading = true;
         },
-        getSpecializedByIdSuccess: (state, action: PayloadAction<Specialized[] | null>) => {
+        getSpecializedByIdSuccess: (state, action: PayloadAction<Specialized[]>) => {
             state.specializedLst = action.payload;
             state.loading = false;
         },
@@ -74,6 +74,33 @@ const advisorSlice = createSlice({
         sendCareerAdvisorFail: (state: AdvisorState, action: any) => {
             state.loading = false;
 
+        },
+
+        // Get SpecializedOfSchool of school list
+        getSpecializedOfSchoolRequest: (state: AdvisorState, action: PayloadAction<void>) => {
+            state.loading = true;
+        },
+
+        getSpecializedOfSchoolSuccess: (state: AdvisorState, action: PayloadAction<SpecializedOfSchool[]>) => {
+            state.specializedOfSchoolLst = action.payload
+            state.loading = false;
+        },
+
+        getSpecializedOfSchoolFail: (state: AdvisorState, action: any) => {
+            state.loading = false;
+
+        },
+
+        // Get SpecializedOfSchool by id request
+        getSpecializedOfSchoolByIdRequest: (state, action: PayloadAction<String>) => {
+            state.loading = true;
+        },
+        getSpecializedOfSchoolByIdSuccess: (state, action: PayloadAction<SpecializedOfSchool[]>) => {
+            state.specializedOfSchoolLst = action.payload;
+            state.loading = false;
+        },
+        getSpecializedOfSchoolByIdFailed(state, action: PayloadAction<boolean>) {
+            state.loading = action.payload;
         },
         //         // Get task Request
         //         getTasksRequest: (state: { loading: boolean; }, action: PayloadAction<void>) => {
@@ -169,7 +196,35 @@ const sendCareerAdvisor$: RootEpic = action$ =>
         }),
     );
 
-
+const getSpecializedOfSchool$: RootEpic = action$ =>
+    action$.pipe(filter(getSpecializedRequest.match),
+        switchMap(() => {
+            return AdvisorApi.getSpecialized().pipe(
+                mergeMap((res: any) => {
+                    return [advisorSlice.actions.getSpecializedSuccess(res.data.items)];
+                }),
+                catchError(err => {
+                    console.error(err)
+                    return [advisorSlice.actions.getSpecializedFail(false)]
+                }),
+            );
+        }),
+    );
+const getSpecializedOfSchoolById$: RootEpic = action$ =>
+    action$.pipe(filter(getSpecializedByIdRequest.match),
+        switchMap((re: any) => {
+            console.log(re);
+            return AdvisorApi.getSpecializedById(re.payload).pipe(
+                mergeMap((res: any) => {
+                    return [advisorSlice.actions.getSpecializedByIdSuccess(res.data)];
+                }),
+                catchError(err => {
+                    console.error(err)
+                    return [advisorSlice.actions.getSpecializedByIdFailed(false)]
+                }),
+            );
+        }),
+    );
 
 // const setHeaderStatus$: RootEpic = action$ =>
 //     action$.pipe(
@@ -186,12 +241,17 @@ export const AdvisorEpics = [
     sendAnswers$,
     getSpecialized$,
     getSpecializedById$,
-    sendCareerAdvisor$
+    sendCareerAdvisor$,
+    getSpecializedOfSchool$,
+    getSpecializedOfSchoolById$,
 ];
 export const {
     sendAnswersRequest,
     getSpecializedRequest,
     getSpecializedByIdRequest,
     sendCareerAdvisorRequest,
+    getSpecializedOfSchoolRequest,
+    getSpecializedOfSchoolByIdRequest
+
 } = advisorSlice.actions;
 export const advisorReducer = advisorSlice.reducer;
