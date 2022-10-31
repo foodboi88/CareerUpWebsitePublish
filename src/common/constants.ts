@@ -34,7 +34,12 @@ const SYSTEM_CONSTANTS = {
             MEETING_INVITATION: 'meetingInvitation'
         },
         ADVISOR:{
-            SEND_ANSWERS: 'sendanswers'
+            SEND_ANSWERS: 'sendanswers',
+            SEND_CAREER_ADVISOR: 'sendCareerAdvisor',
+        },
+        SPECIALIZED: {
+            GET_ALL: 'specialized/getAll',
+            GET_MEETING_BY_ID: 'specialized/{specializedId}'
         }
     },
     IMAGE: {

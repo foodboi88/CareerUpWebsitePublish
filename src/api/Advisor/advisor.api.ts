@@ -1,10 +1,10 @@
 /* eslint-disable new-parens */
-import HttpClient from "../http-client";
-import SYSTEM_CONSTANTS from "../../common/constants";
-import { ICreateMeetingsReq, IDataObjectResponse, IDataResponse, IGetMeetingsReq, IMeetings, IMemberInMeetings, IMemberWithRole, ITask } from "../../common/define-meetings";
-import { GetAllMemberReq, GetAllMembersWithRoleReq, GetAllTaskReq, Question, Specialized } from "../../common/define-type";
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, map } from "rxjs/operators";
+import SYSTEM_CONSTANTS from "../../common/constants";
+import { IDataResponse } from "../../common/define-meetings";
+import { CareerAdvisor, Question, Specialized, SpecializedOfSchool } from "../../common/define-type";
+import HttpClient from "../http-client";
 
 export default class AdvisorApi {
     static host = '';
@@ -13,6 +13,25 @@ export default class AdvisorApi {
         const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.ADVISOR.SEND_ANSWERS}`;
         return HttpClient.get(api).pipe(
             map((res) => res as IDataResponse<Specialized[]> || null, catchError((error) => new Observable)));
+    }
+
+    static getSpecialized(): Observable<IDataResponse<Specialized[]> | null> {
+        const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.SPECIALIZED.GET_ALL}`;
+        return HttpClient.get(api).pipe(
+            map((res) => res as IDataResponse<Specialized[]> || null, catchError((error) => new Observable)));
+    }
+
+    static getSpecializedById(specializedId: string): Observable<IDataResponse<Specialized> | null> {
+        const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.SPECIALIZED.GET_MEETING_BY_ID.replace('{specializedId}', specializedId)}`;
+        return HttpClient.get(api).pipe(
+            map((res) => res as IDataResponse<Specialized> || null, catchError((error) => new Observable)));
+
+    }
+
+    static sendCareerAdvisor(params: CareerAdvisor): Observable<IDataResponse<SpecializedOfSchool[]> | null> {
+        const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.ADVISOR.SEND_CAREER_ADVISOR}`;
+        return HttpClient.get(api).pipe(
+            map((res) => res as IDataResponse<SpecializedOfSchool[]> || null, catchError((error) => new Observable)));
     }
 
     // static getTasks(params: GetAllTaskReq): Observable<IDataResponse<ITask> | null> {
