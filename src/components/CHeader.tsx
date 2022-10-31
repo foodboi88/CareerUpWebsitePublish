@@ -3,16 +3,18 @@ import Logo from '../images/CareerUp.png'
 import {Button} from 'antd'
 import { MDBBtn } from 'mdb-react-ui-kit'
 import { useHistory } from 'react-router'
-import { useDispatchRoot } from '../redux/store'
+import { useDispatchRoot, useSelectorRoot } from '../redux/store'
 import { setHeaderStatusRequest } from '../redux/controller'
+import {Link} from 'react-router-dom'
 
 const CHeader = () => {
   const history = useHistory();
   const dispatch = useDispatchRoot();
+  const { headerState } = useSelectorRoot(state => state.header);
+
+  console.log(headerState);
   return (
-    <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between',fontSize:'18px'}}
-      className='shadow-5'
-    >
+    <div className='shadow-5 header'>
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'136px',width:'151px',height:'54px',marginTop:'10px', marginBottom:'8px'}}
             onClick={()=> history.push('/home')}
       >
@@ -21,12 +23,16 @@ const CHeader = () => {
       <div style={{display: 'flex', flexDirection: 'row', marginTop:'22px', marginBottom:'22px'}}>
         <div onClick={()=> {
           dispatch(setHeaderStatusRequest(1))
+          console.log(headerState);
+
           // console.log(process.env)
-          history.push('/home')
           
-        }}><a className='hearder-link'>Trang chủ</a></div>
-        <div style={{marginLeft:'48px'}} onClick={()=> history.push('/advisor')}><a className='hearder-link' >Tư vấn</a></div>
-        <div style={{marginLeft:'48px'}} onClick={()=> history.push('/ask_expert')}><a className='hearder-link' >Hỏi chuyên gia</a></div>
+        }}><a href='/home' className='hearder-link'>Trang chủ</a></div>
+        <div style={{marginLeft:'48px'}} onClick={()=> {
+          dispatch(setHeaderStatusRequest(2))
+
+        }}><a href='/advisor' className='hearder-link' >Tư vấn</a></div>
+        <div style={{marginLeft:'48px'}} onClick={()=> history.push('/ask_expert')}><a href='/ask_expert' className='hearder-link' >Hỏi chuyên gia</a></div>
         <div style={{marginLeft:'48px'}}><a className='hearder-link' >Về chúng tôi</a></div>
       </div>
       <div style={{display: 'flex', flexDirection: 'row', marginRight:'136px'}}>

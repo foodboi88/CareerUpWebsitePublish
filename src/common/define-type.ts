@@ -245,6 +245,10 @@ export interface Question{
     choiceLst: QuestionChoice[],
     pickedChoice: number | null
 }
+export interface QuestionRequest{
+    question_id: number,
+    score: number
+}
 export interface QuestionChoice{
     content: string,
     score: number
@@ -252,10 +256,11 @@ export interface QuestionChoice{
 
 export interface Specialized{
     id: string,
-    name: string,
-    description: string,
-    personalityId: string,
-    branchId: string
+    branch_name: string,
+    branch_description: string,
+    branch_average_wage: string,
+    branch_suitable_personality: string,
+    branch_advice: string
 }
 
 export interface Personality{

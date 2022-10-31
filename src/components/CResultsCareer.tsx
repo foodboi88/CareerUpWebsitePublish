@@ -10,7 +10,10 @@ import CCareerDetailModel from './CCareerDetailModel';
 import CCollegeAdvisor from './CCollegeAdvisor';
 import CUnitCareerModel from './CUnitCareerModel';
 
-
+interface test{
+    key: number,
+    career: string
+}
 
 const data = [
     {
@@ -80,8 +83,8 @@ const CResultsCareer = () => {
         setIsShowDetailCareerModal(true);
     }
 
-    const onClickCareerUnit = (item: Specialized) => {
-        setClickedSpecialized(item);
+    const onClickCareerUnit = (item: test) => {
+        // setClickedSpecialized(item);
         setIsShowUnitCareerModal(true);
     }
 
@@ -89,13 +92,13 @@ const CResultsCareer = () => {
         setIsShow(e);
     }
 
-    useEffect(()=>{
-        let newPersonality: Personality = personality
-        if(specializedLst) {
-            newPersonality = personalityLst[parseInt(specializedLst[0].id,10)]
-        }
-        setPersonality(newPersonality)
-    },[specializedLst])
+    // useEffect(()=>{
+    //     let newPersonality: Personality = personality
+    //     if(specializedLst) {
+    //         newPersonality = personalityLst[parseInt(specializedLst[0].id,10)]
+    //     }
+    //     setPersonality(newPersonality)
+    // },[specializedLst])
 
     return (
         <div className='div-career-advisor-result'>
@@ -110,13 +113,13 @@ const CResultsCareer = () => {
                         header={<div style={{ fontSize: 25 }}>Kết quả tìm kiếm thuộc nhóm ngành này</div>}
                     >
                         <VirtualList
-                            data={specializedLst}
+                            data={data}
                             itemKey="email"
                         >
-                            {(item: Specialized) => (
-                                <List.Item key={item.id}>
+                            {(item: test) => (
+                                <List.Item key={item.key}>
                                     <List.Item.Meta
-                                        title={<Link onClick={()=>onClickCareerUnit(item)} style={{ fontSize: 20 }}>{item.name}</Link>}
+                                        title={<Link onClick={()=>onClickCareerUnit(item)} style={{ fontSize: 20 }}>{item.career}</Link>}
                                     />
                                     <Link onClick={onClickCareerDetail} style={{ fontStyle: 'normal', fontWeight: 400, fontSize: 20, color: '#FFB507' }}>Xem chi tiết</Link>
                                 </List.Item>

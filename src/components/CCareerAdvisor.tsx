@@ -3,7 +3,7 @@ import Link from 'antd/lib/typography/Link';
 import { MDBBtn } from 'mdb-react-ui-kit';
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
-import { Question, QuestionChoice } from '../common/define-type'
+import { Question, QuestionChoice, QuestionRequest } from '../common/define-type'
 import { sendAnswersRequest } from '../redux/controller';
 import { useDispatchRoot, useSelectorRoot } from '../redux/store';
 import CResultsCareer from './CResultsCareer';
@@ -12,6 +12,7 @@ interface MyProps {
     showUniAdvisor: React.Dispatch<React.SetStateAction<boolean>>
     showCareerAdvisor: React.Dispatch<React.SetStateAction<boolean>>
 }
+
 
 let questionLst: Question[] = [
     {
@@ -1437,6 +1438,7 @@ const CCareerAdvisor = (props: MyProps) => {
 
     const [showBtnResult, setShowBtnResult] = useState(false);
     const [isShowResultCareer, setIsShowResultCareer] = useState(false);
+    const [questionRequest,setQuestionRequest] = useState<QuestionRequest[]|null>()
 
     useEffect(() => {
         let check = true
@@ -1450,6 +1452,23 @@ const CCareerAdvisor = (props: MyProps) => {
         else setShowBtnResult(false)
     }, [currentChoice1, currentChoice2, currentChoice3, currentChoice4, currentChoice5])
 
+    const handleCaculateResult = () =>{
+        let questionRequest = questionLst.map((item,index)=>
+            {
+                if(item.pickedChoice || item.id){
+                    return {
+                        question_id: parseInt(item.id),
+                        score: item.pickedChoice
+                    }
+                }
+            }
+        );
+        
+        dispatch(sendAnswersRequest(questionRequest))
+        setShowQuestion(false)
+        setShowBtnResult(false)
+        setIsShowResultCareer(true)
+    }
     
 
     return (
@@ -1735,7 +1754,7 @@ const CCareerAdvisor = (props: MyProps) => {
                         
 
                         {
-                            // showBtnResult && 
+                            showBtnResult && 
                             <div style={{
                                 width: "100%",
                                 display: "flex",
@@ -1746,13 +1765,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                 <MDBBtn
                                     color='warning'
                                     style={{ borderRadius: '20px' }}
-                                    onClick={() => {
-                                        dispatch(sendAnswersRequest(questionLst))
-                                        setShowQuestion(false)
-                                        setShowBtnResult(false)
-                                        setIsShowResultCareer(true)
-                                        
-                                    }}
+                                    onClick={handleCaculateResult}
                                 >
                                     Xem kết quả
                                 </MDBBtn>
@@ -1763,7 +1776,9 @@ const CCareerAdvisor = (props: MyProps) => {
             </div>            
         }
         {
-            isShowResultCareer && specializedLst && <CResultsCareer />
+            isShowResultCareer && 
+            // specializedLst && 
+            <CResultsCareer />
         }
         </div>
     )

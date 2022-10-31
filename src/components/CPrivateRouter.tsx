@@ -21,6 +21,7 @@ function CPrivateRoute({ children, path, ...rest }: PropsPrivateRouter): JSX.Ele
             //         />
             //     )}
             render={(props) =>  children}
+            
         />
     );
 }

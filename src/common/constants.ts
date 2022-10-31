@@ -34,7 +34,7 @@ const SYSTEM_CONSTANTS = {
             MEETING_INVITATION: 'meetingInvitation'
         },
         ADVISOR:{
-            SEND_ANSWERS: 'sendanswers'
+            SEND_ANSWERS: 'question'
         }
     },
     IMAGE: {

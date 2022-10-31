@@ -13,9 +13,9 @@ function App() {
 
     return (
         <div className="App">
-                    <Provider store={store}>
-                        <CMainRouter/>
-                    </Provider>
+            <Provider store={store}>
+                <CMainRouter/>
+            </Provider>
 
             
             {/* <Advisor/> */}

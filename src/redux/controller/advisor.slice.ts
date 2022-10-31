@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Question, RootEpic, Specialized } from "../../common/define-type";
+import { Question, QuestionRequest, RootEpic, Specialized } from "../../common/define-type";
 import { catchError, filter, mergeMap, switchMap } from "rxjs/operators";
 import AdvisorApi from "../../api/Advisor/advisor.api";
 interface AdvisorState {
@@ -20,7 +20,7 @@ const advisorSlice = createSlice({
     initialState: initialStateBootstrap,
     reducers: {
 
-        sendAnswersRequest: (state: AdvisorState, action: PayloadAction<Question[]>) => {
+        sendAnswersRequest: (state: AdvisorState, action: PayloadAction<any>) => {
             state.loading = true;
         },
         sendAnswersSuccess: (state: AdvisorState,action: PayloadAction<Specialized[]>) =>{

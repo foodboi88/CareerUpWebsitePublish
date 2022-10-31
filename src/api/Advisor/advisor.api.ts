@@ -2,17 +2,18 @@
 import HttpClient from "../http-client";
 import SYSTEM_CONSTANTS from "../../common/constants";
 import { ICreateMeetingsReq, IDataObjectResponse, IDataResponse, IGetMeetingsReq, IMeetings, IMemberInMeetings, IMemberWithRole, ITask } from "../../common/define-meetings";
-import { GetAllMemberReq, GetAllMembersWithRoleReq, GetAllTaskReq, Question, Specialized } from "../../common/define-type";
+import { GetAllMemberReq, GetAllMembersWithRoleReq, GetAllTaskReq, Question, QuestionRequest, Specialized } from "../../common/define-type";
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, map } from "rxjs/operators";
 
 export default class AdvisorApi {
-    static host = '';
+    static host = 'http://localhost:8000';
 
-    static sendAnswers(params: Question[]): Observable<IDataResponse<Specialized[]> | null> {
+    static sendAnswers(params: any): Observable<IDataResponse<Specialized[]> | null> {
         const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.ADVISOR.SEND_ANSWERS}`;
-        return HttpClient.get(api).pipe(
-            map((res) => res as IDataResponse<Specialized[]> || null, catchError((error) => new Observable)));
+        return HttpClient.post(api,params).pipe(
+            map((res) => res as IDataResponse<Specialized[]> || null, catchError((error) => new Observable))
+        );
     }
 
     // static getTasks(params: GetAllTaskReq): Observable<IDataResponse<ITask> | null> {

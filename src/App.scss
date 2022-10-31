@@ -1014,4 +1014,20 @@ input.ant-checkbox-input {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+} 
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 18px;
+    position: fixed;
+    z-index:12;
+    margin-top:-75px;
+    width:100%;
+    background-color:white
+}
+
+.content{
+    margin-top: 75px;
 }
