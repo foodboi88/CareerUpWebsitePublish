@@ -1,12 +1,11 @@
 /* eslint-disable new-parens */
-import HttpClient from "../http-client";
-import SYSTEM_CONSTANTS from "../../common/constants";
-import { ICreateMeetingsReq, IDataObjectResponse, IDataResponse, IGetMeetingsReq, IMeetings, IMemberInMeetings, IMemberWithRole, ITask } from "../../common/define-meetings";
-import { GetAllMemberReq, GetAllMembersWithRoleReq, GetAllTaskReq, Question, QuestionRequest, Specialized, SpecializedOfSchool, testResponse } from "../../common/define-type";
+import axios from "axios";
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, map } from "rxjs/operators";
-import axios from "axios";
-import { useDispatchRoot } from "../../redux/store";
+import SYSTEM_CONSTANTS from "../../common/constants";
+import { IDataResponse } from "../../common/define-meetings";
+import { SpecializedOfSchool } from "../../common/define-type";
+import HttpClient from "../http-client";
 
 export default class AdvisorApi {
     
@@ -31,8 +30,6 @@ export default class AdvisorApi {
         },
         data : JSON.stringify(params)
       };
-      
-      
       return axios(config)
     }
 
