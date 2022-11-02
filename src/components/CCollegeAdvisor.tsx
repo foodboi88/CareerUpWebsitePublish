@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { getSpecializedOfSchoolResponse } from '../common/define-type';
 import iconDown from '../images/icon_down.png';
 import CCareerDetailModel from './CCareerDetailModel';
+import CLoadingIcon from './CLoadingIcon';
 
 interface DataType {
     key: number;
@@ -51,6 +52,8 @@ interface MyProps {
 const CCollegeAdvisor = (props: MyProps) => {
     const { Option } = Select;
     const [isShowCollegeDetailModel, setIsShowCollegeDetailModel] = useState<boolean>(false)
+    const [showLoading, setShowLoading] = useState(true);
+
     useEffect(() => {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
@@ -60,7 +63,14 @@ const CCollegeAdvisor = (props: MyProps) => {
         console.log(props.dataSource);
         console.log(data);
         data = props.dataSource;
+        
     })
+    setTimeout(() => {
+        setShowLoading(false)
+    }, 10000);
+    // useEffect(() => {
+    //     setShowLoading(false)
+    // }, [data])
     return (
         <div className='college-advisor'>
             <div style={{ background: 'white' }}>
@@ -131,6 +141,10 @@ const CCollegeAdvisor = (props: MyProps) => {
                 isShow={isShowCollegeDetailModel}
                 setIsShowModal={setIsShowCollegeDetailModel}
             />
+            {
+                showLoading &&
+                <CLoadingIcon />
+            }
         </div >
     )
 }
