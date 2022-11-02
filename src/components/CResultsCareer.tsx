@@ -84,9 +84,9 @@ const CResultsCareer = (props: Myprops) => {
         console.log(suitableCareer?.specializeds);
     })
 
-    const onClickCareerDetail = () => {
+    const onClickCareerDetail = (item: Specialized) => {
         setIsShowDetailCareerModal(true);
-
+        setClickedSpecialized(item)
     }
 
     const onClickCareerUnit = async (item: Specialized) => {
@@ -151,15 +151,19 @@ const CResultsCareer = (props: Myprops) => {
                                     <List.Item.Meta
                                         title={<Link onClick={() => onClickCareerUnit(item)} style={{ fontSize: 20 }}>{index + 1}. {item.specialized_name}</Link>}
                                     />
-                                    <Link onClick={onClickCareerDetail} style={{ fontStyle: 'normal', fontWeight: 400, fontSize: 20, color: '#FFB507' }}>Xem chi tiết</Link>
+                                    <Link onClick={()=>onClickCareerDetail(item)} style={{ fontStyle: 'normal', fontWeight: 400, fontSize: 20, color: '#FFB507' }}>Xem chi tiết</Link>
                                 </List.Item>
                             )}
                         </VirtualList>
                     </List>
-                    <CCareerDetailModel
-                        isShow={isShowDetailCareerModal}
-                        setIsShowModal={setIsShowDetailCareerModal}
-                    />
+                    {
+                        clickedSpecialized && 
+                        <CCareerDetailModel
+                            clickedSpecialized={clickedSpecialized}
+                            isShow={isShowDetailCareerModal}
+                            setIsShowModal={setIsShowDetailCareerModal}
+                        />
+                    }
                     <CUnitCareerModel
                         isShow={isShowUnitCareerModal}
                         setIsShowModal={setIsShowUnitCareerModal}

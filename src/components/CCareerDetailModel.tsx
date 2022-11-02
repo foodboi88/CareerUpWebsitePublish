@@ -3,13 +3,15 @@ import type { ColumnsType } from 'antd/es/table';
 import { Modal, Space, Table } from 'antd';
 import React from 'react';
 import detailCareerImg from '../images/detal_career_tmp.png'
+import { Specialized } from '../common/define-type';
 
 interface MyProps {
     isShow: boolean
     setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>,
+    clickedSpecialized: Specialized 
 }
 
-const CCareerDetailModel = ({ isShow, setIsShowModal }: MyProps) => {
+const CCareerDetailModel = ({ isShow, setIsShowModal,clickedSpecialized }: MyProps) => {
 
 
     return (
@@ -26,8 +28,8 @@ const CCareerDetailModel = ({ isShow, setIsShowModal }: MyProps) => {
                         <div><CloseOutlined style={{ fontSize: 20 }} alt="" onClick={() => setIsShowModal(false)} /></div>
                     </div>
                     <div className='career-advisor-modal-content'>
-                        <div style={{ textAlign: 'center', fontSize: 20, fontWeight: 600 }}><h5>Bác sĩ y khoa</h5></div>
-                        <p style={{ color: '#646A6C' }}>Bác sĩ y khoa khám và chữa bệnh cho những người bị ốm, bệnh tật hoặc tai nạn thương tật khác. Họ cũng tiến hành nghiên cứu, cải tiến và phát triển các khái niệm, lí thuyết và phương pháp phòng và khám chữa bệnh, làm công tác giảng dạy chuyên môn và tuyên truyền giáo dục sức khỏe.</p>
+                        <div style={{ textAlign: 'center', fontSize: 20, fontWeight: 600 }}><h5>{clickedSpecialized.specialized_name}</h5></div>
+                        <p style={{ color: '#646A6C' }}>{clickedSpecialized.specialized_description}</p>
                         <img style={{ width: '100%' }} src={detailCareerImg} />
                     </div>
                 </div>
