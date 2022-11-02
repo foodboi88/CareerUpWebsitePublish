@@ -5,7 +5,11 @@ import VirtualList from 'rc-virtual-list';
 import { useEffect, useState } from 'react';
 import AdvisorApi from '../api/Advisor/advisor.api';
 import { getSpecializedOfSchoolResponse, Personality, personalityLst, Specialized, suitablePersonality, Unit } from '../common/define-type';
-import resulstCareerImg from '../images/results_career_img.png';
+import LamViecVoiConNguoi from '../images/Career_LamViecVoiConNguoi.png';
+import HinhHocMauSacThietKe from '../images/Career_HinhHocMauSacThietKe.png'
+import NgonNgu from '../images/Career_NgonNgu.png'
+import PhanTichLogic from '../images/Career_PhanTichLogic.png'
+import TheChatCoKhi from '../images/Career_TheChatCoKhi.png'
 import { useSelectorRoot } from '../redux/store';
 import CCareerDetailModel from './CCareerDetailModel';
 import CCollegeAdvisor from './CCollegeAdvisor';
@@ -45,19 +49,20 @@ const CResultsCareer = (props: Myprops) => {
     const [clickedSpecialized, setClickedSpecialized] = useState<Specialized>()
     const [unitLst, setUnitLst] = useState<Unit[]>([])
     const [specializedOfSchoolLst, setSpecializedOfSchoolLst] = useState<getSpecializedOfSchoolResponse[]>([])
+    const [srcResultImage, setSrcResultImage] = useState('');
     useEffect(() => {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
 
-        let max = 0;
-        let personality: suitablePersonality;
-        props.specializedLst.forEach(item => {
-            if (max < item.score) {
-                max = item.score
-                personality = item
-                console.log(item)
-            }
-        })
+        // let max = 0;
+        // let personality: suitablePersonality;
+        // props.specializedLst.forEach(item => {
+        //     if (max < item.score) {
+        //         max = item.score
+        //         personality = item
+        //         console.log(item)
+        //     }
+        // })
         console.log(props.specializedLst)
         if (props.specializedLst !== null && props.specializedLst !== undefined && props.specializedLst.length > 0) {
             let max = 0;
@@ -65,6 +70,11 @@ const CResultsCareer = (props: Myprops) => {
                 if (props.specializedLst[index].score > max) {
                     max = props.specializedLst[index].score;
                     setSuitableCareer(props.specializedLst[index])
+                    if(props.specializedLst[index].personality==='NHÓM NGHỀ LÀM VIỆC VỚI CON NGƯỜI') setSrcResultImage(LamViecVoiConNguoi)
+                    else if(props.specializedLst[index].personality==='NHÓM NGHỀ PHÂN TÍCH – LOGIC') setSrcResultImage(PhanTichLogic)
+                    else if(props.specializedLst[index].personality==='NHÓM NGHỀ THỂ CHẤT – CƠ KHÍ') setSrcResultImage(TheChatCoKhi)
+                    else if(props.specializedLst[index].personality==='NHÓM NGHỀ HÌNH HỌC – MÀU SẮC - THIẾT KẾ') setSrcResultImage(HinhHocMauSacThietKe)
+                    else if(props.specializedLst[index].personality==='NHÓM NGHỀ NGÔN NGỮ') setSrcResultImage(NgonNgu)
                 }
             }
         }
@@ -127,7 +137,7 @@ const CResultsCareer = (props: Myprops) => {
                     <div className='div-advisor-content div-center ' >
                         <h1 className='title-advisor-intro' style={{ marginBottom: -10 }}>Nhóm nghề</h1>
                         <h1 className='title-advisor-intro color-title'>{suitableCareer?.personality}</h1>
-                        <img src={resulstCareerImg} />
+                        <img src={srcResultImage}/>
                     </div>
                     <List className='list-results-career'
                         header={<div style={{ fontSize: 25 }}>Kết quả tìm kiếm thuộc nhóm ngành này</div>}

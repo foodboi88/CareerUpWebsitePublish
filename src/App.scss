@@ -680,7 +680,7 @@ input::-webkit-inner-spin-button {
 }
 
 .ant-btn.ant-btn-primary.btn-choose-advisor {
-    width: 150px;
+    width: 181px;
     height: 50px;
     border-radius: 12px;
     font-size: 25px;
@@ -688,7 +688,25 @@ input::-webkit-inner-spin-button {
     color: #007BEE;
 }
 
-.ant-btn.ant-btn-primary.btn-choose-advisor:hover {
+.ant-btn.ant-btn-primary.btn-choose-advisor2 {
+    width: 181px;
+    height: 50px;
+    border-radius: 12px;
+    font-size: 25px;
+    background: linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%);
+    color: white;
+}
+
+.ant-btn.ant-btn-primary.btn-choose-advisor3 {
+    width: 181px;
+    height: 50px;
+    border-radius: 12px;
+    font-size: 25px;
+    background-color: #f3f9fe;
+    color: #007BEE;
+}
+
+.ant-btn.ant-btn-primary.btn-choose-advisor3:hover {
     background: linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%);
     color: white;
     // color: rgb(131, 59, 59) ;
@@ -735,7 +753,7 @@ input::-webkit-inner-spin-button {
     font-style: normal;
     font-weight: 500;
     font-size: 64px;
-    line-height: 150%;
+    line-height: 117%;
     color: #21292C;
 }
 
@@ -1120,6 +1138,26 @@ input.ant-checkbox-input {
     transform-origin: 50%;
     animation: circle .5s alternate infinite ease;
 }
+.circle2{
+    width:40px;
+    height:40px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #39c0ed;
+    left:15%;
+    transform-origin: 50%;
+    animation: circle .5s alternate infinite ease;
+}
+.circle3{
+    width:40px;
+    height:40px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #f4f004;
+    left:15%;
+    transform-origin: 50%;
+    animation: circle .5s alternate infinite ease;
+}
 
 @keyframes circle{
     0%{
@@ -1142,6 +1180,58 @@ input.ant-checkbox-input {
     animation-delay: .2s;
 }
 .circle:nth-child(3){
+    left:auto;
+    right:15%;
+    animation-delay: .3s;
+}
+
+@keyframes circle2{
+    0%{
+        top:60px;
+        height:5px;
+        border-radius: 50px 50px 25px 25px;
+        transform: scaleX(1.7);
+    }
+    40%{
+        height:20px;
+        border-radius: 50%;
+        transform: scaleX(1);
+    }
+    100%{
+        top:0%;
+    }
+}
+.circle2:nth-child(2){
+    left:45%;
+    animation-delay: .2s;
+}
+.circle2:nth-child(3){
+    left:auto;
+    right:15%;
+    animation-delay: .3s;
+}
+
+@keyframes circle3{
+    0%{
+        top:60px;
+        height:5px;
+        border-radius: 50px 50px 25px 25px;
+        transform: scaleX(1.7);
+    }
+    40%{
+        height:20px;
+        border-radius: 50%;
+        transform: scaleX(1);
+    }
+    100%{
+        top:0%;
+    }
+}
+.circle3:nth-child(2){
+    left:45%;
+    animation-delay: .2s;
+}
+.circle3:nth-child(3){
     left:auto;
     right:15%;
     animation-delay: .3s;
@@ -1187,5 +1277,5 @@ input.ant-checkbox-input {
     top:75px;
     font-size: 20px;
     color: #fff;
-    left:15%;
+    left:19%;
 }
