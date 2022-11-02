@@ -6,6 +6,8 @@ import { useHistory } from 'react-router'
 import { useDispatchRoot, useSelectorRoot } from '../redux/store'
 import { setHeaderStatusRequest } from '../redux/controller'
 import {Link} from 'react-router-dom'
+import Advisor from '../pages/advisor/Advisor'
+import AdvisorApi from '../api/Advisor/advisor.api'
 
 const CHeader = () => {
   const history = useHistory();
@@ -30,6 +32,7 @@ const CHeader = () => {
         }}><a href='/home' className='hearder-link'>Trang chủ</a></div>
         <div style={{marginLeft:'48px'}} onClick={()=> {
           dispatch(setHeaderStatusRequest(2))
+          
 
         }}><a href='/advisor' className='hearder-link' >Tư vấn</a></div>
         <div style={{marginLeft:'48px'}} onClick={()=> history.push('/ask_expert')}><a href='/ask_expert' className='hearder-link' >Hỏi chuyên gia</a></div>

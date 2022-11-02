@@ -28,7 +28,7 @@ const advisorSlice = createSlice({
         sendAnswersSuccess: (state: AdvisorState, action: PayloadAction<Specialized[]>) => {
             state.specializedLst = action.payload
             state.loading = false;
-            console.log(action.payload)
+            console.log(state.specializedLst)
         },
         sendAnswersFail: (state: AdvisorState, action: any) => {
             state.loading = false;
@@ -132,24 +132,71 @@ const advisorSlice = createSlice({
     }
 })
 
-const sendAnswers$: RootEpic = action$ =>
-    action$.pipe(filter(sendAnswersRequest.match),
-        switchMap((re: any) => {
-            console.log(re);
-            return AdvisorApi.sendAnswers(re).pipe(
-                mergeMap((res: any) => {
-                    console.log(res);
-                    return [advisorSlice.actions.sendAnswersSuccess(res.data.items)];
-                }),
-                catchError(err => {
-                    console.log(err)
-                    return [advisorSlice.actions.sendAnswersFail(err)]
-                }),
-            );
-        }),
-    );
+// const sendAnswers$: RootEpic = action$ =>
+//     action$.pipe(filter(sendAnswersRequest.match),
+//         switchMap((re: any) => {
+//             console.log(re);
+//             return AdvisorApi.sendAnswers(re).pipe(
+//                 mergeMap((res: any) => {
+//                     console.log(res);
+//                     return [advisorSlice.actions.sendAnswersSuccess(res.data.items)];
+//                 }),
+//                 catchError(err => {
+//                     console.log(err)
+//                     return [advisorSlice.actions.sendAnswersFail(err)]
+//                 }),
+//             );
+//         }),
+//     );
 
-const getSpecialized$: RootEpic = action$ =>
+// const getSpecialized$: RootEpic = action$ =>
+//     action$.pipe(filter(getSpecializedRequest.match),
+//         switchMap(() => {
+//             return AdvisorApi.getSpecialized().pipe(
+//                 mergeMap((res: any) => {
+//                     return [advisorSlice.actions.getSpecializedSuccess(res.data.items)];
+//                 }),
+//                 catchError(err => {
+//                     console.error(err)
+//                     return [advisorSlice.actions.getSpecializedFail(false)]
+//                 }),
+//             );
+//         }),
+//     );
+// const getSpecializedById$: RootEpic = action$ =>
+//     action$.pipe(filter(getSpecializedByIdRequest.match),
+//         switchMap((re: any) => {
+//             console.log(re);
+//             return AdvisorApi.getSpecializedById(re.payload).pipe(
+//                 mergeMap((res: any) => {
+//                     return [advisorSlice.actions.getSpecializedByIdSuccess(res.data)];
+//                 }),
+//                 catchError(err => {
+//                     console.error(err)
+//                     return [advisorSlice.actions.getSpecializedByIdFailed(false)]
+//                 }),
+//             );
+//         }),
+//     );
+
+// const sendCareerAdvisor$: RootEpic = action$ =>
+//     action$.pipe(filter(sendCareerAdvisorRequest.match),
+//         switchMap((re: any) => {
+//             console.log(re);
+//             return AdvisorApi.sendCareerAdvisor(re).pipe(
+//                 mergeMap((res: any) => {
+//                     console.log(res);
+//                     return [advisorSlice.actions.sendCareerAdvisorSuccess(res.data.items)];
+//                 }),
+//                 catchError(err => {
+//                     console.log(err)
+//                     return [advisorSlice.actions.sendCareerAdvisorFail(err)]
+//                 }),
+//             );
+//         }),
+//     );
+
+const getSpecializedOfSchool$: RootEpic = action$ =>
     action$.pipe(filter(getSpecializedRequest.match),
         switchMap(() => {
             return AdvisorApi.getSpecialized().pipe(
@@ -163,7 +210,7 @@ const getSpecialized$: RootEpic = action$ =>
             );
         }),
     );
-const getSpecializedById$: RootEpic = action$ =>
+const getSpecializedOfSchoolById$: RootEpic = action$ =>
     action$.pipe(filter(getSpecializedByIdRequest.match),
         switchMap((re: any) => {
             console.log(re);
@@ -238,10 +285,10 @@ const getSpecializedOfSchoolById$: RootEpic = action$ =>
 //     );
 
 export const AdvisorEpics = [
-    sendAnswers$,
-    getSpecialized$,
-    getSpecializedById$,
-    sendCareerAdvisor$,
+    // sendAnswers$,
+    // getSpecialized$,
+    // getSpecializedById$,
+    // sendCareerAdvisor$,
     getSpecializedOfSchool$,
     getSpecializedOfSchoolById$,
 ];
@@ -253,5 +300,6 @@ export const {
     getSpecializedOfSchoolRequest,
     getSpecializedOfSchoolByIdRequest
 
+    sendAnswersSuccess
 } = advisorSlice.actions;
 export const advisorReducer = advisorSlice.reducer;
