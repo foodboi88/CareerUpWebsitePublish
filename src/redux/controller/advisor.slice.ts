@@ -1,18 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { catchError, filter, mergeMap, switchMap } from "rxjs/operators";
 import AdvisorApi from "../../api/Advisor/advisor.api";
-import { CareerAdvisor, RootEpic, Specialized, SpecializedOfSchool } from "../../common/define-type";
+import { CareerAdvisor, getSpecializedOfSchoolResponse, RootEpic, Specialized, SpecializedOfSchool } from "../../common/define-type";
 interface AdvisorState {
     specializedLst: Specialized[],
     loading: boolean,
-    specializedOfSchoolLst: SpecializedOfSchool[],
+    specializedOfSchoolLst: getSpecializedOfSchoolResponse[],
     //     lstTasks: ITask[] | null,
 
 }
 const initialStateBootstrap: AdvisorState = {
     specializedLst: [],
     loading: false,
-    specializedOfSchoolLst: []
+    specializedOfSchoolLst: [],
     //     lstTasks: null,
 
 };
@@ -66,11 +66,11 @@ const advisorSlice = createSlice({
         sendCareerAdvisorRequest: (state: AdvisorState, action: PayloadAction<CareerAdvisor[]>) => {
             state.loading = true;
         },
-        sendCareerAdvisorSuccess: (state: AdvisorState, action: PayloadAction<SpecializedOfSchool[]>) => {
-            state.specializedOfSchoolLst = action.payload
-            state.loading = false;
-            console.log(action.payload)
-        },
+        // sendCareerAdvisorSuccess: (state: AdvisorState, action: PayloadAction<SpecializedOfSchool[]>) => {
+        //     state.specializedOfSchoolLst = action.payload
+        //     state.loading = false;
+        //     console.log(action.payload)
+        // },
         sendCareerAdvisorFail: (state: AdvisorState, action: any) => {
             state.loading = false;
 
@@ -81,7 +81,7 @@ const advisorSlice = createSlice({
             state.loading = true;
         },
 
-        getSpecializedOfSchoolSuccess: (state: AdvisorState, action: PayloadAction<SpecializedOfSchool[]>) => {
+        getSpecializedOfSchoolSuccess: (state: AdvisorState, action: PayloadAction<getSpecializedOfSchoolResponse[]>) => {
             state.specializedOfSchoolLst = action.payload
             state.loading = false;
         },
@@ -95,13 +95,15 @@ const advisorSlice = createSlice({
         getSpecializedOfSchoolByIdRequest: (state, action: PayloadAction<String>) => {
             state.loading = true;
         },
-        getSpecializedOfSchoolByIdSuccess: (state, action: PayloadAction<SpecializedOfSchool[]>) => {
-            state.specializedOfSchoolLst = action.payload;
-            state.loading = false;
-        },
+        // getSpecializedOfSchoolByIdSuccess: (state, action: PayloadAction<SpecializedOfSchool[]>) => {
+        //     state.specializedOfSchoolLst = action.payload;
+        //     state.loading = false;
+        // },
         getSpecializedOfSchoolByIdFailed(state, action: PayloadAction<boolean>) {
             state.loading = action.payload;
         },
+
+       
         //         // Get task Request
         //         getTasksRequest: (state: { loading: boolean; }, action: PayloadAction<void>) => {
         //             state.loading = true;
@@ -298,8 +300,8 @@ export const {
     getSpecializedByIdRequest,
     sendCareerAdvisorRequest,
     getSpecializedOfSchoolRequest,
-    getSpecializedOfSchoolByIdRequest
-
+    getSpecializedOfSchoolByIdRequest,
+    getSpecializedOfSchoolSuccess
     // sendAnswersSuccess
 } = advisorSlice.actions;
 export const advisorReducer = advisorSlice.reducer;

@@ -1,30 +1,34 @@
 import { CloseOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Modal, Select } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { Specialized } from '../common/define-type';
+import AdvisorApi from '../api/Advisor/advisor.api';
+import { getSpecializedOfSchoolResponse, Specialized } from '../common/define-type';
 
 interface MyProps {
     isShow: boolean
     setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>,
     toogle: (e: boolean) => void,
-    clickedSpecialized?: Specialized
+    clickedSpecialized?: Specialized,
+    setOpenUniAdvisor: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized}: MyProps) => {
+const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, setOpenUniAdvisor}: MyProps) => {
 
     const [isShowCollegeAdvisor, setIsShowDetailCareerModal] = useState<boolean>(false);
     const { Option } = Select;
-    const [score, setScore] = useState<String>();
-    const [combination, setCombination] = useState<String[]>();
-    const [career, setCareer] = useState<String>();
+    const [score, setScore] = useState<string>('0');
+    const [combination, setCombination] = useState<string[]>([]);
+    const [career, setCareer] = useState<string>('');
     const [checkButtonSubmitted, setCheckButtonSubmitted] = useState<boolean>(false);
     const [clickedSpecializedName, setClickedSpecializedName] = useState<string>('');
+    const [specializedOfSchool,setSpecializedOfSchool] = useState<getSpecializedOfSchoolResponse[]>()
 
     useEffect(() => {
         if (clickedSpecialized) {
             console.log(clickedSpecialized.specialized_name);
             setClickedSpecializedName(clickedSpecialized.specialized_name)
         }
+
     })
 
     useEffect(() => {
@@ -45,6 +49,32 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized}:
         setCareer('');
         setIsShowModal(!isShow)
     }
+
+    const handleCaculateResult = async () =>{
+        let reformCombination: string = '';
+        
+        reformCombination = combination.join('%2C')
+
+
+        await AdvisorApi.getSpecializedOfSchool(score, reformCombination, career).then((data: any)=>{
+            console.log(data.data)
+            // dispatch(sendAnswersRequest(data.data))
+            setSpecializedOfSchool(data.data)
+            
+            console.log('hihi')
+
+        })
+    }
+
+    useEffect(()=>{
+        if(specializedOfSchool!==null && specializedOfSchool!==undefined && specializedOfSchool?.length>0){
+            setOpenUniAdvisor(true)
+            setIsShowModal(false)
+        }
+        console.log(specializedOfSchool);
+        
+    },[specializedOfSchool])
+    
     return (
         <div >
             <Modal
@@ -106,8 +136,9 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized}:
                                 label="Ngành: "
                                 name="career"
                                 rules={[{ required: true, message: 'Vui lòng chọn ngành' }]}
-                                initialValue={clickedSpecialized ? clickedSpecialized.specialized_name : null}
+                                // initialValue={clickedSpecialized ? clickedSpecialized.specialized_name : null}
                             >
+                                <div style={{display:'none'}}>{clickedSpecialized?.specialized_name}</div>
                                 <Select
                                     className='career-section'
                                     style={{ width: 400, borderRadius: 12 }}
@@ -126,7 +157,7 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized}:
                             </Form.Item>
                             <Form.Item >
                                 <Button disabled={!checkButtonSubmitted} type="primary" htmlType="submit" onClick={() => { setIsShowDetailCareerModal(true); setIsShowModal(false); toogle(false) }}>
-                                    Tìm kiếm thông tin
+                                    Tìm kiếm thông tin 
                                 </Button>
                             </Form.Item>
                         </Form>

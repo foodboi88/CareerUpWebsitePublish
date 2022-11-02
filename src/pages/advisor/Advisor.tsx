@@ -1,6 +1,7 @@
 import { Button } from 'antd'
 import React, { useState } from 'react'
 import CCareerAdvisor from '../../components/CCareerAdvisor'
+import CCollegeAdvisor from '../../components/CCollegeAdvisor'
 import CFooter from '../../components/CFooter'
 import CHeader from '../../components/CHeader'
 import CUniAdvisor from '../../components/CUniAdvisor'
@@ -67,7 +68,7 @@ const Advisor = () => {
 
                 {
                     uniAdvisorShow &&
-                    <CUniAdvisor />
+                    <CCollegeAdvisor />
                 }
                 </div>
             

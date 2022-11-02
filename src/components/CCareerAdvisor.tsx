@@ -2041,6 +2041,7 @@ const CCareerAdvisor = (props: MyProps) => {
             isShowResultCareer && 
             specializedLst && 
             <CResultsCareer 
+                setOpenUniAdvisor= {props.showUniAdvisor}
                 specializedLst= {specializedLst}
             />
         }

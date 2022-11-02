@@ -62,7 +62,8 @@ const data = [
 ]
 
 interface Myprops {
-    specializedLst: suitablePersonality[]
+    specializedLst: suitablePersonality[],
+    setOpenUniAdvisor: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const CResultsCareer = (props: Myprops) => {
@@ -168,6 +169,7 @@ const CResultsCareer = (props: Myprops) => {
                     <CUnitCareerModel
                         isShow={isShowUnitCareerModal}
                         setIsShowModal={setIsShowUnitCareerModal}
+                        setOpenUniAdvisor = {props.setOpenUniAdvisor}
                         toogle={ontoggle}
                         clickedSpecialized={clickedSpecialized}
                     />

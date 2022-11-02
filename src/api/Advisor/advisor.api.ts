@@ -33,10 +33,23 @@ export default class AdvisorApi {
       return axios(config)
     }
 
-    static getSpecializedOfSchool(): Observable<IDataResponse<SpecializedOfSchool[]> | null> {
-        const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.SPECIALIZED_OF_SCHOOL.GET_ALL}`;
-        return HttpClient.get(api).pipe(
-            map((res) => res as IDataResponse<SpecializedOfSchool[]> || null, catchError((error) => new Observable)));
+    
+
+    static getSpecializedOfSchool(id: string, mark: string, unit_names: string): any {
+      var config = {
+        method: 'get',
+        url: `http://localhost:8000/specialized_of_school?specialized_id=${id}&mark=${mark}&unit_names=${unit_names}\n`,
+        headers: { },
+        data : ''
+      };
+      
+      axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     }
 
     static getSpecializedOfSchoolById(specializedOfSchoolId: string): Observable<IDataResponse<SpecializedOfSchool> | null> {

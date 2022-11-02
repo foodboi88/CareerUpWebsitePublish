@@ -349,3 +349,43 @@ export interface suitablePersonality {
     personality: string,
     score: number
 }
+
+export interface getSpecializedOfSchoolResponse{
+    id: string,
+    specialized_of_school_name: string,
+    specialized_of_school_description: string,
+    specialized_of_school_code: string,
+    specialized_of_school_year: string,
+    kpi: string,
+    way: string,
+    advice: string,
+    status: string,
+    fee: string,
+    school: {
+        id: string,
+        school_name: string,
+        school_short_name: string,
+        school_description: string,
+        school_logo: string,
+        school_number_of_student: string,
+        school_rank: 0,
+        area_id: string
+    },
+    units: [
+        {
+        id: string,
+        unit_name: string,
+        subject: {
+            id: string,
+            subjects_name: string
+        },
+        mark_units: [
+            {
+            id: string,
+            mark_unit_name: string,
+            mark: 0
+            }
+        ]
+        }
+    ]
+}
