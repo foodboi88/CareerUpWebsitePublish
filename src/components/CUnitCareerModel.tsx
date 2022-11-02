@@ -12,10 +12,11 @@ interface MyProps {
     setOpenUniAdvisor: React.Dispatch<React.SetStateAction<boolean>>
     specializedLst: Specialized[],
     unitLst: Unit[],
-    onGetSpecializedOfSchoolLst: (e: getSpecializedOfSchoolResponse[]) => void
+    onGetSpecializedOfSchoolLst: (e: getSpecializedOfSchoolResponse[]) => void,
+    onCloseAdvisor: (e: boolean) => void
 }
 
-const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, setOpenUniAdvisor, specializedLst, unitLst, onGetSpecializedOfSchoolLst }: MyProps) => {
+const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, setOpenUniAdvisor, specializedLst, unitLst, onGetSpecializedOfSchoolLst, onCloseAdvisor }: MyProps) => {
 
     const [isShowCollegeAdvisor, setIsShowDetailCareerModal] = useState<boolean>(false);
     const { Option } = Select;
@@ -37,7 +38,6 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
     }, [clickedSpecialized])
 
     useEffect(() => {
-        console.log(career, score, combination);
         if (!career || parseInt(score) < 10 || !combination || combination.length == 0)
             setCheckButtonSubmitted(false);
         else
@@ -54,10 +54,11 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
     };
 
     const handleCaculateResult = async () => {
+        onCloseAdvisor(false)
         let reformCombination: string = '';
-        
+
         reformCombination = combination.join('%2C').replace(/\s/g, '');
-        
+
         console.log(reformCombination);
         await AdvisorApi.getSpecializedOfSchool(career, score, reformCombination)
             .then((data: any) => {
@@ -127,7 +128,7 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
                                     mode="multiple"
                                     placeholder="Chọn tổ hợp thi"
                                     onChange={handleChangeCombination}
-                                    value={combination}
+                                    value={combination ? combination : null}
                                 >
                                     {unitLst && unitLst.map((index) => (
                                         <Option value={index.unit_name}>{index.unit_name}</Option>
@@ -152,7 +153,7 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
                                     // defaultValue={clickedSpecialized ? clickedSpecialized.specialized_name   : null}
                                     // defaultValue={clickedSpecializedName ? clickedSpecializedName : null}
                                     // value={clickedSpecialized ? clickedSpecialized.specialized_name : null}
-                                    value={specializedVal}
+                                    value={specializedVal ? specializedVal : null}
                                 >
                                     {specializedLst && specializedLst.map((index) => (
                                         <Option value={index.id}>{index.specialized_name}</Option>

@@ -93,7 +93,6 @@ const CResultsCareer = (props: Myprops) => {
 
     const ontoggle = (e: any) => {
         setIsShow(e);
-
     }
 
     const onGetSpecializedOfSchoolLst = (e: getSpecializedOfSchoolResponse[]) => {
@@ -110,6 +109,9 @@ const CResultsCareer = (props: Myprops) => {
         }
     }
 
+    const onCloseAdvisor = () => {
+
+    }
     // useEffect(()=>{
     //     let newPersonality: Personality = personality
     //     if(specializedLst) {
@@ -157,6 +159,7 @@ const CResultsCareer = (props: Myprops) => {
                         clickedSpecialized={clickedSpecialized}
                         specializedLst={suitableCareer ? suitableCareer.specializeds : []}
                         unitLst={unitLst}
+                        onCloseAdvisor={onCloseAdvisor}
                     />
                 </div>
             }

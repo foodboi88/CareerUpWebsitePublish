@@ -74,6 +74,15 @@ export default class AdvisorApi {
         };
         return axios(config)
     }
+
+    static getSpecialized(): any {
+        var config = {
+          method: 'get',
+          url: 'http://localhost:8000/specialized?limit=1000&offset=0',
+          headers: { },
+        };
+        return axios(config)
+    }
     // static getTasksByName(params: String): Observable<IDataResponse<ITask> | null> {
     //     const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.TASK.GET_ALL}?name=${params}`;
     //     return HttpClient.get(api).pipe(
