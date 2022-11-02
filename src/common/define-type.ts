@@ -245,7 +245,7 @@ export interface Question {
     choiceLst: QuestionChoice[],
     pickedChoice: number | null
 }
-export interface QuestionRequest{
+export interface QuestionRequest {
     question_id: number,
     score: number
 }
@@ -257,11 +257,10 @@ export interface QuestionChoice {
 
 export interface Specialized {
     id: string,
-    branch_name: string,
-    branch_description: string,
-    branch_average_wage: string,
-    branch_suitable_personality: string,
-    branch_advice: string
+    branch_id: string,
+    personality_type_id: string,
+    specialized_description: string,
+    specialized_name: string,
 }
 
 export interface Subject {
@@ -312,7 +311,7 @@ export interface SpecializedOfSchool {
 }
 
 
-export interface Personality{
+export interface Personality {
     id: string,
     name: string,
 }
@@ -321,7 +320,7 @@ export const personalityLst: Personality[] = [
     {
         id: '1',
         name: 'Ngôn ngữ'
-    },{
+    }, {
         id: '2',
         name: 'Phân tích-Logic'
     },
@@ -332,21 +331,21 @@ export const personalityLst: Personality[] = [
     {
         id: '4',
         name: 'Làm việc với con người'
-    },{
+    }, {
         id: '5',
         name: 'Thể chất cơ khí'
     }
 
 ]
 
-export interface testResponse{
+export interface testResponse {
     personality: string,
     score: number,
-    branchs: Specialized
+    specializeds: Specialized
 }
 
-export interface suitablePersonality{
-    branch: Specialized[],
+export interface suitablePersonality {
+    specializeds: Specialized[],
     personality: string,
     score: number
 }

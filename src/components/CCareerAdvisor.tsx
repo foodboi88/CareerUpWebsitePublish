@@ -1,13 +1,9 @@
-import { Button, Checkbox } from 'antd';
-import Link from 'antd/lib/typography/Link';
 import { MDBBtn } from 'mdb-react-ui-kit';
-import test from 'node:test';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import AdvisorApi from '../api/Advisor/advisor.api';
-import { Question, QuestionChoice, QuestionRequest, Specialized, suitablePersonality } from '../common/define-type'
-import { sendAnswersRequest, sendAnswersSuccess } from '../redux/controller';
-import { useDispatchRoot, useSelectorRoot } from '../redux/store';
+import { Question, QuestionRequest, suitablePersonality } from '../common/define-type';
+import { useDispatchRoot } from '../redux/store';
 import CResultsCareer from './CResultsCareer';
 
 interface MyProps {

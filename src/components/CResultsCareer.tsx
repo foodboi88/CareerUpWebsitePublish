@@ -11,7 +11,7 @@ import CCareerDetailModel from './CCareerDetailModel';
 import CCollegeAdvisor from './CCollegeAdvisor';
 import CUnitCareerModel from './CUnitCareerModel';
 
-interface test{
+interface test {
     key: number,
     career: string
 }
@@ -61,7 +61,7 @@ const data = [
 
 ]
 
-interface Myprops{
+interface Myprops {
     specializedLst: suitablePersonality[]
 }
 
@@ -71,7 +71,7 @@ const CResultsCareer = (props: Myprops) => {
     const [isShow, setIsShow] = useState<boolean>(true);
     const [isShowDetailCareerModal, setIsShowDetailCareerModal] = useState<boolean>(false);
     const [isShowUnitCareerModal, setIsShowUnitCareerModal] = useState<boolean>(false);
-    const [personality,setPersonality] = useState<Personality>(
+    const [personality, setPersonality] = useState<Personality>(
         {
             id: '0',
             name: 'Loading....'
@@ -79,7 +79,7 @@ const CResultsCareer = (props: Myprops) => {
     );
 
     const [suitableCareer, setSuitableCareer] = useState<suitablePersonality>()
-    const [clickedSpecialized,setClickedSpecialized] = useState<Specialized>()
+    const [clickedSpecialized, setClickedSpecialized] = useState<Specialized>()
 
     useEffect(() => {
         document.body.scrollTop = 0;
@@ -87,21 +87,32 @@ const CResultsCareer = (props: Myprops) => {
 
         let max = 0;
         let personality: suitablePersonality;
-        props.specializedLst.forEach(item=>{
-            if(max<item.score){
-                max=item.score
-                personality=item
+        props.specializedLst.forEach(item => {
+            if (max < item.score) {
+                max = item.score
+                personality = item
                 console.log(item)
             }
         })
         console.log(props.specializedLst)
+        if (props.specializedLst !== null && props.specializedLst !== undefined && props.specializedLst.length > 0) {
+            let max = 0;
+            for (let index = 0; index < props.specializedLst.length; index++) {
+                if (props.specializedLst[index].score > max) {
+                    max = props.specializedLst[index].score;
+                    setSuitableCareer(props.specializedLst[index])
+                }
+            }
+        }
     }, [])
 
-    
+    useEffect(() => {
+        console.log(suitableCareer?.specializeds);
+    })
 
     const onClickCareerDetail = () => {
         setIsShowDetailCareerModal(true);
-        
+
     }
 
     const onClickCareerUnit = (item: Specialized) => {
@@ -136,13 +147,13 @@ const CResultsCareer = (props: Myprops) => {
                         header={<div style={{ fontSize: 25 }}>Kết quả tìm kiếm thuộc nhóm ngành này</div>}
                     >
                         <VirtualList
-                            data={suitableCareer? suitableCareer.branch : []}
+                            data={suitableCareer ? suitableCareer.specializeds : []}
                             itemKey="email"
                         >
-                            {(item: Specialized) => (
+                            {(item: Specialized, index) => (
                                 <List.Item key={item.id}>
                                     <List.Item.Meta
-                                        title={<Link onClick={()=>onClickCareerUnit(item)} style={{ fontSize: 20 }}>{item.branch_name}</Link>}
+                                        title={<Link onClick={() => onClickCareerUnit(item)} style={{ fontSize: 20 }}>{index+1}. {item.specialized_name}</Link>}
                                     />
                                     <Link onClick={onClickCareerDetail} style={{ fontStyle: 'normal', fontWeight: 400, fontSize: 20, color: '#FFB507' }}>Xem chi tiết</Link>
                                 </List.Item>
@@ -157,7 +168,7 @@ const CResultsCareer = (props: Myprops) => {
                         isShow={isShowUnitCareerModal}
                         setIsShowModal={setIsShowUnitCareerModal}
                         toogle={ontoggle}
-                        clickedSpecialized = {clickedSpecialized}
+                        clickedSpecialized={clickedSpecialized}
                     />
                 </div>
             }
