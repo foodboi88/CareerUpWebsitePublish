@@ -35,45 +35,25 @@ const Home = () => {
     const home = useRef('home')
     return (
         <div>
-            <CHeader 
+            <CHeader
                 activeWhat={home}
             />
-            
+
             <div className='content'>
-                <div>
-                    <Carousel
-                        // autoplay
-                        dotPosition='bottom'
-                        draggable={true}
-                    >
-                        {/* <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
-                <div style={{backgroundColor:'#D4F6FF'}}>
+                <div className='div-advisor-content' style={{ flexDirection: 'row' }}>
                     <div>
-                    Tư vấn ngành nghề
-                    Nhanh và hiệu quả
+                        <h1 className='title-advisor-intro' style={{ padding: '50px 150px 0px' }}>Tư vấn ngành nghề</h1>
+                        <h1 className='title-advisor-intro color-title' style={{ padding: '0px 150px', width: 1050 }}>Nhanh và hiện quả</h1>
+                        
+                        <div style={{ display: 'flex', width: '30%', margin: '30px 150px' }}>
+                            <Button style={{width: '200px'}} className='btn-choose-advisor2' type='primary'
+                                onClick={() => {
+                                }}
+                            >Đăng ký ngay</Button>
+                        </div>
                     </div>
-                    <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit natus sed facilis</div>
-                    <div>
-                    <MDBBtn rounded className='mx-2' color='info'>Đăng ký</MDBBtn>
+                    <div className='intro-home-image'>
                     </div>
-                </div>
-                <div style={{backgroundColor:'#D4F6FF'}}>
-                    <img src={HomeImage1}/>
-                </div>
-                </div> */}
-                        <div>
-                            <img style={{width:"100%"}} src={Carousel1}/>
-                        </div>
-                        <div>
-                            <h3 style={contentStyle}>2</h3>
-                        </div>
-                        <div>
-                            <h3 style={contentStyle}>3</h3>
-                        </div>
-                        <div>
-                            <h3 style={contentStyle}>4</h3>
-                        </div>
-                    </Carousel>
                 </div>
                 <div style={{ marginTop: '100px', marginLeft: '300px', marginRight: '300px' }}>
                     <div style={{ marginBottom: '35px' }}>
@@ -86,35 +66,35 @@ const Home = () => {
                             headStyle={{ borderRadius: '12px' }}
                             style={{ width: 430, height: 564, borderRadius: '12px' }}
                             cover={<img style={{ borderRadius: '12px' }} alt="example" src={Function1} />}
-                            onClick={()=>{
-                                const res= AdvisorApi.getQuestions()
+                            onClick={() => {
+                                const res = AdvisorApi.getQuestions()
                                 console.log(res)
                             }}
                         >
-                            <p style={{fontWeight: 600,fontSize: '20px'}}>Tư vấn trực tiếp cùng chuyên gia</p>
+                            <p style={{ fontWeight: 600, fontSize: '20px' }}>Tư vấn trực tiếp cùng chuyên gia</p>
                             <p>Trò chuyện trực tiếp cùng chuyên gia có kinh nghiệm chuyên sâu về tuyển sinh sẽ giúp bạn giải quyết triệt để các vấn đề đang gặp phải</p>
-                            <p style={{marginTop:118,fontWeight: 500, fontSize: 20, color: '#FFB507'}}>Trải nghiệm ngay</p>
+                            <p style={{ marginTop: 118, fontWeight: 500, fontSize: 20, color: '#FFB507' }}>Trải nghiệm ngay</p>
 
                         </Card>
                         <Card
                             hoverable
                             style={{ width: 430, height: 564, borderRadius: '12px' }}
-                            cover={<img style={{ borderRadius: '12px', height:231 }} alt="example" src={Function2} />}
+                            cover={<img style={{ borderRadius: '12px', height: 231 }} alt="example" src={Function2} />}
                         >
-                            <p style={{fontWeight: 600,fontSize: '20px'}}>Tư vấn nguyện vọng phù hợp với Trắc nghiệm nghề nghiệp ILO</p>
+                            <p style={{ fontWeight: 600, fontSize: '20px' }}>Tư vấn nguyện vọng phù hợp với Trắc nghiệm nghề nghiệp ILO</p>
                             <p>Bạn chưa xác định được bản thân phù hợp với nguyện vọng nào ư? Đừng lo, chức năng này ra đời là dành cho bạn đó</p>
-                            <p style={{marginTop: 87,fontWeight: 500, fontSize: 20, color: '#FFB507'}}>Trải nghiệm ngay</p>
+                            <p style={{ marginTop: 87, fontWeight: 500, fontSize: 20, color: '#FFB507' }}>Trải nghiệm ngay</p>
 
                         </Card>
                         <Card
                             hoverable
                             style={{ width: 430, height: 564, borderRadius: '12px' }}
-                            cover={<img style={{ borderRadius: '12px', height:231 }} alt="example" src={Function3} />}
-                            
+                            cover={<img style={{ borderRadius: '12px', height: 231 }} alt="example" src={Function3} />}
+
                         >
-                            <p style={{fontWeight: 600,fontSize: '20px'}}>Tư vấn nguyện vọng có chương trình đào tạo tương đồng bằng công nghệ AI</p>
+                            <p style={{ fontWeight: 600, fontSize: '20px' }}>Tư vấn nguyện vọng có chương trình đào tạo tương đồng bằng công nghệ AI</p>
                             <p>Bạn lo lắng mức điểm của mình khó đỗ được nguyện vọng mình mong muốn? CareerUp sẽ đưa ra các nguyện vọng có chương trình đào tạo tương tự với mức điểm mềm hơn để giúp các bạn có thể tiếp tục theo đuổi đam mê của mình</p>
-                            <p style={{fontWeight: 500, fontSize: 20, color: '#FFB507'}}>Trải nghiệm ngay</p>
+                            <p style={{ fontWeight: 500, fontSize: 20, color: '#FFB507' }}>Trải nghiệm ngay</p>
                         </Card>
                     </div>
 
@@ -138,7 +118,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div>
-                    <div style={{ padding: 100}}>
+                    <div style={{ padding: 100 }}>
                         <div style={{ display: 'flex', justifyContent: 'flex-end', background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontWeight: '500', fontSize: '32px', lineHeight: '150%' }}>Nhóm</div>
                         <div style={{ display: 'flex', justifyContent: 'flex-end', fontWeight: '600', fontSize: '48px', lineHeight: '150%', marginBottom: '30px' }}>Phát triển dự án</div>
                         <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
@@ -147,7 +127,7 @@ const Home = () => {
                                     imgSrc={DeveloperHC}
                                     name="Hoang Chu"
                                     role='AI Developer'
-                                    
+
                                 />
                                 <CParallelogramCard
                                     imgSrc={DeveloperHD}
