@@ -1,10 +1,10 @@
 
-import { Avatar, List, message } from 'antd';
+import { Avatar, List, message, Rate } from 'antd';
 import Link from 'antd/lib/typography/Link';
 import VirtualList from 'rc-virtual-list';
 import { useEffect, useState } from 'react';
 import AdvisorApi from '../api/Advisor/advisor.api';
-import { Personality, personalityLst, Specialized, suitablePersonality } from '../common/define-type';
+import { getSpecializedOfSchoolResponse, Personality, personalityLst, Specialized, suitablePersonality, Unit } from '../common/define-type';
 import resulstCareerImg from '../images/results_career_img.png';
 import { useSelectorRoot } from '../redux/store';
 import CCareerDetailModel from './CCareerDetailModel';
@@ -16,56 +16,18 @@ interface test {
     career: string
 }
 
-const data = [
-    {
-        key: 1,
-        career: '1. Bác sĩ Y khoa'
-    },
-    {
-        key: 2,
-        career: '2. Y tá và hộ sinh'
-    },
-    {
-        key: 3,
-        career: '3. Bác sĩ Y học cổ truyền '
-    },
-    {
-        key: 4,
-        career: '4. Nha Sĩ'
-    },
-    {
-        key: 5,
-        career: '5. Chuyên gia phục hồi chức năng nghề nghiệp'
-    },
-    {
-        key: 6,
-        career: '6. Chuyên gia vật lý trị liệu'
-    },
-    {
-        key: 7,
-        career: '7. Chuyên gia dinh dưỡng'
-    },
-    {
-        key: 8,
-        career: '8. Bác sĩ thính học và trị liệu ngôn ngữ'
-    },
-    {
-        key: 9,
-        career: '9. Bác sĩ thính học và trị liệu ngôn ngữ'
-    },
-    {
-        key: 10,
-        career: '10. Giáo viên mầm non'
-    },
-
-
-]
-
 interface Myprops {
     specializedLst: suitablePersonality[],
     setOpenUniAdvisor: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+interface DataType {
+    key: number;
+    college: string;
+    score: number;
+    ranking: any;
+}
+let dataSource: DataType[] = [];
 const CResultsCareer = (props: Myprops) => {
     // const { specializedLst} = useSelectorRoot(state => state.advisor);
 
@@ -81,7 +43,8 @@ const CResultsCareer = (props: Myprops) => {
 
     const [suitableCareer, setSuitableCareer] = useState<suitablePersonality>()
     const [clickedSpecialized, setClickedSpecialized] = useState<Specialized>()
-
+    const [unitLst, setUnitLst] = useState<Unit[]>([])
+    const [specializedOfSchoolLst, setSpecializedOfSchoolLst] = useState<getSpecializedOfSchoolResponse[]>([])
     useEffect(() => {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
@@ -116,17 +79,36 @@ const CResultsCareer = (props: Myprops) => {
 
     }
 
-    const onClickCareerUnit = (item: Specialized) => {
+    const onClickCareerUnit = async (item: Specialized) => {
         setClickedSpecialized(item);
         console.log(item);
         setIsShowUnitCareerModal(true);
+
+        await AdvisorApi.getUnit().then((data: any) => {
+            console.log(data.data)
+            // dispatch(sendAnswersRequest(data.data))
+            setUnitLst(data.data);
+        })
     }
 
     const ontoggle = (e: any) => {
         setIsShow(e);
+
     }
 
-
+    const onGetSpecializedOfSchoolLst = (e: getSpecializedOfSchoolResponse[]) => {
+        setSpecializedOfSchoolLst(e);
+        if (e) {
+            for (let i = 0; i < e.length; i++) {
+                dataSource.push({
+                    key: i + 1,
+                    college: e[i].school.school_name,
+                    score: e[i].units[0].mark_units[0].mark,
+                    ranking: <Rate disabled defaultValue={5} />,
+                })
+            }
+        }
+    }
 
     // useEffect(()=>{
     //     let newPersonality: Personality = personality
@@ -155,7 +137,7 @@ const CResultsCareer = (props: Myprops) => {
                             {(item: Specialized, index) => (
                                 <List.Item key={item.id}>
                                     <List.Item.Meta
-                                        title={<Link onClick={() => onClickCareerUnit(item)} style={{ fontSize: 20 }}>{index+1}. {item.specialized_name}</Link>}
+                                        title={<Link onClick={() => onClickCareerUnit(item)} style={{ fontSize: 20 }}>{index + 1}. {item.specialized_name}</Link>}
                                     />
                                     <Link onClick={onClickCareerDetail} style={{ fontStyle: 'normal', fontWeight: 400, fontSize: 20, color: '#FFB507' }}>Xem chi tiết</Link>
                                 </List.Item>
@@ -169,13 +151,19 @@ const CResultsCareer = (props: Myprops) => {
                     <CUnitCareerModel
                         isShow={isShowUnitCareerModal}
                         setIsShowModal={setIsShowUnitCareerModal}
-                        setOpenUniAdvisor = {props.setOpenUniAdvisor}
+                        setOpenUniAdvisor={props.setOpenUniAdvisor}
                         toogle={ontoggle}
+                        onGetSpecializedOfSchoolLst={onGetSpecializedOfSchoolLst}
                         clickedSpecialized={clickedSpecialized}
+                        specializedLst={suitableCareer ? suitableCareer.specializeds : []}
+                        unitLst={unitLst}
                     />
                 </div>
             }
-            {!isShow && <CCollegeAdvisor />}
+            {!isShow && <CCollegeAdvisor
+                specializedOfSchoolLst={specializedOfSchoolLst}
+                dataSource={dataSource}
+            />}
 
         </div >
     )
