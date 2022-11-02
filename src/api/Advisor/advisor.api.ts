@@ -2,7 +2,7 @@
 import HttpClient from "../http-client";
 import SYSTEM_CONSTANTS from "../../common/constants";
 import { ICreateMeetingsReq, IDataObjectResponse, IDataResponse, IGetMeetingsReq, IMeetings, IMemberInMeetings, IMemberWithRole, ITask } from "../../common/define-meetings";
-import { GetAllMemberReq, GetAllMembersWithRoleReq, GetAllTaskReq, Question, QuestionRequest, Specialized, testResponse } from "../../common/define-type";
+import { GetAllMemberReq, GetAllMembersWithRoleReq, GetAllTaskReq, Question, QuestionRequest, Specialized, SpecializedOfSchool, testResponse } from "../../common/define-type";
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, map } from "rxjs/operators";
 import axios from "axios";

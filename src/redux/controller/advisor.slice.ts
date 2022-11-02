@@ -196,82 +196,82 @@ const advisorSlice = createSlice({
 //         }),
 //     );
 
-const getSpecializedOfSchool$: RootEpic = action$ =>
-    action$.pipe(filter(getSpecializedRequest.match),
-        switchMap(() => {
-            return AdvisorApi.getSpecialized().pipe(
-                mergeMap((res: any) => {
-                    return [advisorSlice.actions.getSpecializedSuccess(res.data.items)];
-                }),
-                catchError(err => {
-                    console.error(err)
-                    return [advisorSlice.actions.getSpecializedFail(false)]
-                }),
-            );
-        }),
-    );
-const getSpecializedOfSchoolById$: RootEpic = action$ =>
-    action$.pipe(filter(getSpecializedByIdRequest.match),
-        switchMap((re: any) => {
-            console.log(re);
-            return AdvisorApi.getSpecializedById(re.payload).pipe(
-                mergeMap((res: any) => {
-                    return [advisorSlice.actions.getSpecializedByIdSuccess(res.data)];
-                }),
-                catchError(err => {
-                    console.error(err)
-                    return [advisorSlice.actions.getSpecializedByIdFailed(false)]
-                }),
-            );
-        }),
-    );
+// const getSpecializedOfSchool$: RootEpic = action$ =>
+//     action$.pipe(filter(getSpecializedRequest.match),
+//         switchMap(() => {
+//             return AdvisorApi.getSpecialized().pipe(
+//                 mergeMap((res: any) => {
+//                     return [advisorSlice.actions.getSpecializedSuccess(res.data.items)];
+//                 }),
+//                 catchError(err => {
+//                     console.error(err)
+//                     return [advisorSlice.actions.getSpecializedFail(false)]
+//                 }),
+//             );
+//         }),
+//     );
+// const getSpecializedOfSchoolById$: RootEpic = action$ =>
+//     action$.pipe(filter(getSpecializedByIdRequest.match),
+//         switchMap((re: any) => {
+//             console.log(re);
+//             return AdvisorApi.getSpecializedById(re.payload).pipe(
+//                 mergeMap((res: any) => {
+//                     return [advisorSlice.actions.getSpecializedByIdSuccess(res.data)];
+//                 }),
+//                 catchError(err => {
+//                     console.error(err)
+//                     return [advisorSlice.actions.getSpecializedByIdFailed(false)]
+//                 }),
+//             );
+//         }),
+//     );
 
-const sendCareerAdvisor$: RootEpic = action$ =>
-    action$.pipe(filter(sendCareerAdvisorRequest.match),
-        switchMap((re: any) => {
-            console.log(re);
-            return AdvisorApi.sendCareerAdvisor(re).pipe(
-                mergeMap((res: any) => {
-                    console.log(res);
-                    return [advisorSlice.actions.sendCareerAdvisorSuccess(res.data.items)];
-                }),
-                catchError(err => {
-                    console.log(err)
-                    return [advisorSlice.actions.sendCareerAdvisorFail(err)]
-                }),
-            );
-        }),
-    );
+// const sendCareerAdvisor$: RootEpic = action$ =>
+//     action$.pipe(filter(sendCareerAdvisorRequest.match),
+//         switchMap((re: any) => {
+//             console.log(re);
+//             return AdvisorApi.sendCareerAdvisor(re).pipe(
+//                 mergeMap((res: any) => {
+//                     console.log(res);
+//                     return [advisorSlice.actions.sendCareerAdvisorSuccess(res.data.items)];
+//                 }),
+//                 catchError(err => {
+//                     console.log(err)
+//                     return [advisorSlice.actions.sendCareerAdvisorFail(err)]
+//                 }),
+//             );
+//         }),
+//     );
 
-const getSpecializedOfSchool$: RootEpic = action$ =>
-    action$.pipe(filter(getSpecializedRequest.match),
-        switchMap(() => {
-            return AdvisorApi.getSpecialized().pipe(
-                mergeMap((res: any) => {
-                    return [advisorSlice.actions.getSpecializedSuccess(res.data.items)];
-                }),
-                catchError(err => {
-                    console.error(err)
-                    return [advisorSlice.actions.getSpecializedFail(false)]
-                }),
-            );
-        }),
-    );
-const getSpecializedOfSchoolById$: RootEpic = action$ =>
-    action$.pipe(filter(getSpecializedByIdRequest.match),
-        switchMap((re: any) => {
-            console.log(re);
-            return AdvisorApi.getSpecializedById(re.payload).pipe(
-                mergeMap((res: any) => {
-                    return [advisorSlice.actions.getSpecializedByIdSuccess(res.data)];
-                }),
-                catchError(err => {
-                    console.error(err)
-                    return [advisorSlice.actions.getSpecializedByIdFailed(false)]
-                }),
-            );
-        }),
-    );
+// const getSpecializedOfSchool$: RootEpic = action$ =>
+//     action$.pipe(filter(getSpecializedRequest.match),
+//         switchMap(() => {
+//             return AdvisorApi.getSpecialized().pipe(
+//                 mergeMap((res: any) => {
+//                     return [advisorSlice.actions.getSpecializedSuccess(res.data.items)];
+//                 }),
+//                 catchError(err => {
+//                     console.error(err)
+//                     return [advisorSlice.actions.getSpecializedFail(false)]
+//                 }),
+//             );
+//         }),
+//     );
+// const getSpecializedOfSchoolById$: RootEpic = action$ =>
+//     action$.pipe(filter(getSpecializedByIdRequest.match),
+//         switchMap((re: any) => {
+//             console.log(re);
+//             return AdvisorApi.getSpecializedById(re.payload).pipe(
+//                 mergeMap((res: any) => {
+//                     return [advisorSlice.actions.getSpecializedByIdSuccess(res.data)];
+//                 }),
+//                 catchError(err => {
+//                     console.error(err)
+//                     return [advisorSlice.actions.getSpecializedByIdFailed(false)]
+//                 }),
+//             );
+//         }),
+//     );
 
 // const setHeaderStatus$: RootEpic = action$ =>
 //     action$.pipe(
@@ -289,8 +289,8 @@ export const AdvisorEpics = [
     // getSpecialized$,
     // getSpecializedById$,
     // sendCareerAdvisor$,
-    getSpecializedOfSchool$,
-    getSpecializedOfSchoolById$,
+    // getSpecializedOfSchool$,
+    // getSpecializedOfSchoolById$,
 ];
 export const {
     sendAnswersRequest,
@@ -300,6 +300,6 @@ export const {
     getSpecializedOfSchoolRequest,
     getSpecializedOfSchoolByIdRequest
 
-    sendAnswersSuccess
+    // sendAnswersSuccess
 } = advisorSlice.actions;
 export const advisorReducer = advisorSlice.reducer;
