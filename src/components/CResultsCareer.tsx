@@ -106,9 +106,7 @@ const CResultsCareer = (props: Myprops) => {
         }
     }, [])
 
-    useEffect(() => {
-        console.log(suitableCareer?.specializeds);
-    })
+
 
     const onClickCareerDetail = () => {
         setIsShowDetailCareerModal(true);
@@ -116,7 +114,8 @@ const CResultsCareer = (props: Myprops) => {
     }
 
     const onClickCareerUnit = (item: Specialized) => {
-        // setClickedSpecialized(item);
+        setClickedSpecialized(item);
+        console.log(item);
         setIsShowUnitCareerModal(true);
     }
 
@@ -153,7 +152,7 @@ const CResultsCareer = (props: Myprops) => {
                             {(item: Specialized, index) => (
                                 <List.Item key={item.id}>
                                     <List.Item.Meta
-                                        title={<Link onClick={() => onClickCareerUnit(item)} style={{ fontSize: 20 }}>{index+1}. {item.specialized_name}</Link>}
+                                        title={<Link onClick={() => onClickCareerUnit(item)} style={{ fontSize: 20 }}>{index + 1}. {item.specialized_name}</Link>}
                                     />
                                     <Link onClick={onClickCareerDetail} style={{ fontStyle: 'normal', fontWeight: 400, fontSize: 20, color: '#FFB507' }}>Xem chi tiết</Link>
                                 </List.Item>
