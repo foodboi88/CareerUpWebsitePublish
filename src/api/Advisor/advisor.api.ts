@@ -40,16 +40,8 @@ export default class AdvisorApi {
         method: 'get',
         url: `http://localhost:8000/specialized_of_school?specialized_id=${id}&mark=${mark}&unit_names=${unit_names}\n`,
         headers: { },
-        data : ''
       };
-      
-      axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      return axios(config)
     }
 
     static getSpecializedOfSchoolById(specializedOfSchoolId: string): Observable<IDataResponse<SpecializedOfSchool> | null> {
@@ -72,6 +64,24 @@ export default class AdvisorApi {
           console.log(error);
         });
           
+    }
+
+    static getUnit(): any {
+        var config = {
+          method: 'get',
+          url: 'http://localhost:8000/unit?limit=149&offset=0',
+          headers: { },
+        };
+        return axios(config)
+    }
+
+    static getSpecialized(): any {
+        var config = {
+          method: 'get',
+          url: 'http://localhost:8000/specialized?limit=1000&offset=0',
+          headers: { },
+        };
+        return axios(config)
     }
     // static getTasksByName(params: String): Observable<IDataResponse<ITask> | null> {
     //     const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.TASK.GET_ALL}?name=${params}`;

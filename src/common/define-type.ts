@@ -270,8 +270,8 @@ export interface Subject {
 
 export interface Unit {
     id: string,
-    name: string
-    subjectId: string,
+    unit_name: string
+    subjects_id: string,
 }
 export interface CareerAdvisor {
     id: string,
@@ -368,7 +368,7 @@ export interface getSpecializedOfSchoolResponse{
         school_description: string,
         school_logo: string,
         school_number_of_student: string,
-        school_rank: 0,
+        school_rank: number,
         area_id: string
     },
     units: [
@@ -383,7 +383,7 @@ export interface getSpecializedOfSchoolResponse{
             {
             id: string,
             mark_unit_name: string,
-            mark: 0
+            mark: number,
             }
         ]
         }
