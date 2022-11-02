@@ -1,9 +1,11 @@
 import { MDBBtn } from 'mdb-react-ui-kit';
 import React, { useEffect, useState } from 'react';
+import LoadingOverlay from 'react-loading-overlay';
 import { useHistory } from 'react-router';
 import AdvisorApi from '../api/Advisor/advisor.api';
 import { Question, QuestionRequest, suitablePersonality } from '../common/define-type';
 import { useDispatchRoot } from '../redux/store';
+import CLoadingIcon from './CLoadingIcon';
 import CResultsCareer from './CResultsCareer';
 
 interface MyProps {
@@ -1679,6 +1681,7 @@ const CCareerAdvisor = (props: MyProps) => {
     const [specializedLst,setSpecializedLst] = useState<suitablePersonality[]>([]);
 
     const [showBtnResult, setShowBtnResult] = useState(false);
+    const [showLoading,setShowLoading] = useState(false);
     const [isShowResultCareer, setIsShowResultCareer] = useState(false);
     const [questionRequest,setQuestionRequest] = useState<QuestionRequest[]|null>()
 
@@ -1695,6 +1698,7 @@ const CCareerAdvisor = (props: MyProps) => {
     }, [currentChoice1, currentChoice2, currentChoice3, currentChoice4, currentChoice5])
 
     const handleCaculateResult = async () =>{
+        setShowLoading(true);
         let questionRequest: any[] = [];
         
         questionRequest = questionLst.map((item,index)=>
@@ -1726,6 +1730,7 @@ const CCareerAdvisor = (props: MyProps) => {
         if(specializedLst!==null && specializedLst!==undefined && specializedLst?.length>0){
             setShowQuestion(false)
             setShowBtnResult(false)
+            setShowLoading(false);
             setIsShowResultCareer(true)
         }
         console.log(specializedLst);
@@ -1735,7 +1740,9 @@ const CCareerAdvisor = (props: MyProps) => {
 
     return (
         <div>
-        {   showQuestion &&
+            
+
+            {   showQuestion &&
             <div className='div-career-advisor-question' style={{width:"100%",
                 display: "flex",
                 justifyContent: "center",
@@ -1763,17 +1770,20 @@ const CCareerAdvisor = (props: MyProps) => {
                                     {
                                         questionLst[currentQuestionIndex-1].choiceLst.map(item => (
                                             <div style={{ display: 'flex', padding: 20 }}>
-                                                <input
-                                                    onChange={()=>{
-                                                        questionLst[currentQuestionIndex-1].pickedChoice = item.score;
-                                                        setCurrentChoice1(item.content);
-                                                    }}
-                                                    checked={item.score === questionLst[currentQuestionIndex-1].pickedChoice}
-                                                    name = {questionLst[currentQuestionIndex-1].content}
-                                                    value={item.score} className="form-check-input"
-                                                    type="checkbox"
-                                                />
-                                                <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
+                                                
+                                                <label style={{ fontSize: 20 }} className="form-check-label" >
+                                                    <input
+                                                        onChange={()=>{
+                                                            questionLst[currentQuestionIndex-1].pickedChoice = item.score;
+                                                            setCurrentChoice1(item.content);
+                                                        }}
+                                                        checked={item.score === questionLst[currentQuestionIndex-1].pickedChoice}
+                                                        name = {questionLst[currentQuestionIndex-1].content}
+                                                        value={item.score} className="form-check-input"
+                                                        type="checkbox"
+                                                    />
+                                                    {item.content}
+                                                </label>
 
                                             </div>
                                         ))
@@ -1788,6 +1798,8 @@ const CCareerAdvisor = (props: MyProps) => {
                                     {
                                         questionLst[currentQuestionIndex].choiceLst.map(item => (
                                             <div style={{ display: 'flex', padding: 20 }}>
+                                                
+                                                <label style={{ fontSize: 20 }} className="form-check-label" >
                                                 <input
                                                     onChange={()=>{
                                                         questionLst[currentQuestionIndex].pickedChoice = item.score;
@@ -1798,7 +1810,8 @@ const CCareerAdvisor = (props: MyProps) => {
                                                     value={item.content} className="form-check-input"
                                                     type="checkbox"
                                                 />
-                                                <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
+                                                    {item.content}
+                                                </label>
 
                                                                 </div>
                                                             ))
@@ -1813,6 +1826,8 @@ const CCareerAdvisor = (props: MyProps) => {
                                     {
                                         questionLst[currentQuestionIndex+1].choiceLst.map(item => (
                                             <div style={{ display: 'flex', padding: 20 }}>
+                                                
+                                                <label style={{ fontSize: 20 }} className="form-check-label" >
                                                 <input
                                                     onChange={()=>{
                                                         questionLst[currentQuestionIndex+1].pickedChoice = item.score;
@@ -1822,8 +1837,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                                     name = {questionLst[currentQuestionIndex+1].content}
                                                     value={item.content} className="form-check-input"
                                                     type="checkbox"
-                                                />
-                                                <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
+                                                />{item.content}</label>
 
                                                                 </div>
                                                             ))
@@ -1838,6 +1852,8 @@ const CCareerAdvisor = (props: MyProps) => {
                                     {
                                         questionLst[currentQuestionIndex+2].choiceLst.map(item => (
                                             <div style={{ display: 'flex', padding: 20 }}>
+                                                
+                                                <label style={{ fontSize: 20 }} className="form-check-label" >
                                                 <input
                                                     onChange={()=>{
                                                         questionLst[currentQuestionIndex+2].pickedChoice = item.score;
@@ -1847,8 +1863,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                                     name = {questionLst[currentQuestionIndex+2].content}
                                                     value={item.content} className="form-check-input"
                                                     type="checkbox"
-                                                />
-                                                <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
+                                                />{item.content}</label>
 
                                                                 </div>
                                                             ))
@@ -1863,7 +1878,8 @@ const CCareerAdvisor = (props: MyProps) => {
                                     {
                                         questionLst[currentQuestionIndex+3].choiceLst.map(item => (
                                             <div style={{ display: 'flex', padding: 20 }}>
-                                                <input
+                                                
+                                                <label style={{ fontSize: 20 }} className="form-check-label" ><input
                                                     onChange={()=>{
                                                         questionLst[currentQuestionIndex+3].pickedChoice = item.score;
                                                         setCurrentChoice5(item.content);
@@ -1872,8 +1888,7 @@ const CCareerAdvisor = (props: MyProps) => {
                                                     name = {questionLst[currentQuestionIndex+3].content}
                                                     value={item.content} className="form-check-input"
                                                     type="checkbox"
-                                                />
-                                                <label style={{ fontSize: 20 }} className="form-check-label" >{item.content}</label>
+                                                />{item.content}</label>
 
                                                                 </div>
                                                             ))
@@ -2016,7 +2031,7 @@ const CCareerAdvisor = (props: MyProps) => {
                         
 
                         {
-                            // showBtnResult && 
+                            showBtnResult && 
                             <div style={{
                                 width: "100%",
                                 display: "flex",
@@ -2044,6 +2059,11 @@ const CCareerAdvisor = (props: MyProps) => {
                 setOpenUniAdvisor= {props.showUniAdvisor}
                 specializedLst= {specializedLst}
             />
+        }
+
+        {
+            showLoading && 
+            <CLoadingIcon/>
         }
         </div>
     )

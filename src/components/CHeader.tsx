@@ -9,7 +9,11 @@ import {Link} from 'react-router-dom'
 import Advisor from '../pages/advisor/Advisor'
 import AdvisorApi from '../api/Advisor/advisor.api'
 
-const CHeader = () => {
+interface Myprops{
+  activeWhat: React.MutableRefObject<string>
+}
+
+const CHeader = (props: Myprops) => {
   const history = useHistory();
   const dispatch = useDispatchRoot();
   const { headerState } = useSelectorRoot(state => state.header);
@@ -29,13 +33,15 @@ const CHeader = () => {
 
           // console.log(process.env)
           
-        }}><a href='/home' className='hearder-link'>Trang chủ</a></div>
+        }}><a href='/home' className={`hearder-link ${props.activeWhat.current==='home'? 'hearder-link-active': ''}`}>Trang chủ</a></div>
         <div style={{marginLeft:'48px'}} onClick={()=> {
           dispatch(setHeaderStatusRequest(2))
           
 
-        }}><a href='/advisor' className='hearder-link' >Tư vấn</a></div>
-        <div style={{marginLeft:'48px'}} onClick={()=> history.push('/ask_expert')}><a href='/ask_expert' className='hearder-link' >Hỏi chuyên gia</a></div>
+        }}><a href='/advisor' className={`hearder-link ${props.activeWhat.current==='advisor'? 'hearder-link-active': ''}`} >Tư vấn</a></div>
+        <div style={{marginLeft:'48px'}} onClick={()=> history.push('/ask_expert')}>
+          <a href='/ask_expert' className={`hearder-link ${props.activeWhat.current==='askExpert'? 'hearder-link-active': ''}`} >Hỏi chuyên gia</a>
+        </div>
         <div style={{marginLeft:'48px'}}><a className='hearder-link' >Về chúng tôi</a></div>
       </div>
       <div style={{display: 'flex', flexDirection: 'row', marginRight:'136px'}}>

@@ -1,5 +1,5 @@
 import { Button } from 'antd'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import CCareerAdvisor from '../../components/CCareerAdvisor'
 import CCollegeAdvisor from '../../components/CCollegeAdvisor'
 import CFooter from '../../components/CFooter'
@@ -7,13 +7,16 @@ import CHeader from '../../components/CHeader'
 import CUniAdvisor from '../../components/CUniAdvisor'
 
 const Advisor = () => {
+    const advisorActive = useRef('advisor')
     const [confirm1Show, setConfirm1Show] = useState(true);
     const [confirm2Show, setConfirm2Show] = useState(false);
     const [careerAdvisorShow, setCareerAdvisorShow] = useState(false)
     const [uniAdvisorShow, setUniAdvisorShow] = useState(false)
     return (
         <div>
-            <CHeader />
+            <CHeader 
+                activeWhat={advisorActive}
+            />
             <div className='content'>
                 {
                     confirm1Show &&
@@ -71,7 +74,6 @@ const Advisor = () => {
                     <CCollegeAdvisor />
                 }
                 </div>
-            
             <CFooter />
         </div>
     )

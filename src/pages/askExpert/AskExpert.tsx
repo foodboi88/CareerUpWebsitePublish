@@ -1,7 +1,7 @@
 import { Button, Card, Image, List } from 'antd'
 import Meta from 'antd/lib/card/Meta';
 import { MDBBtn } from 'mdb-react-ui-kit';
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import CFooter from '../../components/CFooter'
 import CHeader from '../../components/CHeader'
 import HomeImage1 from '../../images/HomeImage1.png'
@@ -187,10 +187,13 @@ const responsive = {
 };
 
 const AskExpert = () => {
-
+    const askExpert = useRef('askExpert')
     return (
         <div>
-            <CHeader />
+            <CHeader 
+                activeWhat={askExpert}
+            />
+            
             <div className='div-video-ask-expert'>
                 <div className='d-v-ask-expert-content'>
                     <ReactPlayer

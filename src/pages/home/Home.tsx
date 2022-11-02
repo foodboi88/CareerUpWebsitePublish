@@ -1,7 +1,7 @@
 import { Button, Card, Carousel } from 'antd'
 import Meta from 'antd/lib/card/Meta';
 import { MDBBtn } from 'mdb-react-ui-kit';
-import React from 'react'
+import React, { useRef } from 'react'
 import CFooter from '../../components/CFooter'
 import CHeader from '../../components/CHeader'
 import HomeImage1 from '../../images/HomeImage1.png'
@@ -32,9 +32,13 @@ const contentStyle: React.CSSProperties = {
 
 
 const Home = () => {
+    const home = useRef('home')
     return (
         <div>
-            <CHeader />
+            <CHeader 
+                activeWhat={home}
+            />
+            
             <div className='content'>
                 <div>
                     <Carousel
