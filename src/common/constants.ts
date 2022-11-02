@@ -40,7 +40,12 @@ const SYSTEM_CONSTANTS = {
         SPECIALIZED: {
             GET_ALL: 'specialized/getAll',
             GET_MEETING_BY_ID: 'specialized/{specializedId}'
-        }
+        },
+        SPECIALIZED_OF_SCHOOL: {
+            GET_ALL: 'specializedOfSchool/getAll',
+            GET_SPECIALIZED_OF_SCHOOL_BY_ID: 'specializedOfSchool/{specializedOfSchoolId}'
+        },
+
     },
     IMAGE: {
         IMAGE_HOTEL: "dms/Document/file"

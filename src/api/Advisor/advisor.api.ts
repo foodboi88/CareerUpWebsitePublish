@@ -35,6 +35,18 @@ export default class AdvisorApi {
             map((res) => res as IDataResponse<SpecializedOfSchool[]> || null, catchError((error) => new Observable)));
     }
 
+    static getSpecializedOfSchool(): Observable<IDataResponse<SpecializedOfSchool[]> | null> {
+        const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.SPECIALIZED_OF_SCHOOL.GET_ALL}`;
+        return HttpClient.get(api).pipe(
+            map((res) => res as IDataResponse<SpecializedOfSchool[]> || null, catchError((error) => new Observable)));
+    }
+
+    static getSpecializedOfSchoolById(specializedOfSchoolId: string): Observable<IDataResponse<SpecializedOfSchool> | null> {
+        const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.SPECIALIZED_OF_SCHOOL.GET_SPECIALIZED_OF_SCHOOL_BY_ID.replace('{specializedOfSchoolId}', specializedOfSchoolId)}`;
+        return HttpClient.get(api).pipe(
+            map((res) => res as IDataResponse<SpecializedOfSchool> || null, catchError((error) => new Observable)));
+
+    }
     // static getTasks(params: GetAllTaskReq): Observable<IDataResponse<ITask> | null> {
     //     const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.TASK.GET_ALL}?size=${params.size}${params.name ? `&name=${params.name}` : ''}`;
     //     return HttpClient.get(api).pipe(
