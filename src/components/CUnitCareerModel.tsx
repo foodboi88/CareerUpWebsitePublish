@@ -10,15 +10,22 @@ interface MyProps {
     clickedSpecialized?: Specialized
 }
 
-const CUnitCareerModel = ({ isShow, setIsShowModal, toogle }: MyProps) => {
+const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized}: MyProps) => {
 
     const [isShowCollegeAdvisor, setIsShowDetailCareerModal] = useState<boolean>(false);
     const { Option } = Select;
     const [score, setScore] = useState<String>();
     const [combination, setCombination] = useState<String[]>();
-    const [career, setCareer] = useState<String[]>();
-
+    const [career, setCareer] = useState<String>();
     const [checkButtonSubmitted, setCheckButtonSubmitted] = useState<boolean>(false);
+    const [clickedSpecializedName, setClickedSpecializedName] = useState<string>('');
+
+    useEffect(() => {
+        if (clickedSpecialized) {
+            console.log(clickedSpecialized.specialized_name);
+            setClickedSpecializedName(clickedSpecialized.specialized_name)
+        }
+    })
 
     useEffect(() => {
         if (!career || !score || !combination || combination.length == 0)
@@ -30,18 +37,23 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle }: MyProps) => {
     const handleChangeCombination = (value: string[]) => {
         setCombination(value);
     };
-    const handleChangeCareer = (value: string[]) => {
+    const handleChangeCareer = (value: string) => {
         setCareer(value);
     };
+    const handleOnCancel = () => {
+        setCombination([]);
+        setCareer('');
+        setIsShowModal(!isShow)
+    }
     return (
         <div >
             <Modal
                 className='career-advisor-modal unit-career-modal'
                 style={{ width: '100%' }}
-                visible={isShow}
+                open={isShow}
                 footer={false}
                 closable={false}
-                onCancel={() => setIsShowModal(!isShow)}
+                onCancel={handleOnCancel}
             >
                 <div>
                     <div className='career-advisor-modal-title' style={{ display: 'flex', justifyContent: 'end' }}>
@@ -94,17 +106,22 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle }: MyProps) => {
                                 label="Ngành: "
                                 name="career"
                                 rules={[{ required: true, message: 'Vui lòng chọn ngành' }]}
+                                initialValue={clickedSpecialized ? clickedSpecialized.specialized_name : null}
                             >
                                 <Select
                                     className='career-section'
                                     style={{ width: 400, borderRadius: 12 }}
                                     placeholder="Chọn ngành"
                                     onChange={handleChangeCareer}
+                                    // disabled={clickedSpecialized ? true : false}
+                                    // defaultValue={clickedSpecialized ? clickedSpecialized.specialized_name   : null}
+                                    // defaultValue={clickedSpecializedName ? clickedSpecializedName : null}
+                                    value={clickedSpecialized ? clickedSpecialized.specialized_name : null}
                                 >
-                                    <Option value="CNTT">Công nghệ thông tin</Option>
-                                    <Option value="CNDPT">Công nghệ đa phương tiện</Option>
+                                    <Option value={clickedSpecialized ? clickedSpecialized.specialized_name : null} selected={true}>{clickedSpecialized ? clickedSpecialized.specialized_name : null}</Option>
+                                    {/* <Option value="CNDPT">Công nghệ đa phương tiện</Option>
                                     <Option value="TTĐPT">Truyền thông đa phương tiện</Option>
-                                    <Option value="MKT">Marketing</Option>
+                                    <Option value="MKT">Marketing</Option> */}
                                 </Select>
                             </Form.Item>
                             <Form.Item >

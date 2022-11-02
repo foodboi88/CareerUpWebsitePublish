@@ -116,7 +116,8 @@ const CResultsCareer = (props: Myprops) => {
     }
 
     const onClickCareerUnit = (item: Specialized) => {
-        // setClickedSpecialized(item);
+        setClickedSpecialized(item);
+        console.log(item);
         setIsShowUnitCareerModal(true);
     }
 
