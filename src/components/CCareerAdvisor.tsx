@@ -1,10 +1,12 @@
 import { Button, Checkbox } from 'antd';
 import Link from 'antd/lib/typography/Link';
 import { MDBBtn } from 'mdb-react-ui-kit';
+import test from 'node:test';
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
-import { Question, QuestionChoice, QuestionRequest } from '../common/define-type'
-import { sendAnswersRequest } from '../redux/controller';
+import AdvisorApi from '../api/Advisor/advisor.api';
+import { Question, QuestionChoice, QuestionRequest, Specialized, suitablePersonality } from '../common/define-type'
+import { sendAnswersRequest, sendAnswersSuccess } from '../redux/controller';
 import { useDispatchRoot, useSelectorRoot } from '../redux/store';
 import CResultsCareer from './CResultsCareer';
 
@@ -1420,12 +1422,255 @@ let questionLst: Question[] = [
     // },
 ]
 
+const testArray = [
+    {
+        "question_id": 1,
+        "score": 1
+    },
+    {
+        "question_id": 2,
+        "score": 2
+    },
+    {
+        "question_id": 3,
+        "score": 4
+    },
+    {
+        "question_id": 4,
+        "score": 4
+    },
+    {
+        "question_id": 5,
+        "score": 4
+    },
+    {
+        "question_id": 6,
+        "score": 4
+    },
+    {
+        "question_id": 7,
+        "score": 1
+    },
+    {
+        "question_id": 8,
+        "score": 2
+    },
+    {
+        "question_id": 9,
+        "score": 4
+    },
+    {
+        "question_id": 10,
+        "score": 2
+    },
+    {
+        "question_id": 11,
+        "score": 1
+    },
+    {
+        "question_id": 12,
+        "score": 2
+    },
+    {
+        "question_id": 13,
+        "score": 1
+    },
+    {
+        "question_id": 14,
+        "score": 3
+    },
+    {
+        "question_id": 15,
+        "score": 4
+    },
+    {
+        "question_id": 16,
+        "score": 4
+    },
+    {
+        "question_id": 17,
+        "score": 3
+    },
+    {
+        "question_id": 18,
+        "score": 2
+    },
+    {
+        "question_id": 19,
+        "score": 4
+    },
+    {
+        "question_id": 20,
+        "score": 1
+    },
+    {
+        "question_id": 21,
+        "score": 2
+    },
+    {
+        "question_id": 22,
+        "score": 1
+    },
+    {
+        "question_id": 23,
+        "score": 4
+    },
+    {
+        "question_id": 24,
+        "score": 4
+    },
+    {
+        "question_id": 25,
+        "score": 4
+    },
+    {
+        "question_id": 26,
+        "score": 4
+    },
+    {
+        "question_id": 27,
+        "score": 1
+    },
+    {
+        "question_id": 28,
+        "score": 2
+    },
+    {
+        "question_id": 29,
+        "score": 4
+    },
+    {
+        "question_id": 30,
+        "score": 4
+    },
+    {
+        "question_id": 31,
+        "score": 1
+    },
+    {
+        "question_id": 32,
+        "score": 2
+    },
+    {
+        "question_id": 33,
+        "score": 2
+    },
+    {
+        "question_id": 34,
+        "score": 4
+    },
+    {
+        "question_id": 35,
+        "score": 1
+    },
+    {
+        "question_id": 36,
+        "score": 4
+    },
+    {
+        "question_id": 37,
+        "score": 3
+    },
+    {
+        "question_id": 38,
+        "score": 2
+    },
+    {
+        "question_id": 39,
+        "score": 4
+    },
+    {
+        "question_id": 40,
+        "score": 3
+    },
+    {
+        "question_id": 41,
+        "score": 2
+    },
+    {
+        "question_id": 42,
+        "score": 2
+    },
+    {
+        "question_id": 43,
+        "score": 1
+    },
+    {
+        "question_id": 44,
+        "score": 3
+    },
+    {
+        "question_id": 45,
+        "score": 4
+    },
+    {
+        "question_id": 46,
+        "score": 4
+    },
+    {
+        "question_id": 47,
+        "score": 3
+    },
+    {
+        "question_id": 48,
+        "score": 1
+    },
+    {
+        "question_id": 49,
+        "score": 4
+    },
+    {
+        "question_id": 50,
+        "score": 3
+    },
+    {
+        "question_id": 51,
+        "score": 2
+    },
+    {
+        "question_id": 52,
+        "score": 2
+    },
+    {
+        "question_id": 53,
+        "score": 4
+    },
+    {
+        "question_id": 54,
+        "score": 3
+    },
+    {
+        "question_id": 55,
+        "score": 2
+    },
+    {
+        "question_id": 56,
+        "score": 1
+    },
+    {
+        "question_id": 57,
+        "score": 2
+    },
+    {
+        "question_id": 58,
+        "score": 1
+    },
+    {
+        "question_id": 59,
+        "score": 3
+    },
+    {
+        "question_id": 60,
+        "score": 4
+    }
+]
+
 
 
 const CCareerAdvisor = (props: MyProps) => {    
     const history = useHistory();
     const dispatch = useDispatchRoot();
-    const { specializedLst} = useSelectorRoot(state => state.advisor);
+    // const { specializedLst} = useSelectorRoot(state => state.advisor);
 
     const [showQuestion, setShowQuestion] = useState(true);
     const [showResult, setShowResult] = useState(false);
@@ -1435,6 +1680,7 @@ const CCareerAdvisor = (props: MyProps) => {
     const [currentChoice3, setCurrentChoice3] = useState<string|null>();
     const [currentChoice4, setCurrentChoice4] = useState<string|null>();
     const [currentChoice5, setCurrentChoice5] = useState<string|null>();
+    const [specializedLst,setSpecializedLst] = useState<suitablePersonality[]>([]);
 
     const [showBtnResult, setShowBtnResult] = useState(false);
     const [isShowResultCareer, setIsShowResultCareer] = useState(false);
@@ -1452,10 +1698,12 @@ const CCareerAdvisor = (props: MyProps) => {
         else setShowBtnResult(false)
     }, [currentChoice1, currentChoice2, currentChoice3, currentChoice4, currentChoice5])
 
-    const handleCaculateResult = () =>{
-        let questionRequest = questionLst.map((item,index)=>
+    const handleCaculateResult = async () =>{
+        let questionRequest: any[] = [];
+        
+        questionRequest = questionLst.map((item,index)=>
             {
-                if(item.pickedChoice || item.id){
+                if(item.pickedChoice && item.id){
                     return {
                         question_id: parseInt(item.id),
                         score: item.pickedChoice
@@ -1463,12 +1711,30 @@ const CCareerAdvisor = (props: MyProps) => {
                 }
             }
         );
-        
-        dispatch(sendAnswersRequest(questionRequest))
-        setShowQuestion(false)
-        setShowBtnResult(false)
-        setIsShowResultCareer(true)
+
+
+        await AdvisorApi.sendAnswers(testArray).then((data: any)=>{
+            console.log(data.data)
+            // dispatch(sendAnswersRequest(data.data))
+            setSpecializedLst(data.data)
+            
+            console.log('hihi')
+
+        })
+
+         
+       
     }
+
+    useEffect(()=>{
+        if(specializedLst!==null && specializedLst!==undefined && specializedLst?.length>0){
+            setShowQuestion(false)
+            setShowBtnResult(false)
+            setIsShowResultCareer(true)
+        }
+        console.log(specializedLst);
+        
+    },[specializedLst])
     
 
     return (
@@ -1754,7 +2020,7 @@ const CCareerAdvisor = (props: MyProps) => {
                         
 
                         {
-                            showBtnResult && 
+                            // showBtnResult && 
                             <div style={{
                                 width: "100%",
                                 display: "flex",
@@ -1777,8 +2043,10 @@ const CCareerAdvisor = (props: MyProps) => {
         }
         {
             isShowResultCareer && 
-            // specializedLst && 
-            <CResultsCareer />
+            specializedLst && 
+            <CResultsCareer 
+                specializedLst= {specializedLst}
+            />
         }
         </div>
     )

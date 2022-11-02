@@ -338,3 +338,15 @@ export const personalityLst: Personality[] = [
     }
 
 ]
+
+export interface testResponse{
+    personality: string,
+    score: number,
+    branchs: Specialized
+}
+
+export interface suitablePersonality{
+    branch: Specialized[],
+    personality: string,
+    score: number
+}
