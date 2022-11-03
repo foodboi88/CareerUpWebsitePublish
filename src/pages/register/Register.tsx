@@ -11,7 +11,7 @@ import GoogleIcon from "../../images/GoogleIcon.png"
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import './style.css'
-import { LoginRequest } from '../../common/define-identity'
+import { LoginRequest, RegisterRequest } from '../../common/define-identity'
 import IdentityApi from '../../api/identity/identity.api'
 // import { LoginRequest } from 'common/define-identity';
 // import { useDispatchRoot, useSelectorRoot } from 'redux/store';
@@ -45,28 +45,9 @@ export default function Login(): JSX.Element {
         
     // } 
 
-    const onFinish = async (item: LoginRequest) => {
-        await IdentityApi.login(item).then((res: any)=>{
-            console.log(res.data.access_token)
-            localStorage.setItem('token',res.data.access_token)
-            notification.open({
-                message: 'Đăng nhập thành công rồi nhớ <3',
-                description:
-                  'Chúc bạn có trải nghiệm tư vấn nguyện vọng tốt nhất cùng CareerUp!',
-                onClick: () => {
-                  console.log('Notification Clicked!');
-                },
-              });
-              history.push('/home')
-        }).catch((err: any)=>{
-            notification.open({
-                message: 'Sai tài khoản hoặc mật khẩu',
-                // description:
-                //   'Chúc bạn có trải nghiệm tư vấn nguyện vọng tốt nhất cùng CareerUp!',
-                onClick: () => {
-                  console.log('Notification Clicked!');
-                },
-              });
+    const onFinish = async (item: RegisterRequest) => {
+        await IdentityApi.register(item).then((data: any)=>{
+
         });
       
     }
@@ -85,20 +66,36 @@ export default function Login(): JSX.Element {
                 <div>
                     <div style={{width: "220px",height: "56px",fontSize: "40px",letterSpacing: "0.5px", marginBottom:"30.6px"}}><b>Login</b></div>
                     <Form
-                        style={{marginTop:'10px'}}
-                        name="basic"
-                        initialValues={{
-                            remember: true,
-                        }}
-                        onFinish={(item)=>onFinish(item)}
-                        onFinishFailed={onFinishFailed}
-                        autoComplete="off"
-                        layout='vertical'
-                        size='large'
+                    style={{marginTop:'10px'}}
+                    name="basic"
+                    initialValues={{
+                        remember: true,
+                    }}
+                    onFinish={(item)=>onFinish(item)}
+                    onFinishFailed={onFinishFailed}
+                    autoComplete="off"
+                    layout='vertical'
+                    size='large'
                     >
                     <Form.Item
                         label="Tên tài khoản"
-                        name="username"
+                        name="user_name"
+                        // rules={[
+                        // {
+                        //     required: true,
+                        //     message: 'Vui lòng nhập email!',
+                        // },{
+                        //     type: 'email',
+                        //     message: 'Nhập đúng định dạng email!'
+                        // }
+                        // ]}
+                    >
+                        <Input style={{borderRadius: "9px", width: "458px", height: "56.99px"}}/>
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Email"
+                        name="email"
                         // rules={[
                         // {
                         //     required: true,
@@ -154,8 +151,7 @@ export default function Login(): JSX.Element {
                     </div>
                     <div style={{fontSize: "20px"}} className='center_everything'>
                         <span>Bạn chưa có tài khoản?  </span>
-                        <span>   </span>
-                        <span><a style={{color:'#2dbef7'}}> Đăng ký ngay</a></span>
+                        <span><a style={{color:'#2dbef7'}}>Đăng ký</a></span>
                     </div>
                     </div>
                 </div>

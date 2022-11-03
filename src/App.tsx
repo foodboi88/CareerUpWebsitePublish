@@ -7,9 +7,25 @@ import Advisor from './pages/advisor/Advisor';
 import CMainRouter from './components/CMainRouter';
 import './input.css'
 import store from './redux/store';
+import IdentityApi from './api/identity/identity.api';
 
 function App() {
     const [count, setCount] = useState(0)
+
+    useState(()=>{
+        const token = localStorage.getItem('token')
+        if(token) {
+            IdentityApi.getCurrentUser().then((res: any)=>{
+                console.log(res.data)
+                localStorage.setItem('userInfo',JSON.stringify(res.data))
+                console.log(localStorage.getItem('userInfo'))
+            })
+            
+        }else{
+            localStorage.removeItem('userInfo')
+
+        }
+    })
 
     return (
         <div className="App">

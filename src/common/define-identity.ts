@@ -160,18 +160,19 @@ export interface NewResponseLogin {
 }
 
 export interface LoginRequest{
-    email: string,
+    username: string,
     password: string,
     remember: boolean,
 }
 
 export interface IUser{
-    id: string,
+    user_name: string,
     email: string,
+    description: string
 }
 
 export interface RegisterRequest{
+    user_name: string
     email: string,
     password: string,
-    confirmPassword: string
 }

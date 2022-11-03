@@ -7,8 +7,10 @@ import HttpClient from "../http-client";
 import JSEncrypt from 'jsencrypt';
 import { error } from 'console';
 import { IDataResponse } from '../../common/define-meetings';
+import axios from 'axios';
+import QueryString from 'qs';
 export default class IdentityApi {
-    static host = '';
+    static host = 'http://localhost:8000';
     static encryptData(text: string, key: string) {
         const jsEncrypt = new JSEncrypt();
         jsEncrypt.setPublicKey(key)
@@ -21,18 +23,65 @@ export default class IdentityApi {
         );
     }
 
-    static login(body: LoginRequest): Observable<IDataResponse<any> | null>{
-        const api = `${IdentityApi.host}/${SYSTEM_CONSTANTS.API.IDENTITY.LOGIN}`;
-        return HttpClient.post(api, body).pipe(
-            map((res) => res as IDataResponse<IUser> || null, catchError((error) => new Observable)));
+    static login(body: LoginRequest): any{
+        console.log(body)
+       
+        // var data = QueryString.stringify({
+        //     'grant_type': '',
+        //     'username': body.username,
+        //     'password': body.password,
+        //     'scope': '',
+        //     'client_id': '',
+        //     'client_secret': '' 
+        // });
+        var data = `username=${body.username}&password=${body.password}`
+        console.log(data);
+        var config = {
+            method: 'post',
+            url: 'http://localhost:8000/auth/token',
+            headers: { 
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data : data
+        };
+
+        return axios(config)
+
     }
 
-    static register(body: RegisterRequest): Observable<IDataResponse<any> | null>{
-        const api = `${IdentityApi.host}/${SYSTEM_CONSTANTS.API.IDENTITY.REGISTER}`;
-        // console.log(body)
-        return HttpClient.post(api, body).pipe(
-            map((res) => res as IDataResponse<IUser> || null, catchError((error) => new Observable))
-        );
+    static register(body: RegisterRequest):any{
+        var data = JSON.stringify({
+            "user_name": body.user_name,
+            "email": body.email,
+            "password": body.password,
+            "description": "bla bla...."
+        });
+
+        var config = {
+            method: 'post',
+            url: 'http://localhost:8000/user',
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            data : data
+        };
+
+        return axios(config)
+        
+    }
+
+    static getCurrentUser(): any{
+        console.log((localStorage.getItem('token')))
+        var config = {
+            method: 'get',
+            url: 'http://localhost:8000/user/me',
+            headers: { 
+                'Authorization': `Bearer ${localStorage.getItem('token')}` 
+            },
+            
+        };
+
+        return axios(config)
     }
 
 //     static deparmentId(token : any): Observable<ResponseDeparment | null>{

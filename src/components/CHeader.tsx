@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import Logo from '../images/CareerUp.png'
-import {Button} from 'antd'
+import {Button, Dropdown, Menu, Switch} from 'antd'
 import { MDBBtn } from 'mdb-react-ui-kit'
 import { useHistory } from 'react-router'
 import { useDispatchRoot, useSelectorRoot } from '../redux/store'
@@ -8,20 +8,47 @@ import { setHeaderStatusRequest } from '../redux/controller'
 import {Link} from 'react-router-dom'
 import Advisor from '../pages/advisor/Advisor'
 import AdvisorApi from '../api/Advisor/advisor.api'
+import { IUser } from '../common/define-identity'
+import { NotificationOutlined, SmileOutlined, UnorderedListOutlined } from '@ant-design/icons'
 
 interface Myprops{
   activeWhat: React.MutableRefObject<string>
 }
 
+
 const CHeader = (props: Myprops) => {
   const history = useHistory();
   const dispatch = useDispatchRoot();
   const { headerState } = useSelectorRoot(state => state.header);
+  const userInfoJSON = localStorage.getItem('userInfo')
+  let userInfo: IUser;
+
+  useEffect(()=>{
+    if(userInfoJSON) userInfo = JSON.parse(userInfoJSON)
+  })
+
+  const [visible, setVisible] = useState(false);
+    const handleMenuClick = (e: any) => {
+        if (e.key === '1' || e.key === '2') {
+        setVisible(false);
+        }
+    };
+
+    // const toggle = () => {
+    //     setIsOnModal(!isOnModal);
+    // };
+
+    const handleVisibleChange = (flag: boolean) => {
+        setVisible(flag);
+    };
+
+  
 
   console.log(headerState);
+ 
   return (
-    <div className='shadow-5 header'>
-      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'136px',width:'151px',height:'54px',marginTop:'10px', marginBottom:'8px'}}
+    <div className='shadow-5 header' >
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',width:'151px',height:'54px',marginTop:'10px', marginBottom:'8px'}}
             onClick={()=> history.push('/home')}
       >
         <img src={Logo}/>
@@ -44,12 +71,98 @@ const CHeader = (props: Myprops) => {
         </div>
         <div style={{marginLeft:'48px'}}><a className='hearder-link' >Về chúng tôi</a></div>
       </div>
-      <div style={{display: 'flex', flexDirection: 'row', marginRight:'136px'}}>
-        <div style={{marginTop:'22px'}}><a href='/'>Đăng nhập</a></div>
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'17px', marginTop:'12px', marginBottom:'12px'}}>
-            <MDBBtn rounded className='mx-2' color='info'>Đăng ký</MDBBtn>
+      {
+        userInfoJSON? 
+        <div style={{display:'flex'}}>
+            <div style={{marginTop: "20px", marginRight: "15px"}}>
+              <div style={{fontSize: "15px",fontWeight:700}}>Xin chào, {JSON.parse(userInfoJSON).user_name}</div>
+              <div style={{fontSize: "10px"}}>Quotes</div>
+            </div>
+            <div style={{marginTop: "1px", marginRight: "8px"}}>
+              <Dropdown 
+                  onVisibleChange={handleVisibleChange} 
+                  visible={visible}
+                  overlay={
+                  <Menu
+                  onClick={handleMenuClick}
+                      items={[
+                      {
+                          key: '1',
+                          label: (
+                          <div>
+                              <a target="_blank" rel="noopener noreferrer" >
+                              Cài đặt tài khoản
+                              </a>
+                          </div>
+                          
+                          ),
+                      },
+                      // {
+                      //     key: '2',
+                      //     label: (
+                      //     <div>
+                      //         <a onClick={()=>{
+                      //         setIsOnModal(true);
+                      //         // history.push("/register")
+                      //         }}>
+                      //         Tạo tài khoản mới 
+                      //         </a>
+                      //     </div>
+                      //     ),
+                      // },
+                      {
+                          key: '2',
+                          label: (
+                          <div className='flex-row'>
+                              <p>
+                              Theme
+                              </p>
+                              <Switch checkedChildren="Sáng" unCheckedChildren="Tối" defaultChecked />
+                          </div>
+                          ),
+                      },
+                      {
+                          type: "divider",
+                      },
+                      {
+                          key: '3',
+                          label: (
+                          <a  onClick={()=>{
+                              localStorage.removeItem('token');
+                              localStorage.removeItem('userInfo')
+
+                              
+                              history.push('/');
+                              window.location.reload();
+                          }}>
+                              Đăng xuất
+                          </a>
+                          ),
+                      },
+                      
+                      ]}
+                  />
+                  } 
+                  placement="bottom" 
+                  arrow 
+                  trigger={["click"]}
+
+              >
+                  <div className='mr-2 mt-4 cursor-pointer' onClick={(e) => e.preventDefault()}><UnorderedListOutlined /></div>
+              </Dropdown>
+            </div>
+            
+            
         </div>
-      </div>
+        :
+        <div style={{display: 'flex', flexDirection: 'row', marginRight:'136px'}}>
+
+            <div style={{marginTop:'22px'}}><a href='/'>Đăng nhập</a></div>
+            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'17px', marginTop:'12px', marginBottom:'12px'}}>
+                <MDBBtn rounded className='mx-2' color='info'>Đăng ký</MDBBtn>
+            </div>
+        </div>
+      }
     </div>
   )
 }

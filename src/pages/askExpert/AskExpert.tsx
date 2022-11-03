@@ -186,8 +186,11 @@ const responsive = {
     }
 };
 
+console.log(localStorage.getItem('userInfo'))
+
 const AskExpert = () => {
     const askExpert = useRef('askExpert')
+
     return (
         <div>
             <CHeader 
@@ -284,7 +287,7 @@ const AskExpert = () => {
                                         preview={false} />
                                 }
                                 actions={[
-                                    <div className='action-cart-ask-expert'>Đặt lịch</div>,
+                                    <div className='action-cart-ask-expert'>Gọi ngay</div>,
                                 ]}
                             >
                                 <Meta title={expert.name} description={expert.description} />
@@ -319,7 +322,7 @@ const AskExpert = () => {
                                         preview={false} />
                                 }
                                 actions={[
-                                    <div className='action-cart-ask-expert'>Đặt lịch</div>,
+                                    <div className='action-cart-ask-expert'>Gọi ngay</div>,
                                 ]}
                             >
                                 <Meta title={expert.name} description={expert.description} />

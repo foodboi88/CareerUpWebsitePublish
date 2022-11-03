@@ -1053,7 +1053,7 @@ input.ant-checkbox-input {
 .header{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 18px;
     position: fixed;
     z-index:12;
@@ -1121,7 +1121,6 @@ input.ant-checkbox-input {
   
   .center_everything {
     display: flex;
-    height: 100vh;
     justify-content: center;
     align-items: center;
   }
