@@ -41,15 +41,17 @@ const Home = () => {
 
             <div className='content'>
                 <div className='div-advisor-content' style={{ flexDirection: 'row' }}>
-                    <div>
-                        <h1 className='title-advisor-intro' style={{ padding: '50px 150px 0px' }}>Tư vấn ngành nghề</h1>
-                        <h1 className='title-advisor-intro color-title' style={{ padding: '0px 150px', width: 1050 }}>Nhanh và hiện quả</h1>
-                        
-                        <div style={{ display: 'flex', width: '30%', margin: '30px 150px' }}>
-                            <Button style={{width: '200px'}} className='btn-choose-advisor2' type='primary'
-                                onClick={() => {
-                                }}
-                            >Đăng ký ngay</Button>
+                    <div className='adjust_image_home'>
+                        <div>
+                            <h1 className='title-advisor-intro' style={{ padding: '210px 150px 0px' }}>Tư vấn ngành nghề</h1>
+                            <h1 className='title-advisor-intro color-title' style={{ padding: '0px 150px', width: 1050 }}>Nhanh và hiện quả</h1>
+                            
+                            <div style={{ display: 'flex', width: '30%', margin: '30px 150px' }}>
+                                <Button style={{width: '200px'}} className='btn-choose-advisor2' type='primary'
+                                    onClick={() => {
+                                    }}
+                                >Đăng ký ngay</Button>
+                            </div>
                         </div>
                     </div>
                     <div className='intro-home-image'>

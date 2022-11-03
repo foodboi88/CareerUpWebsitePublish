@@ -137,10 +137,10 @@ const CCollegeAdvisor = (props: MyProps) => {
                     </div>
                 </div> */}
             </div>
-            <CCareerDetailModel
+            {/* <CCareerDetailModel
                 isShow={isShowCollegeDetailModel}
                 setIsShowModal={setIsShowCollegeDetailModel}
-            />
+            /> */}
             {
                 showLoading &&
                 <CLoadingIcon />
