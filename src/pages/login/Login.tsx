@@ -111,7 +111,7 @@ export default function Login(): JSX.Element {
                     
                 >
                     <Button type="primary" htmlType="submit" style={{borderRadius: "9px",fontSize: "20px", backgroundColor:"#6265FF", width: "458px", height: "56.99px"}}>
-                    <b>Login</b>
+                        <b>Login</b>
                     </Button>
                 </Form.Item>
                 </Form>

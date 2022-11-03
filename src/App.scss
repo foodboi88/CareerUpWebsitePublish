@@ -767,7 +767,8 @@ input::-webkit-inner-spin-button {
     width: 100%;
     background-image: url('./images/img_intro.png');
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: right;
+    margin-right: 33px
 }
 
 .intro-advisor-image {

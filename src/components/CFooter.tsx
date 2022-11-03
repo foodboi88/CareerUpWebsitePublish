@@ -20,8 +20,7 @@ export default function App() {
                                 <img src={Logo} />
                             </h6>
                             <p style={{color: '#646A6C'}}>
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit.
+                            CareerUp - Nền tảng lựa chọn trường đại học.
                             </p>
                             <div className='d-flex'>
                                 <HomeFilled style={{ marginRight: 20 }} />

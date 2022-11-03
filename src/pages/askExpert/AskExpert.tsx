@@ -205,16 +205,24 @@ const AskExpert = () => {
                         <h3 className='div-video-ask-expert-title'>Tóm tắt nội dung</h3>
                         <div className='div-video-ask-expert-text' >
                             <AudioFilled />
-                            <div className='div-video-ask-expert-text-detail' >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed est vestibulum nibh cursus.</div>
+                            <div className='div-video-ask-expert-text-detail' >4 phương thức “vượt rào” để trở thành Newbie D22 ra lò rồi đây. <br></br>
+                                Các bạn 2K4 đã sẵn sàng chưa nào?
+                            </div>
                         </div>
                         <div className='div-video-ask-expert-text'>
                             <AudioFilled />
-                            <div className='div-video-ask-expert-text-detail'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed est vestibulum nibh cursus.</div>
+                            <div className='div-video-ask-expert-text-detail'>
+                            ☘️ Xét tuyển thẳng theo quy chế tuyển sinh của Bộ GD&ĐT và theo Đề án tuyển sinh của Học viện <br></br>
+                            ☘️Xét tuyển dựa vào kết quả thi tốt nghiệp THPT năm 2022<br></br>
+                            ☘️Xét tuyển kết hợp theo Đề án tuyển sinh của Học viện<br></br>
+                            ☘️ Xét tuyển dựa vào kết quả các kỳ thi đánh giá năng lực.
+                            </div>
                         </div>
-                        <div className='div-video-ask-expert-text'>
+                        {/* <div className='div-video-ask-expert-text'>
                             <AudioFilled />
-                            <div className='div-video-ask-expert-text-detail'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed est vestibulum nibh cursus.</div>
-                        </div>
+                            <div className='div-video-ask-expert-text-detail'>Bên cạnh chính sách học bổng miễn 100%, 50% học phí trong năm đầu tiên, năm 2022 Học viện Công nghệ Bưu chính Viễn thông còn ban hành chính sách học bổng đặc biệt lên tới 3 tỷ đồng.<br></br>
+                        Hãy chuẩn bị hành trang thật kỹ với quyết tâm trở thành Newbie D22 - PTIT các bạn 2K4 nhé ✊✊✊</div>
+                        </div> */}
                         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                             <Button className='bnt-ask-expert-content' type='primary'>Khám phá ngay<ArrowRightOutlined /></Button>
                         </div>

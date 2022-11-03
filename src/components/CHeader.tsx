@@ -45,7 +45,7 @@ const CHeader = (props: Myprops) => {
         <div style={{marginLeft:'48px'}}><a className='hearder-link' >Về chúng tôi</a></div>
       </div>
       <div style={{display: 'flex', flexDirection: 'row', marginRight:'136px'}}>
-        <div style={{marginTop:'22px'}}><a>Đăng nhập</a></div>
+        <div style={{marginTop:'22px'}}><a href='/'>Đăng nhập</a></div>
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'17px', marginTop:'12px', marginBottom:'12px'}}>
             <MDBBtn rounded className='mx-2' color='info'>Đăng ký</MDBBtn>
         </div>
