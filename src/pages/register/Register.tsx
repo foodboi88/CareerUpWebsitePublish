@@ -10,7 +10,6 @@ import FacebookIcon from "../../images/FacebookIcon.png"
 import GoogleIcon from "../../images/GoogleIcon.png"
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
-import './style.css'
 import { LoginRequest, RegisterRequest } from '../../common/define-identity'
 import IdentityApi from '../../api/identity/identity.api'
 // import { LoginRequest } from 'common/define-identity';
@@ -46,8 +45,38 @@ export default function Login(): JSX.Element {
     // } 
 
     const onFinish = async (item: RegisterRequest) => {
-        await IdentityApi.register(item).then((data: any)=>{
-
+        await IdentityApi.register(item).then((res: any)=>{
+            notification.open({
+                message: 'Đăng ký tài khoản thành công rồi nha ',
+                // description:
+                //   'Chúc bạn có trải nghiệm tư vấn nguyện vọng tốt nhất cùng CareerUp!',
+                onClick: () => {
+                console.log('Notification Clicked!');
+                },
+            });
+            localStorage.setItem('recentRegistration',item.user_name);
+            history.push('/')
+        }).catch((err: any)=>{
+            if(err.code==='ERR_NETWORK') {    
+                notification.open({
+                    message: 'Không có kết nối mạng!',
+                    // description:
+                    //   'Chúc bạn có trải nghiệm tư vấn nguyện vọng tốt nhất cùng CareerUp!',
+                    onClick: () => {
+                    console.log('Notification Clicked!');
+                    },
+                });
+            }
+            else{
+                notification.open({
+                    message: 'Tài khoản đã tồn tại!',
+                    // description:
+                    //   'Chúc bạn có trải nghiệm tư vấn nguyện vọng tốt nhất cùng CareerUp!',
+                    onClick: () => {
+                    console.log('Notification Clicked!');
+                    },
+                });
+            }
         });
       
     }
@@ -64,18 +93,18 @@ export default function Login(): JSX.Element {
                 </div>
                 <div style={{ marginLeft: "138px",marginRight: "118px", display: "flex", justifyContent: "space-between"}}>
                 <div>
-                    <div style={{width: "220px",height: "56px",fontSize: "40px",letterSpacing: "0.5px", marginBottom:"30.6px"}}><b>Login</b></div>
+                    <div style={{width: "",height: "56px",fontSize: "40px",letterSpacing: "0.5px", marginBottom:"30.6px"}}><b>Đăng ký tài khoản</b></div>
                     <Form
-                    style={{marginTop:'10px'}}
-                    name="basic"
-                    initialValues={{
-                        remember: true,
-                    }}
-                    onFinish={(item)=>onFinish(item)}
-                    onFinishFailed={onFinishFailed}
-                    autoComplete="off"
-                    layout='vertical'
-                    size='large'
+                        style={{marginTop:'10px'}}
+                        name="basic"
+                        initialValues={{
+                            remember: true,
+                        }}
+                        onFinish={(item)=>onFinish(item)}
+                        onFinishFailed={onFinishFailed}
+                        autoComplete="off"
+                        layout='vertical'
+                        size='large'
                     >
                     <Form.Item
                         label="Tên tài khoản"
@@ -122,25 +151,23 @@ export default function Login(): JSX.Element {
                         <Input.Password style={{borderRadius: "9px",width: "458px", height: "56.99px"}}/>
                     </Form.Item>
 
-                    <Form.Item
+                    {/* <Form.Item
                         name="remember"
                         // className='ml-0'
                     >
                         <Checkbox onChange={()=> setRememberState(!rememberState)}>Nhớ mật khẩu</Checkbox>
-                    </Form.Item>
+                    </Form.Item> */}
 
 
                     <Form.Item
                         
                     >
                         <Button type="primary" htmlType="submit" style={{borderRadius: "9px",fontSize: "20px", background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', width: "458px", height: "56.99px"}}>
-                            <b>Đăng nhập</b>
+                            <b>Đăng ký ngay</b>
                         </Button>
                     </Form.Item>
                     </Form>
-                    <div style={{textAlign: "center",width: "458px", height: "56.99px"}}>
-                        <a style={{color: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)'}}>Quên mật khẩu</a>
-                    </div>
+                
 
                     <div style={{marginTop: "10px", fontSize: "30px"}}>
                     <div style={{color: "#CBCBCB"}} className='center_everything'><b>Hoặc</b></div>
@@ -150,8 +177,8 @@ export default function Login(): JSX.Element {
                         <Image preview={false} src={AppleIcon}/>
                     </div>
                     <div style={{fontSize: "20px"}} className='center_everything'>
-                        <span>Bạn chưa có tài khoản?  </span>
-                        <span><a style={{color:'#2dbef7'}}>Đăng ký</a></span>
+                        <span>Bạn đã có tài khoản?  </span>
+                        <span><a style={{color:'#2dbef7'}} href='/'>Đăng nhập</a></span>
                     </div>
                     </div>
                 </div>

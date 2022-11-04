@@ -21,6 +21,7 @@ import "../../App.scss";
 import "antd/dist/antd.css";
 import CParallelogramCard from '../../components/CParallelogramCard';
 import AdvisorApi from '../../api/Advisor/advisor.api';
+import { useHistory } from 'react-router';
 
 const contentStyle: React.CSSProperties = {
     height: '160px',
@@ -33,6 +34,8 @@ const contentStyle: React.CSSProperties = {
 
 const Home = () => {
     const home = useRef('home')
+    const history = useHistory();
+
     return (
         <div>
             <CHeader
@@ -49,6 +52,7 @@ const Home = () => {
                             <div style={{ display: 'flex', width: '30%', margin: '30px 150px' }}>
                                 <Button style={{width: '200px'}} className='btn-choose-advisor2' type='primary'
                                     onClick={() => {
+                                        history.push('/advisor')
                                     }}
                                 >Đăng ký ngay</Button>
                             </div>
@@ -69,8 +73,7 @@ const Home = () => {
                             style={{ width: 430, height: 564, borderRadius: '12px' }}
                             cover={<img style={{ borderRadius: '12px' }} alt="example" src={Function1} />}
                             onClick={() => {
-                                const res = AdvisorApi.getQuestions()
-                                console.log(res)
+                                history.push('/ask_expert')
                             }}
                         >
                             <p style={{ fontWeight: 600, fontSize: '20px' }}>Tư vấn trực tiếp cùng chuyên gia</p>
@@ -82,6 +85,10 @@ const Home = () => {
                             hoverable
                             style={{ width: 430, height: 564, borderRadius: '12px' }}
                             cover={<img style={{ borderRadius: '12px', height: 231 }} alt="example" src={Function2} />}
+                            onClick={ ()=>{
+                                    history.push('/advisor')
+                                }
+                            }
                         >
                             <p style={{ fontWeight: 600, fontSize: '20px' }}>Tư vấn nguyện vọng phù hợp với Trắc nghiệm nghề nghiệp ILO</p>
                             <p>Bạn chưa xác định được bản thân phù hợp với nguyện vọng nào ư? Đừng lo, chức năng này ra đời là dành cho bạn đó</p>
@@ -92,7 +99,11 @@ const Home = () => {
                             hoverable
                             style={{ width: 430, height: 564, borderRadius: '12px' }}
                             cover={<img style={{ borderRadius: '12px', height: 231 }} alt="example" src={Function3} />}
-
+                            onClick={
+                                ()=>{
+                                    history.push('advisor')
+                                }
+                            }
                         >
                             <p style={{ fontWeight: 600, fontSize: '20px' }}>Tư vấn nguyện vọng có chương trình đào tạo tương đồng bằng công nghệ AI</p>
                             <p>Bạn lo lắng mức điểm của mình khó đỗ được nguyện vọng mình mong muốn? CareerUp sẽ đưa ra các nguyện vọng có chương trình đào tạo tương tự với mức điểm mềm hơn để giúp các bạn có thể tiếp tục theo đuổi đam mê của mình</p>

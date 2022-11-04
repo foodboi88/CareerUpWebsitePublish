@@ -26,7 +26,7 @@ export default class IdentityApi {
     static login(body: LoginRequest): any{
         console.log(body)
        
-        // var data = QueryString.stringify({
+        // var data = qs.stringify({
         //     'grant_type': '',
         //     'username': body.username,
         //     'password': body.password,

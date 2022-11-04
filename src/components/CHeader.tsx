@@ -21,15 +21,29 @@ const CHeader = (props: Myprops) => {
   const dispatch = useDispatchRoot();
   const { headerState } = useSelectorRoot(state => state.header);
   const userInfoJSON = localStorage.getItem('userInfo')
+  const [greeting,setGreeting] = useState('')
   let userInfo: IUser;
 
   useEffect(()=>{
     if(userInfoJSON) userInfo = JSON.parse(userInfoJSON)
+    var today = new Date()
+    var curHr = today.getHours()
+
+    if (curHr < 12) {
+      console.log('good morning')
+      setGreeting('Good morning :3')
+    } else if (curHr < 18) {
+      console.log('good afternoon')
+      setGreeting('Good afternoon :3')
+    } else {
+      console.log('good evening')
+      setGreeting('Good evening :3')
+}
   })
 
   const [visible, setVisible] = useState(false);
     const handleMenuClick = (e: any) => {
-        if (e.key === '1' || e.key === '2') {
+        if (e.key === '1' || e.key === '3') {
         setVisible(false);
         }
     };
@@ -76,7 +90,7 @@ const CHeader = (props: Myprops) => {
         <div style={{display:'flex'}}>
             <div style={{marginTop: "20px", marginRight: "15px"}}>
               <div style={{fontSize: "15px",fontWeight:700}}>Xin chào, {JSON.parse(userInfoJSON).user_name}</div>
-              <div style={{fontSize: "10px"}}>Quotes</div>
+              <div style={{fontSize: "10px"}}>{greeting}</div>
             </div>
             <div style={{marginTop: "1px", marginRight: "8px"}}>
               <Dropdown 
@@ -148,7 +162,7 @@ const CHeader = (props: Myprops) => {
                   trigger={["click"]}
 
               >
-                  <div className='mr-2 mt-4 cursor-pointer' onClick={(e) => e.preventDefault()}><UnorderedListOutlined /></div>
+                  <div className='mr-2 mt-4' style={{cursor:'pointer'}} onClick={(e) => e.preventDefault()}><UnorderedListOutlined /></div>
               </Dropdown>
             </div>
             
@@ -159,7 +173,7 @@ const CHeader = (props: Myprops) => {
 
             <div style={{marginTop:'22px'}}><a href='/'>Đăng nhập</a></div>
             <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginLeft:'17px', marginTop:'12px', marginBottom:'12px'}}>
-                <MDBBtn rounded className='mx-2' color='info'>Đăng ký</MDBBtn>
+                <MDBBtn rounded className='mx-2' color='info' onClick={()=>{history.push('/register')}}>Đăng ký</MDBBtn>
             </div>
         </div>
       }

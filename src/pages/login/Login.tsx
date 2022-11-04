@@ -18,7 +18,10 @@ import IdentityApi from '../../api/identity/identity.api'
 // import { loginRequest } from 'redux/controller';
 export default function Login(): JSX.Element {
     const [rememberState,setRememberState] = useState<boolean>(false);
+    const recentRegistration = localStorage.getItem('recentRegistration')
     const history = useHistory();
+
+    console.log(recentRegistration)
     // const dispatch = useDispatchRoot();
     // const isSuccess = useSelectorRoot(state => (state.login.statusCode));
     // useEffect( () => {
@@ -46,6 +49,8 @@ export default function Login(): JSX.Element {
     // } 
 
     const onFinish = async (item: LoginRequest) => {
+        console.log('hehehehe')
+        localStorage.removeItem('recentRegistration')
         await IdentityApi.login(item).then((res: any)=>{
             console.log(res.data.access_token)
             localStorage.setItem('token',res.data.access_token)
@@ -59,14 +64,27 @@ export default function Login(): JSX.Element {
               });
               history.push('/home')
         }).catch((err: any)=>{
-            notification.open({
-                message: 'Sai tài khoản hoặc mật khẩu',
-                // description:
-                //   'Chúc bạn có trải nghiệm tư vấn nguyện vọng tốt nhất cùng CareerUp!',
-                onClick: () => {
-                  console.log('Notification Clicked!');
-                },
-              });
+            console.log(err)
+            if(err.code==='ERR_NETWORK') {    
+                notification.open({
+                    message: 'Không có kết nối mạng!',
+                    // description:
+                    //   'Chúc bạn có trải nghiệm tư vấn nguyện vọng tốt nhất cùng CareerUp!',
+                    onClick: () => {
+                    console.log('Notification Clicked!');
+                    },
+                });
+            }
+            else{
+                notification.open({
+                    message: 'Sai tài khoản hoặc mật khẩu!',
+                    // description:
+                    //   'Chúc bạn có trải nghiệm tư vấn nguyện vọng tốt nhất cùng CareerUp!',
+                    onClick: () => {
+                    console.log('Notification Clicked!');
+                    },
+                });
+            }
         });
       
     }
@@ -109,7 +127,7 @@ export default function Login(): JSX.Element {
                         // }
                         // ]}
                     >
-                        <Input style={{borderRadius: "9px", width: "458px", height: "56.99px"}}/>
+                        <Input style={{borderRadius: "9px", width: "458px", height: "56.99px"}} placeholder={recentRegistration? recentRegistration: ''}/>
                     </Form.Item>
 
                     <Form.Item
@@ -155,7 +173,7 @@ export default function Login(): JSX.Element {
                     <div style={{fontSize: "20px"}} className='center_everything'>
                         <span>Bạn chưa có tài khoản?  </span>
                         <span>   </span>
-                        <span><a style={{color:'#2dbef7'}}> Đăng ký ngay</a></span>
+                        <span><a style={{color:'#2dbef7'}} href="/register"> Đăng ký ngay</a></span>
                     </div>
                     </div>
                 </div>

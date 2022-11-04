@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CLoading from "./CLoading";
 import CPrivateRouter from "./CPrivateRouter";
 
+
 const LoginModule = React.lazy(() => import("../pages/login/Login"));
 const Homepage = React.lazy(() => import("../pages/home/Home"));
 const Advisor = React.lazy(() => import("../pages/advisor/Advisor"));
 const AskExpert = React.lazy(() => import("../pages/askExpert/AskExpert"));
+const RegisterModule = React.lazy(() => import("../pages/register/Register"));
 // const PageNotFound = React.lazy(() => import("pages/404"));
 
 
@@ -30,7 +32,11 @@ const RouterArr: RouterItem[] = [
         path: "/ask_expert",
         component: AskExpert,
         noExact: true
-    },
+    },{
+        path: "/register",
+        component: RegisterModule,
+        noExact: true
+    }
     // {
     //     path: "*",
     //     component: PageNotFound

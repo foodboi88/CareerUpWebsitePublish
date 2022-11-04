@@ -77,9 +77,12 @@ const Advisor = () => {
                             <h1 className='title-advisor-intro color-title' style={{ padding: '0px 150px', width: 1050 }}>Ngành nghề phù hợp ?</h1>
                             <p style={{ fontSize: 20, fontWeight: 400, letterSpacing: 0, textAlign: 'left', padding: '0px 150px', width: 900 }}>"Em vẫn chưa biết mình đam mê cái gì, hì hì!" <br></br> 
                             Đừng quá lo lắng, CareerUp sẽ giúp bạn khai phá năng lực tiềm ẩn của bản thân. Từ đó giúp bạn dễ dàng lựa chọn nguyện vọng tương ứng <br></br>
-                            Lưu ý: <br></br>
-                                - Lựa chọn "Chưa chọn" nếu bạn chưa xác định được ngành học phù hợp<br></br>
-                                - Lựa chọn "Đã chọn" trong trường hợp ngược lại
+
+                            </p>
+                            <p style={{fontSize:'15px', letterSpacing: 0, textAlign: 'left', padding: '0px 150px', width: 900 }}>
+                                Lưu ý: <br></br>
+                                    - Lựa chọn "Chưa chọn" nếu bạn chưa xác định được ngành học phù hợp<br></br>
+                                    - Lựa chọn "Đã chọn" trong trường hợp ngược lại
                             </p>
                             <div style={{ display: 'flex', width: '30%', margin: '30px 150px' }}>
                                 <Button className='btn-choose-advisor' type='primary' style={{ marginRight: 30 }}
@@ -108,7 +111,7 @@ const Advisor = () => {
                         <h1 className='title-advisor-intro' style={{ lineHeight: '80%' }} >Hãy cùng làm</h1>
                         <h1 className='title-advisor-intro color-title' style={{ lineHeight: '120%' }}>Trắc nghiệm nghề nghiệp</h1>
                         <h1 className='title-advisor-intro' style={{ lineHeight: '100%' }}>Xác định nguyện vọng phù hợp</h1>
-                        <p style={{ fontSize: 20, textAlign: 'center', fontWeight: 400, letterSpacing: 0, padding: '0px 150px', width: 1300 }}>Dựa vào thuyết đa trí tuệ của Gardner, tiến sĩ Gideon Arulmani, chuyên gia tâm lí học, chuyên gia tư vấn hướng nghiệp người Ấn Độ đã xây dựng khung năng lực hướng nghiệp đa lĩnh vực bao gồm 5 nhóm, được sử dụng trong tư vấn hướng nghiệp. Bạn hãy làm trắc nghiệm trong 15 phút với tâm thế thoải mái nhất. Hãy chọn đáp án phù hợp nhất với bạn. Lựa chọn càng chân thật bao nhiêu, kết quả càng đúng bấy nhiêu. Bắt đầu thôi! </p>
+                        <p style={{ fontSize: 20, textAlign: 'center', fontWeight: 200, letterSpacing: 0, padding: '0px 150px', width: 1300 }}>Dựa vào thuyết đa trí tuệ của Gardner, tiến sĩ Gideon Arulmani, chuyên gia tâm lí học, chuyên gia tư vấn hướng nghiệp người Ấn Độ đã xây dựng khung năng lực hướng nghiệp đa lĩnh vực bao gồm 5 nhóm, được sử dụng trong tư vấn hướng nghiệp. Bạn hãy làm trắc nghiệm trong 15 phút với tâm thế thoải mái nhất. Hãy chọn đáp án phù hợp nhất với bạn. Lựa chọn càng chân thật bao nhiêu, kết quả càng đúng bấy nhiêu. Bắt đầu thôi! </p>
 
                         <div style={{ display: 'flex' }}>
                             <Button className='btn-choose-advisor3' style={{ width: 300 }} type='primary' onClick={() => {
