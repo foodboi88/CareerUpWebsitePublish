@@ -30,6 +30,7 @@ interface DataType {
     college: string;
     score: number;
     ranking: any;
+    details: any;
 }
 let dataSource: DataType[] = [];
 const CResultsCareer = (props: Myprops) => {
@@ -50,6 +51,8 @@ const CResultsCareer = (props: Myprops) => {
     const [unitLst, setUnitLst] = useState<Unit[]>([])
     const [specializedOfSchoolLst, setSpecializedOfSchoolLst] = useState<getSpecializedOfSchoolResponse[]>([])
     const [srcResultImage, setSrcResultImage] = useState('');
+    const [similarSpecialized, setSimilarSpecialized] = useState<Specialized[]>([])
+
     useEffect(() => {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
@@ -114,21 +117,17 @@ const CResultsCareer = (props: Myprops) => {
                     college: e[i].school.school_name,
                     score: e[i].units[0].mark_units[0].mark,
                     ranking: <Rate disabled defaultValue={5} />,
+                    details: e[i].school.school_description
                 })
             }
         }
     }
-
+    const onGetSimilarSpecialized = (e: Specialized[]) => {
+        setSimilarSpecialized(e)
+    }
     const onCloseAdvisor = () => {
 
     }
-    // useEffect(()=>{
-    //     let newPersonality: Personality = personality
-    //     if(specializedLst) {
-    //         newPersonality = personalityLst[parseInt(specializedLst[0].id,10)]
-    //     }
-    //     setPersonality(newPersonality)
-    // },[specializedLst])
 
     return (
         <div className='div-career-advisor-result'>
@@ -169,18 +168,21 @@ const CResultsCareer = (props: Myprops) => {
                         setIsShowModal={setIsShowUnitCareerModal}
                         setOpenUniAdvisor={props.setOpenUniAdvisor}
                         toogle={ontoggle}
-                        onGetSpecializedOfSchoolLst={onGetSpecializedOfSchoolLst}
                         clickedSpecialized={clickedSpecialized}
-                        specializedLst={suitableCareer ? suitableCareer.specializeds : []}
                         unitLst={unitLst}
+                        onGetSpecializedOfSchoolLst={onGetSpecializedOfSchoolLst}
                         onCloseAdvisor={onCloseAdvisor}
+                        specializedLst={suitableCareer ? suitableCareer.specializeds : []}
+                        onGetSimilarSpecialized={onGetSimilarSpecialized}
                     />
                 </div>
             }
             {!isShow && <CCollegeAdvisor
                 specializedOfSchoolLst={specializedOfSchoolLst}
                 dataSource={dataSource}
+                similarSpecialized={similarSpecialized}
             />}
+            
 
         </div >
     )
