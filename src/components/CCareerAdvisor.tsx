@@ -20,19 +20,19 @@ let questionLst: Question[] = [
         content: "Bạn đánh giá thế nào về khả năng viết văn/ làm thơ của mình?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -43,19 +43,19 @@ let questionLst: Question[] = [
         content: "Bạn đánh giá thế nào về khả năng học một ngôn ngữ mới của mình?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -66,19 +66,19 @@ let questionLst: Question[] = [
         content: "Bạn thấy khả năng đọc và làm việc với giấy tờ, văn bản, tài liệu của mình như thế nào?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -89,19 +89,19 @@ let questionLst: Question[] = [
         content: "Hãy đánh giá khả năng dùng lời nói để truyền đạt đến mọi người (Thuyết trình, hướng dẫn, giải thích,...)?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -112,19 +112,19 @@ let questionLst: Question[] = [
         content: "Bạn hãy đánh giá khả năng tranh luận của mình (Diễn giải lưu loát, rõ nghĩa, logic, thuyết phục được người khác)?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -134,19 +134,19 @@ let questionLst: Question[] = [
         content: "Khả năng sử dụng từ điển để tra nghĩa từ mới và sử dụng từ ngữ đó đúng ngữ cảnh?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -157,19 +157,19 @@ let questionLst: Question[] = [
         content: "Bạn có hay kiểm tra độ chính xác của câu từ, ngữ pháp và chính tả?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -181,19 +181,19 @@ let questionLst: Question[] = [
         content: "Khả năng viết lên ý tưởng, suy nghĩ và trải nghiệm của bạn thành lời để mọi người thích đọc những gì bạn viết ra (Bài viết có thể viết dưới dạng bài văn, bài báo, truyện, thơ, báo cáo)?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -204,19 +204,19 @@ let questionLst: Question[] = [
         content: "Khả năng dùng lời nói để trình bày ý tưởng với mọi người, giảng dạy, thuyết trình, làm mẫu hoặc diễn thuyết của bạn như thế nào?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -227,19 +227,19 @@ let questionLst: Question[] = [
         content: "Cách nói chuyện của bạn có cuốn hút người khác không (Sử dụng ngôn ngữ chính xác, nói rõ ràng mạch lạc)?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -250,19 +250,19 @@ let questionLst: Question[] = [
         content: "Khả năng đọc hiểu những gì người khác viết ra, phát hiện ra sai sót trong văn bản viết của bạn như thế nào?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -273,19 +273,19 @@ let questionLst: Question[] = [
         content: "Khi người khác nói, bạn có thể tập trung thấu hiểu và không bỏ sót chi tiết nào không?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -296,19 +296,19 @@ let questionLst: Question[] = [
         content: "Bạn có hay dành nhiều sự chú ý tới các mô hình kinh doanh xung quanh mình không (Tìm ra điểm bất cập trong mô hình đó và đưa ra phương án cải thiện)?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -319,19 +319,19 @@ let questionLst: Question[] = [
         content: "Khả năng đào sâu nghiên cứu để hiểu rõ ý nghĩa của 1 thông tin nào đó (Áp dụng toán học và thống kê để tìm ra điểm đặc biệt của thông tin từ đó suy ra xu hướng)?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -342,19 +342,19 @@ let questionLst: Question[] = [
         content: "Khả năng dự báo những thứ có thể xảy ra dựa trên tính toán dữ liệu có sẵn và đề ra kế hoạch tương lai?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -365,19 +365,19 @@ let questionLst: Question[] = [
         content: "Bạn đánh giá sao về khả năng sử dụng con số, tìm kiếm bằng chứng và kiểm tra phép tính của mình nhỉ?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -388,19 +388,19 @@ let questionLst: Question[] = [
         content: "Khả năng sắp xếp thông tin theo trình tự để người khác dễ hiểu và dễ sử dụng của bạn như thế nào?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -411,19 +411,19 @@ let questionLst: Question[] = [
         content: "Khả năng giải ô chữ, giải quyết các vấn đề thuộc nhiều lĩnh vực bằng cách sử dụng kiến thức và thông tin chính xác của bạn như thế nào?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -434,19 +434,19 @@ let questionLst: Question[] = [
         content: "Khả năng sử dụng các nguyên tác toán học, thống kê, vật lý, hóa học để tìm hiểu và giải quyết vấn đề của bạn như thế nào?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -457,19 +457,19 @@ let questionLst: Question[] = [
         content: "Trong tình huống cấp bách, bạn có thể bình tĩnh nắm được những gì đang diễn ra để ứng biến và đưa ra hành động hợp lý tiếp theo hay không?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -480,19 +480,19 @@ let questionLst: Question[] = [
         content: "Khả năng xác định vấn đề, xây dụng các phương pháp nghiên cứu, thu thập và phân tích thông tin để hiểu rõ hoặc giải quyết vấn đề của bạn như thế nào nhỉ?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -503,19 +503,19 @@ let questionLst: Question[] = [
         content: "Bạn có hay áp dụng các nguyên tác số học và đại số để tìm hiểu vấn đề hoặc thực hiện nhiệm vụ hay không?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -526,19 +526,19 @@ let questionLst: Question[] = [
         content: "Bạn có thích làm việc với các con số, thường xuyên áp dụng số học và đại số vào đời sống?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -549,19 +549,19 @@ let questionLst: Question[] = [
         content: "Bạn đánh giá sao về độ tỉ mỉ của bản thân như thế nào khi áp dụng cộng, trừ, nhân, chia, áp dụng công thức để ra đáp áp chính xac?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -572,19 +572,19 @@ let questionLst: Question[] = [
         content: "Khả năng suy nghĩ, sáng tạo để tạo ra đồ vật hoàn toàn mới?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -595,19 +595,19 @@ let questionLst: Question[] = [
         content: "Khả năng tạo ra bản sao của các vật thông qua quan sát và tưởng tượng?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -618,19 +618,19 @@ let questionLst: Question[] = [
         content: "Khả năng sắp đặt bố trí các vật thể cho đẹp hoặc tạo ra các sản phẩm hữu dụng từ các chất liệu khác nhau (gỗ, vải, đất sét,..)?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -641,19 +641,19 @@ let questionLst: Question[] = [
         content: "Khả năng hội họa bằng các vật liệu khác nhau như sơn, bút chì, than hoặc các vật liệu bất kỳ?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -664,19 +664,19 @@ let questionLst: Question[] = [
         content: "Khả năng phối hợp màu sắc, trang trí để không gian hoặc đồ vật trông đẹp mắt hơn của bạn ra sao?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -687,19 +687,19 @@ let questionLst: Question[] = [
         content: "Khả năng hình tượng hóa ý tưởng, trải nghiệm của bạn để mọi người thấy hứng thú (Có thể là tranh vẽ, tượng, điêu khắc, thuê thùa, sơn mài,..)?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -710,19 +710,19 @@ let questionLst: Question[] = [
         content: "Khả năng tạo ra các sản phẩm dùng hằng ngày từ trí tưởng tượng của bạn (Quần áo, vật dụng, đồ trang sức,..)?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -733,19 +733,19 @@ let questionLst: Question[] = [
         content: "Khả năng tạo ra công trình kiến trúc, cầu đường, ô tô, máy móc từ trí tưởng tượng của bạn?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -756,19 +756,19 @@ let questionLst: Question[] = [
         content: "Khả năng thành thạo sác công cụ, vật liệu như: cọ vẽ, bút chì, khuôn,.. để vẽ và tạo ra các sản phẩm có tính nghệ thuật?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -779,19 +779,19 @@ let questionLst: Question[] = [
         content: "Khả năng áp dụng các định lý hình học để xây dựng, sáng tạo và gia cố các sản phẩm hoặc có hứng thú khi làm việc với các hình khối khác nhau?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -802,19 +802,19 @@ let questionLst: Question[] = [
         content: "Bạn có khả năng uốn, gấp, ghép, đính và nối các vật liệu để tạo ra sản phẩm không?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -825,19 +825,19 @@ let questionLst: Question[] = [
         content: "Khả năng trang trí lại các đồ vật cho đẹp mắt hơn. Sử  dụng các kỹ thuật, mỹ phẩm, quần áo, trang sức khác nhau để làm đẹp cho mọi người, đồ vật của bạn ra sao?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -848,19 +848,19 @@ let questionLst: Question[] = [
         content: "Bạn đánh giá sao về khả năng lãnh đạo nhóm của mình (Đề ra phương thức làm việc cùng nhau, cùng nhau giải quyết vấn đề, cùng làm việc theo nhóm để thực hiện mục tiêu)?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -871,19 +871,19 @@ let questionLst: Question[] = [
         content: "Bạn có hứng thú với việc tìm hiểu cách hoạt động kinh doanh. Tìm hiểu những con người trong đó và cách hành xử của họ. Giúp mọi người hoàn thành tốt trách nhiệm của họ trong kinh doanh?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -894,19 +894,19 @@ let questionLst: Question[] = [
         content: "Khả năng lên kế hoạch tổ chức hội họp và hoạt động, sắp xếp các buổi gặp gỡ, quản lý các sự kiện của bạn như thế nào?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -917,19 +917,19 @@ let questionLst: Question[] = [
         content: "Bạn có khả năng giúp mọi người trong một nhóm hoạt động hiệu quả hài hòa với nhau hay không?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -940,19 +940,19 @@ let questionLst: Question[] = [
         content: "Bạn có chủ động tìm hiểu một nhóm hoạt động như thế nào hay không, hoặc để ý xem những thành viên trong nhóm ảnh hưởng lẫn nhau như thế nào hay không?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -963,19 +963,19 @@ let questionLst: Question[] = [
         content: "Bạn có nắm được mối quan hệ giữa người với người và sử dụng khéo léo các phương pháp tâm lý để giúp mọi người quan hệ với nhau theo cách tích cực hay không?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -986,19 +986,19 @@ let questionLst: Question[] = [
         content: "Bạn giúp người khác hiểu được nguyện vọng và mục tiêu của họ, giúp họ chọn ra con đường tốt nhất để đạt được mục tiêu?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1009,19 +1009,19 @@ let questionLst: Question[] = [
         content: "Dễ dàng đồng cảm, thấu hiểu cảm xúc của người khác. Chủ động đặt mình vào hoàn cảnh của họ để hiểu được lý do vì sao họ lại làm vậy?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1032,19 +1032,19 @@ let questionLst: Question[] = [
         content: "Có khả năng áp dụng kiến thức y tế để chăm sóc người đau ốm về mặt thể chất, luôn luôn nhiệt tình giúp đỡ mỗi khi họ cần?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1055,19 +1055,19 @@ let questionLst: Question[] = [
         content: "Có khả năng sử dụng các kỹ thuật để giúp đỡ những người khủng hoảng tâm lý. Nhạy cảm với tâm trạng và cảm xúc của mọi người?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1078,19 +1078,19 @@ let questionLst: Question[] = [
         content: "Khả năng trình bày cũng như thuyết phục người khác với ý kiến của bạn?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1101,19 +1101,19 @@ let questionLst: Question[] = [
         content: "Khả năng tự tin cởi mở và hòa nhập của bạn với một đám đông người lạ mặt?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1124,19 +1124,19 @@ let questionLst: Question[] = [
         content: "Bạn nghĩ bản thân mình có phù hợp làm việc tại nơi có nhiều máy móc, dụng cụ lao động sản xuất hay không?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1147,19 +1147,19 @@ let questionLst: Question[] = [
         content: "Bạn đánh giá khả năng làm việc với máy móc, hứng thú với chúng và chủ động tìm kiếm nguyên nhân máy móc hỏng hóc để sửa chữa và phòng tránh ra sao?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1170,19 +1170,19 @@ let questionLst: Question[] = [
         content: "Bạn có thích làm việc ngoài trời như ở vườn ruộng, công trường, rừng, sân chơi, ...",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1193,19 +1193,19 @@ let questionLst: Question[] = [
         content: "Bạn có hay nghiên cứu cơ chế hoạt động của máy móc dựa trên các nguyên tắc vật lý hay không (đòn bẩy, quán tính, nhiệt độ, ma sát,...)",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1216,19 +1216,19 @@ let questionLst: Question[] = [
         content: "Khả năng vận động cơ thể, kết hợp các nhóm cơ để thực hiện các động tác thể thao một cách điêu luyện",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1236,22 +1236,22 @@ let questionLst: Question[] = [
     },
     {
         id: '54',
-        content: "Khả năng vận động cơ thể dưới một cường độ cao liên tục khi chơi thể thao của bạn ra sao (Các hoạt động này đòi hỏi bạn phải tiêu tốn lượng lớn năng lượng trong 1 khoảng thời gian dài mà không bị mệt mỏi)",
+        content: "Khả năng vận động cơ thể dưới một cường độ Khá liên tục khi chơi thể thao của bạn ra sao (Các hoạt động này đòi hỏi bạn phải tiêu tốn lượng lớn năng lượng trong 1 khoảng thời gian dài mà không bị mệt mỏi)",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1262,19 +1262,19 @@ let questionLst: Question[] = [
         content: "Khả năng sửa chữa máy móc và làm nó hoạt động trơn chu hiệu quả trở lại ?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1285,19 +1285,19 @@ let questionLst: Question[] = [
         content: "Tham gia các công việc đòi hỏi nhiều thể lực mà không hề mệt mỏi?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1305,22 +1305,22 @@ let questionLst: Question[] = [
     },
     {
         id: '57',
-        content: "Bạn đánh giá khả năng thành thạo các loại máy móc để làm việc của mình cao không (máy nâng, cắt, uốn, cuộn, ghép, khoan các vật liệu như kim loại, đá đất, các vật liệu nhân tạo,...) như thế nào",
+        content: "Bạn đánh giá khả năng thành thạo các loại máy móc để làm việc của mình Khá không (máy nâng, cắt, uốn, cuộn, ghép, khoan các vật liệu như kim loại, đá đất, các vật liệu nhân tạo,...) như thế nào",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1331,19 +1331,19 @@ let questionLst: Question[] = [
         content: "Khả năng sử dụng cơ thể để thực hiện một loạt các động tác trong một khoảng thời gian ngắn mà không có sự sai sót?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1354,19 +1354,19 @@ let questionLst: Question[] = [
         content: "Khả năng sử dụng chuyển động tay để làm các nhiệm vụ đòi hỏi sự tinh xảo của bạn như thế nào?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
@@ -1377,19 +1377,19 @@ let questionLst: Question[] = [
         content: "Bạn có khả năng uốn dẻo các khớp, kéo căng và di chuyển cơ thể một cách uyển chuyển ở những tư thế khó (thể thao chuyên nghiệp hoặc nhảy múa, ...) hay không?",
         choiceLst: [
             {
-                content: 'Rất thấp',
+                content: 'Thấp',
                 score: 1
             },
             {
-                content: 'Thấp',
+                content: 'Trung bình',
                 score: 2
             },
             {
-                content: 'Cao',
+                content: 'Khá',
                 score: 3
             },
             {
-                content: 'Rất cao',
+                content: 'Cao',
                 score: 4
             }
         ],
