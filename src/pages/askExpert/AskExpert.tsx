@@ -276,7 +276,8 @@ const AskExpert = () => {
                         containerClass="first-carousel-container container"
                     >
                         {expertFollowedData.map((expert: any) => {
-                            return <Card
+                            return (
+                            <Card
                                 hoverable
                                 headStyle={{ borderRadius: '12px' }}
                                 style={{ width: 350, borderRadius: '12px' }}
@@ -287,12 +288,13 @@ const AskExpert = () => {
                                         preview={false} />
                                 }
                                 actions={[
-                                    <div className='action-cart-ask-expert'>Gọi ngay</div>,
+                                    <a href='https://careerupvideocall.glitch.me/'><div className='action-cart-ask-expert'>Gọi ngay</div></a>
                                 ]}
                             >
                                 <Meta title={expert.name} description={expert.description} />
 
                             </Card>
+                            )
                         })}
                     </Carousel>
                 </div>
@@ -322,8 +324,9 @@ const AskExpert = () => {
                                         preview={false} />
                                 }
                                 actions={[
-                                    <div className='action-cart-ask-expert'>Gọi ngay</div>,
+                                    <a href='https://careerupvideocall.glitch.me/'><div className='action-cart-ask-expert'>Gọi ngay</div></a>
                                 ]}
+                                
                             >
                                 <Meta title={expert.name} description={expert.description} />
 
