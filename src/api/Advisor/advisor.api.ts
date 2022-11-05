@@ -38,7 +38,7 @@ export default class AdvisorApi {
     static getSpecializedOfSchool(id: string, mark: string, unit_names: string): any {
       var config = {
         method: 'get',
-        url: `http://localhost:8000/specialized_of_school?specialized_id=${id}&mark=${mark}&unit_names=${unit_names}\n`,
+        url: `http://localhost:8000/school/search?specialized_id=${id}&mark=${mark}&unit_names=${unit_names}\n`,
         headers: { },
       };
       return axios(config)
@@ -79,6 +79,15 @@ export default class AdvisorApi {
         var config = {
           method: 'get',
           url: 'http://localhost:8000/specialized?limit=1000&offset=0',
+          headers: { },
+        };
+        return axios(config)
+    }
+
+    static getSimilarSpecialized(id: string): any {
+        var config = {
+          method: 'get',
+          url: `http://localhost:8000/specialized/${id}/similar`,
           headers: { },
         };
         return axios(config)

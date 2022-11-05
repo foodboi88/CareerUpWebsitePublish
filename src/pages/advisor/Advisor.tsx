@@ -14,6 +14,7 @@ interface DataType {
     college: string;
     score: number;
     ranking: any;
+    details: any;
 }
 let dataSource: DataType[] = [];
 const Advisor = () => {
@@ -27,7 +28,7 @@ const Advisor = () => {
     const [unitLst, setUnitLst] = useState<Unit[]>([])
     const [specializedLst, setSpecializedLst] = useState<Specialized[]>([])
     const [specializedOfSchoolLst, setSpecializedOfSchoolLst] = useState<getSpecializedOfSchoolResponse[]>([])
-
+    const [similarSpecialized, setSimilarSpecialized] = useState<Specialized[]>([])
     const ontoggle = (e: any) => {
         setIsShow(e);
     }
@@ -44,19 +45,26 @@ const Advisor = () => {
             // dispatch(sendAnswersRequest(data.data))
             setSpecializedLst(data.data);
         })
-    }
 
+
+    }
+    const onGetSimilarSpecialized = (e: Specialized[]) => {
+        setSimilarSpecialized(e)
+    }
     const onGetSpecializedOfSchoolLst = (e: getSpecializedOfSchoolResponse[]) => {
         setSpecializedOfSchoolLst(e);
         if (e) {
+            dataSource = [];
             for (let i = 0; i < e.length; i++) {
                 dataSource.push({
                     key: i + 1,
                     college: e[i].school.school_name,
                     score: e[i].units[0].mark_units[0].mark,
                     ranking: <Rate disabled defaultValue={5} />,
+                    details: e[i].school.school_description,
                 })
             }
+            console.log(dataSource);
         }
     }
 
@@ -65,7 +73,7 @@ const Advisor = () => {
     }
     return (
         <div>
-            <CHeader 
+            <CHeader
                 activeWhat={advisorActive}
             />
             <div className='content'>
@@ -75,14 +83,14 @@ const Advisor = () => {
                         <div>
                             <h1 className='title-advisor-intro' style={{ padding: '50px 150px 0px' }}>Bạn đã chọn</h1>
                             <h1 className='title-advisor-intro color-title' style={{ padding: '0px 150px', width: 1050 }}>Ngành nghề phù hợp ?</h1>
-                            <p style={{ fontSize: 20, fontWeight: 400, letterSpacing: 0, textAlign: 'left', padding: '0px 150px', width: 900 }}>"Em vẫn chưa biết mình đam mê cái gì, hì hì!" <br></br> 
-                            Đừng quá lo lắng, CareerUp sẽ giúp bạn khai phá năng lực tiềm ẩn của bản thân. Từ đó giúp bạn dễ dàng lựa chọn nguyện vọng tương ứng <br></br>
+                            <p style={{ fontSize: 20, fontWeight: 400, letterSpacing: 0, textAlign: 'left', padding: '0px 150px', width: 900 }}>"Em vẫn chưa biết mình đam mê cái gì, hì hì!" <br></br>
+                                Đừng quá lo lắng, CareerUp sẽ giúp bạn khai phá năng lực tiềm ẩn của bản thân. Từ đó giúp bạn dễ dàng lựa chọn nguyện vọng tương ứng <br></br>
 
                             </p>
-                            <p style={{fontSize:'15px', letterSpacing: 0, textAlign: 'left', padding: '0px 150px', width: 900 }}>
+                            <p style={{ fontSize: '15px', letterSpacing: 0, textAlign: 'left', padding: '0px 150px', width: 900 }}>
                                 Lưu ý: <br></br>
-                                    - Lựa chọn "Chưa chọn" nếu bạn chưa xác định được ngành học phù hợp<br></br>
-                                    - Lựa chọn "Đã chọn" trong trường hợp ngược lại
+                                - Lựa chọn "Chưa chọn" nếu bạn chưa xác định được ngành học phù hợp<br></br>
+                                - Lựa chọn "Đã chọn" trong trường hợp ngược lại
                             </p>
                             <div style={{ display: 'flex', width: '30%', margin: '30px 150px' }}>
                                 <Button className='btn-choose-advisor' type='primary' style={{ marginRight: 30 }}
@@ -141,12 +149,14 @@ const Advisor = () => {
                         specializedLst={specializedLst}
                         onGetSpecializedOfSchoolLst={onGetSpecializedOfSchoolLst}
                         onCloseAdvisor={onCloseAdvisor}
+                        onGetSimilarSpecialized={onGetSimilarSpecialized}
                     />
                 }
             </div>
             {!isShow && <CCollegeAdvisor
                 specializedOfSchoolLst={specializedOfSchoolLst}
                 dataSource={dataSource}
+                similarSpecialized={similarSpecialized}
             />}
             <CFooter />
         </div>

@@ -1713,7 +1713,7 @@ const CCareerAdvisor = (props: MyProps) => {
         );
 
 
-        await AdvisorApi.sendAnswers(questionRequest).then((data: any)=>{
+        await AdvisorApi.sendAnswers(testArray).then((data: any)=>{
             console.log(data.data)
             // dispatch(sendAnswersRequest(data.data))
             setSpecializedLst(data.data)
@@ -2031,7 +2031,7 @@ const CCareerAdvisor = (props: MyProps) => {
                         
 
                         {
-                            showBtnResult && 
+                            // showBtnResult && 
                             <div style={{
                                 width: "100%",
                                 display: "flex",

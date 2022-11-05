@@ -9,19 +9,20 @@ interface MyProps {
     setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>,
     toogle: (e: boolean) => void,
     clickedSpecialized?: Specialized,
-    setOpenUniAdvisor: React.Dispatch<React.SetStateAction<boolean>>
+    setOpenUniAdvisor?: React.Dispatch<React.SetStateAction<boolean>>
     specializedLst: Specialized[],
     unitLst: Unit[],
     onGetSpecializedOfSchoolLst: (e: getSpecializedOfSchoolResponse[]) => void,
-    onCloseAdvisor: (e: boolean) => void
+    onCloseAdvisor?: (e: boolean) => void,
+    onGetSimilarSpecialized: (e: Specialized[]) => void,
 }
 
-const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, setOpenUniAdvisor, specializedLst, unitLst, onGetSpecializedOfSchoolLst, onCloseAdvisor }: MyProps) => {
+const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, setOpenUniAdvisor, specializedLst, unitLst, onGetSpecializedOfSchoolLst, onCloseAdvisor, onGetSimilarSpecialized }: MyProps) => {
 
     const [isShowCollegeAdvisor, setIsShowDetailCareerModal] = useState<boolean>(false);
     const { Option } = Select;
     const [score, setScore] = useState<string>('0');
-    const [combination, setCombination] = useState<string[]>([]);
+    const [combination, setCombination] = useState<string>('');
     const [career, setCareer] = useState<string>('');
     const [specializedVal, setSpecializedVal] = useState<string>('');
     const [checkButtonSubmitted, setCheckButtonSubmitted] = useState<boolean>(false);
@@ -44,7 +45,7 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
             setCheckButtonSubmitted(true);
     });
 
-    const handleChangeCombination = (value: string[]) => {
+    const handleChangeCombination = (value: string) => {
         setCombination(value);
     };
     const handleChangeCareer = (value: string) => {
@@ -54,13 +55,9 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
     };
 
     const handleCaculateResult = async () => {
-        onCloseAdvisor(false)
-        let reformCombination: string = '';
-
-        reformCombination = combination.join('%2C').replace(/\s/g, '');
-
-        console.log(reformCombination);
-        await AdvisorApi.getSpecializedOfSchool(career, score, reformCombination)
+        if (onCloseAdvisor)
+            onCloseAdvisor(false)
+        await AdvisorApi.getSpecializedOfSchool(career, score, combination)
             .then((data: any) => {
                 console.log(data.data)
                 // dispatch(sendAnswersRequest(data.data))
@@ -68,11 +65,20 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
                 setSpecializedOfSchool(data.data)
                 console.log('hihi')
             })
+
+        await AdvisorApi.getSimilarSpecialized(career)
+            .then((data: any) => {
+                console.log(data.data)
+                // dispatch(sendAnswersRequest(data.data))
+                onGetSimilarSpecialized(data.data);
+                console.log('hihi')
+            })
     }
 
     useEffect(() => {
         if (specializedOfSchool !== null && specializedOfSchool !== undefined && specializedOfSchool?.length > 0) {
-            setOpenUniAdvisor(true)
+            if (setOpenUniAdvisor)
+                setOpenUniAdvisor(true)
             setIsShowModal(false)
         }
         console.log(specializedOfSchool);
@@ -123,9 +129,8 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
                                 rules={[{ required: true, message: 'Vui lòng chọn khối thi' }]}
                             >
                                 <Select
-                                    className='combination-section'
+                                    className='career-section'
                                     style={{ width: 400, borderRadius: 12 }}
-                                    mode="multiple"
                                     placeholder="Chọn tổ hợp thi"
                                     onChange={handleChangeCombination}
                                     value={combination ? combination : null}
