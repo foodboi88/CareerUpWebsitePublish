@@ -763,6 +763,7 @@ input::-webkit-inner-spin-button {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
 .intro-home-image {
     width: 100%;
     background-image: url('./images/img_intro.png');
@@ -813,7 +814,7 @@ input.ant-checkbox-input {
 
 }
 
-.hearder-link-active{
+.hearder-link-active {
     transition: all 0.3s ease-in-out;
     background: linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%);
     -webkit-background-clip: text;
@@ -907,11 +908,12 @@ input.ant-checkbox-input {
 }
 
 .box-shadow {
-    transition: box-shadow .3s;    
-  }
-  .box-shadow:hover {
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
-  }
+    transition: box-shadow .3s;
+}
+
+.box-shadow:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+}
 
 .div-video-ask-expert {
     display: flex;
@@ -919,7 +921,7 @@ input.ant-checkbox-input {
     width: 100%;
     height: 600px;
     background: #f3f9fe;
-    margin-top:75px;
+    margin-top: 75px;
 }
 
 .d-v-ask-expert-content {
@@ -1048,21 +1050,21 @@ input.ant-checkbox-input {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-} 
+}
 
-.header{
+.header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     font-size: 18px;
     position: fixed;
-    z-index:12;
-    margin-top:-75px;
-    width:100%;
-    background-color:white
+    z-index: 12;
+    margin-top: -75px;
+    width: 100%;
+    background-color: white
 }
 
-.content{
+.content {
     margin-top: 75px;
 }
 
@@ -1070,231 +1072,267 @@ input.ant-checkbox-input {
 
 .css-42igfv {
     margin: auto;
-    margin-top: 520px !important; 
+    margin-top: 520px !important;
 
 }
 
 .loading {
     $colors: #7ef9ff, #89cff0, #4682b4, #0f52ba, #000080;
     display: flex;
-  
+
     .dot {
-      position: relative;
-      width: 2em;
-      height: 2em;
-      margin: 0.8em;
-      border-radius: 50%;
-  
-      &::before {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 100%;
-        background: inherit;
-        border-radius: inherit;
-        animation: wave 2s ease-out infinite;
-      }
-  
-      @for $i from 1 through 5 {
-        &:nth-child(#{$i}) {
-          background: nth($colors, $i);
-  
-          &::before {
-            animation-delay: $i * 0.2s;
-          }
+        position: relative;
+        width: 2em;
+        height: 2em;
+        margin: 0.8em;
+        border-radius: 50%;
+
+        &::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+            animation: wave 2s ease-out infinite;
         }
-      }
+
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+                background: nth($colors, $i);
+
+                &::before {
+                    animation-delay: $i * 0.2s;
+                }
+            }
+        }
     }
-  }
-  
-  @keyframes wave {
+}
+
+@keyframes wave {
+
     50%,
     75% {
-      transform: scale(2.5);
+        transform: scale(2.5);
     }
-  
+
     80%,
     100% {
-      opacity: 0;
+        opacity: 0;
     }
-  }
-  
-  .center_everything {
+}
+
+.center_everything {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
 
-  .wrapper{
-    width:300px;
-    height:100px;
+.wrapper {
+    width: 300px;
+    height: 100px;
     position: absolute;
-    left:50%;
-    top:50%;
+    left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
 }
-.circle{
-    width:40px;
-    height:40px;
+
+.circle {
+    width: 40px;
+    height: 40px;
     position: absolute;
     border-radius: 50%;
     background-color: #fff;
-    left:15%;
+    left: 15%;
     transform-origin: 50%;
     animation: circle .5s alternate infinite ease;
 }
-.circle2{
-    width:40px;
-    height:40px;
+
+.circle2 {
+    width: 40px;
+    height: 40px;
     position: absolute;
     border-radius: 50%;
     background-color: #39c0ed;
-    left:15%;
+    left: 15%;
     transform-origin: 50%;
     animation: circle .5s alternate infinite ease;
 }
-.circle3{
-    width:40px;
-    height:40px;
+
+.circle3 {
+    width: 40px;
+    height: 40px;
     position: absolute;
     border-radius: 50%;
     background-color: #f4f004;
-    left:15%;
+    left: 15%;
     transform-origin: 50%;
     animation: circle .5s alternate infinite ease;
 }
 
-@keyframes circle{
-    0%{
-        top:60px;
-        height:5px;
+@keyframes circle {
+    0% {
+        top: 60px;
+        height: 5px;
         border-radius: 50px 50px 25px 25px;
         transform: scaleX(1.7);
     }
-    40%{
-        height:20px;
+
+    40% {
+        height: 20px;
         border-radius: 50%;
         transform: scaleX(1);
     }
-    100%{
-        top:0%;
+
+    100% {
+        top: 0%;
     }
 }
-.circle:nth-child(2){
-    left:45%;
+
+.circle:nth-child(2) {
+    left: 45%;
     animation-delay: .2s;
 }
-.circle:nth-child(3){
-    left:auto;
-    right:15%;
+
+.circle:nth-child(3) {
+    left: auto;
+    right: 15%;
     animation-delay: .3s;
 }
 
-@keyframes circle2{
-    0%{
-        top:60px;
-        height:5px;
+@keyframes circle2 {
+    0% {
+        top: 60px;
+        height: 5px;
         border-radius: 50px 50px 25px 25px;
         transform: scaleX(1.7);
     }
-    40%{
-        height:20px;
+
+    40% {
+        height: 20px;
         border-radius: 50%;
         transform: scaleX(1);
     }
-    100%{
-        top:0%;
+
+    100% {
+        top: 0%;
     }
 }
-.circle2:nth-child(2){
-    left:45%;
+
+.circle2:nth-child(2) {
+    left: 45%;
     animation-delay: .2s;
 }
-.circle2:nth-child(3){
-    left:auto;
-    right:15%;
+
+.circle2:nth-child(3) {
+    left: auto;
+    right: 15%;
     animation-delay: .3s;
 }
 
-@keyframes circle3{
-    0%{
-        top:60px;
-        height:5px;
+@keyframes circle3 {
+    0% {
+        top: 60px;
+        height: 5px;
         border-radius: 50px 50px 25px 25px;
         transform: scaleX(1.7);
     }
-    40%{
-        height:20px;
+
+    40% {
+        height: 20px;
         border-radius: 50%;
         transform: scaleX(1);
     }
-    100%{
-        top:0%;
+
+    100% {
+        top: 0%;
     }
 }
-.circle3:nth-child(2){
-    left:45%;
+
+.circle3:nth-child(2) {
+    left: 45%;
     animation-delay: .2s;
 }
-.circle3:nth-child(3){
-    left:auto;
-    right:15%;
+
+.circle3:nth-child(3) {
+    left: auto;
+    right: 15%;
     animation-delay: .3s;
 }
-.shadow{
-    width:40px;
-    height:4px;
+
+.shadow {
+    width: 40px;
+    height: 4px;
     border-radius: 50%;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
     position: absolute;
-    top:62px;
+    top: 62px;
     transform-origin: 50%;
     z-index: -1;
-    left:15%;
+    left: 15%;
     filter: blur(1px);
     animation: shadow .5s alternate infinite ease;
 }
 
-@keyframes shadow{
-    0%{
+@keyframes shadow {
+    0% {
         transform: scaleX(1.5);
     }
-    40%{
+
+    40% {
         transform: scaleX(1);
         opacity: .7;
     }
-    100%{
+
+    100% {
         transform: scaleX(.2);
         opacity: .4;
     }
 }
-.shadow:nth-child(4){
+
+.shadow:nth-child(4) {
     left: 45%;
     animation-delay: .2s
 }
-.shadow:nth-child(5){
-    left:auto;
-    right:15%;
+
+.shadow:nth-child(5) {
+    left: auto;
+    right: 15%;
     animation-delay: .3s;
 }
-.wrapper span{
+
+.wrapper span {
     position: absolute;
-    top:75px;
+    top: 75px;
     font-size: 20px;
     color: #fff;
-    left:19%;
+    left: 19%;
 }
 
-.adjust_image_home{
+.adjust_image_home {
     left: 20%
 }
-.ant-list.ant-list-split.list-results-career.college-advisor-list{
+
+.ant-list.ant-list-split.list-results-career.college-advisor-list {
     background-color: 'white';
     padding: 0px 100px !important
 }
-.ant-form-item.career-label .ant-col.ant-form-item-label label{
+
+.ant-form-item.career-label .ant-col.ant-form-item-label label {
     font-size: 18px;
     line-height: 22px;
     margin-right: 50px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 10px;
+}
+
+.grid-item {
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
 }
