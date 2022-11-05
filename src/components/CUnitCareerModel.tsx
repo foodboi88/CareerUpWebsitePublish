@@ -31,6 +31,7 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
     const [clickedSpecializedName, setClickedSpecializedName] = useState<string>('');
     const [specializedOfSchool, setSpecializedOfSchool] = useState<getSpecializedOfSchoolResponse[]>()
     const [showLoading, setShowLoading] = useState(false);
+    const [finalRes,setFinalRes] = useState<any>()
 
     useEffect(() => {
         if (clickedSpecialized) {
@@ -42,7 +43,7 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
     }, [clickedSpecialized])
 
     useEffect(() => {
-        if (!career || parseInt(score) < 10 || !combination || combination.length == 0)
+        if (!career || parseInt(score) < 1 || !combination || combination.length == 0)
             setCheckButtonSubmitted(false);
         else
             setCheckButtonSubmitted(true);
@@ -71,7 +72,8 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
 
         await AdvisorApi.getSimilarSpecialized(career)
             .then((data: any) => {
-                console.log(data.data)
+                console.log(data.data) 
+                setFinalRes(data)
                 // dispatch(sendAnswersRequest(data.data))
                 onGetSimilarSpecialized(data.data);
                 console.log('hihi')
@@ -79,17 +81,17 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
     }
 
     useEffect(() => {
-        if (specializedOfSchool !== null && specializedOfSchool !== undefined && specializedOfSchool?.length > 0) {
+        if (finalRes) {
             if (onCloseAdvisor) onCloseAdvisor(false)
             if (setOpenUniAdvisor) setOpenUniAdvisor(true)
-                setShowLoading(false)
+            setShowLoading(false)
             setIsShowModal(false); 
             toogle(false) 
             
         }
-        console.log(specializedOfSchool);
+        console.log(finalRes);
 
-    }, [specializedOfSchool])
+    }, [finalRes])
 
     return (
         <div >

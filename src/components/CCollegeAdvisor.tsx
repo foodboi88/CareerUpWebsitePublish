@@ -128,7 +128,7 @@ const CCollegeAdvisor = (props: MyProps) => {
                     </div>
                     <div >
                         {props.dataSource.length === 0 ?
-                            <div className='title-advisor-intro' style={{ fontSize: 24, textAlign: 'center' }}>Không có dữ liệu</div>
+                            <div className='title-advisor-intro color-title ' style={{ fontSize: 24, textAlign: 'center', }}>Các tiêu chí bạn nhập vào không thỏa mãn nguyện vọng nào. Tuy nhiên, bạn vẫn có thể tham khảo các ngành tương tự dưới đây</div>
                             : <Table
                                 onRow={(item) => {
                                     return {
@@ -175,7 +175,7 @@ const CCollegeAdvisor = (props: MyProps) => {
                             />
                         }
                         <CUnitCareerModel
-                            isShow={isShowUnitCareerModal}
+                            isShow= {isShowUnitCareerModal}
                             setIsShowModal={setIsShowUnitCareerModal}
                             toogle={ontoggle}
                             clickedSpecialized={clickedSpecialized}
