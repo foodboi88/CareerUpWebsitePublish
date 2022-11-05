@@ -3,7 +3,7 @@
 import { ConsoleSqlOutlined } from '@ant-design/icons';
 import { format, parseISO } from 'date-fns'
 import moment from 'moment';
-import { ISchedule } from 'tui-calendar';
+// import { ISchedule } from 'tui-calendar';
 import { IMeetings } from './define-meetings';
 // import {
 //     InvalidNumberError, UnitNotEnoughError, ReadingConfig,
@@ -303,152 +303,152 @@ class Utils {
         return new Date().getTimezoneOffset() / 60;
     }
 
-    static convertIMeetingsToSchedules = (lstMeetings: IMeetings[], viewName: string,width: number) => {
-        const start = new Date();
-        let scheduleTmp: ISchedule[];
-        if(viewName==='day'){
-            scheduleTmp= lstMeetings.map((item, index) => {
-                // console.log('-------------------------------------------')
-                let count = 1;
-                lstMeetings.forEach(index => {
-                    // console.log(item.startTime?.toString().slice(0,10))
-                    // console.log(index.startTime?.toString().slice(0,10))
-                    if(index.startTime && index.endTime && item.startTime && item.endTime &&index.id!=item.id){ // Count the meeting having the same time period
-                        if(item.startTime < index.startTime && 
-                            item.endTime > index.startTime && 
-                            item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10) || 
-                            item.startTime < index.endTime && 
-                            item.endTime > index.endTime && 
-                            item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10) ||
-                            item.startTime >index.startTime &&
-                            item.startTime < index.endTime &&
-                            item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)||
-                            item.endTime >index.startTime &&
-                            item.endTime < index.endTime &&
-                            item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)||
-                            item.startTime ===index.startTime &&
-                            item.endTime === index.endTime &&
-                            item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)
-                            ) {
-                                count+=1;
-                                // console.log(index.title)
-                            }
+    // static convertIMeetingsToSchedules = (lstMeetings: IMeetings[], viewName: string,width: number) => {
+    //     const start = new Date();
+    //     let scheduleTmp: ISchedule[];
+    //     if(viewName==='day'){
+    //         scheduleTmp= lstMeetings.map((item, index) => {
+    //             // console.log('-------------------------------------------')
+    //             let count = 1;
+    //             lstMeetings.forEach(index => {
+    //                 // console.log(item.startTime?.toString().slice(0,10))
+    //                 // console.log(index.startTime?.toString().slice(0,10))
+    //                 if(index.startTime && index.endTime && item.startTime && item.endTime &&index.id!=item.id){ // Count the meeting having the same time period
+    //                     if(item.startTime < index.startTime && 
+    //                         item.endTime > index.startTime && 
+    //                         item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10) || 
+    //                         item.startTime < index.endTime && 
+    //                         item.endTime > index.endTime && 
+    //                         item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10) ||
+    //                         item.startTime >index.startTime &&
+    //                         item.startTime < index.endTime &&
+    //                         item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)||
+    //                         item.endTime >index.startTime &&
+    //                         item.endTime < index.endTime &&
+    //                         item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)||
+    //                         item.startTime ===index.startTime &&
+    //                         item.endTime === index.endTime &&
+    //                         item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)
+    //                         ) {
+    //                             count+=1;
+    //                             // console.log(index.title)
+    //                         }
                             
-                    }
-                }) // Check number of duplicated schedule
+    //                 }
+    //             }) // Check number of duplicated schedule
                 
-                // console.log(item.title)
-                // console.log(count)
-                // lstMeetings.
-                let numberOfDisplayChar = 0;
-                if (item.startTime && item.endTime){
-                    const startTime = new Date(item.startTime).getTime();
-                    const endTime = new Date(item.endTime).getTime();
-                    // console.log(endTime - startTime)
+    //             // console.log(item.title)
+    //             // console.log(count)
+    //             // lstMeetings.
+    //             let numberOfDisplayChar = 0;
+    //             if (item.startTime && item.endTime){
+    //                 const startTime = new Date(item.startTime).getTime();
+    //                 const endTime = new Date(item.endTime).getTime();
+    //                 // console.log(endTime - startTime)
     
-                    numberOfDisplayChar = (((width*230)/1358)  /count) * ((endTime - startTime)/1800000)
-                    // console.log(numberOfDisplayChar)
-                }
-                // console.log('-------------------------------------------')
+    //                 numberOfDisplayChar = (((width*230)/1358)  /count) * ((endTime - startTime)/1800000)
+    //                 // console.log(numberOfDisplayChar)
+    //             }
+    //             // console.log('-------------------------------------------')
 
-                const tmp: ISchedule = {
-                    id: item.id,
-                    title: item.title.length < numberOfDisplayChar ? item.title : item.title.slice(0,item.title.slice(0,numberOfDisplayChar).lastIndexOf(" ")) + "...",
-                    calendarId: item.task.id,
-                    category: "time",
-                    attendees: item?.memberMeetings ? item?.memberMeetings?.map(item => item?.member.fullName) : [],
-                    isVisible: true,
-                    start: item.startTime ? new Date(item.startTime) : new Date(new Date().setHours(start.getHours() + 0)),
-                    end: item.endTime ? new Date(item.endTime) : new Date(new Date().setHours(start.getHours() + 3))
-                }
-                return tmp;
-            })
-            return scheduleTmp;
-        }
-        else if(viewName==='week'){
+    //             const tmp: ISchedule = {
+    //                 id: item.id,
+    //                 title: item.title.length < numberOfDisplayChar ? item.title : item.title.slice(0,item.title.slice(0,numberOfDisplayChar).lastIndexOf(" ")) + "...",
+    //                 calendarId: item.task.id,
+    //                 category: "time",
+    //                 attendees: item?.memberMeetings ? item?.memberMeetings?.map(item => item?.member.fullName) : [],
+    //                 isVisible: true,
+    //                 start: item.startTime ? new Date(item.startTime) : new Date(new Date().setHours(start.getHours() + 0)),
+    //                 end: item.endTime ? new Date(item.endTime) : new Date(new Date().setHours(start.getHours() + 3))
+    //             }
+    //             return tmp;
+    //         })
+    //         return scheduleTmp;
+    //     }
+    //     else if(viewName==='week'){
             
-            scheduleTmp= lstMeetings.map((item, index) => {
-                // console.log('-------------------------------------------')
-                // console.log(item)
-                let count = 1;
-                lstMeetings.forEach(index => {
-                    // console.log(item.startTime?.toString().slice(0,10))
-                    // console.log(index.startTime?.toString().slice(0,10))
-                    if(index.startTime && index.endTime && item.startTime && item.endTime && index.id!=item.id){ // Count the meeting having the same time period
-                        if(item.startTime < index.startTime && 
-                            item.endTime > index.startTime && 
-                            item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10) || 
-                            item.startTime < index.endTime && 
-                            item.endTime > index.endTime && 
-                            item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10) ||
-                            item.startTime >index.startTime &&
-                            item.startTime < index.endTime &&
-                            item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)||
-                            item.endTime >index.startTime &&
-                            item.endTime < index.endTime &&
-                            item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)||
-                            item.startTime ===index.startTime &&
-                            item.endTime === index.endTime &&
-                            item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)
-                            ) {
-                                count+=1;
-                                // console.log(index.title)
-                            }
+    //         scheduleTmp= lstMeetings.map((item, index) => {
+    //             // console.log('-------------------------------------------')
+    //             // console.log(item)
+    //             let count = 1;
+    //             lstMeetings.forEach(index => {
+    //                 // console.log(item.startTime?.toString().slice(0,10))
+    //                 // console.log(index.startTime?.toString().slice(0,10))
+    //                 if(index.startTime && index.endTime && item.startTime && item.endTime && index.id!=item.id){ // Count the meeting having the same time period
+    //                     if(item.startTime < index.startTime && 
+    //                         item.endTime > index.startTime && 
+    //                         item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10) || 
+    //                         item.startTime < index.endTime && 
+    //                         item.endTime > index.endTime && 
+    //                         item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10) ||
+    //                         item.startTime >index.startTime &&
+    //                         item.startTime < index.endTime &&
+    //                         item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)||
+    //                         item.endTime >index.startTime &&
+    //                         item.endTime < index.endTime &&
+    //                         item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)||
+    //                         item.startTime ===index.startTime &&
+    //                         item.endTime === index.endTime &&
+    //                         item.startTime.toString().slice(0,10) === index.startTime.toString().slice(0,10)
+    //                         ) {
+    //                             count+=1;
+    //                             // console.log(index.title)
+    //                         }
                             
-                    }
-                }) // Check number of duplicated schedule
+    //                 }
+    //             }) // Check number of duplicated schedule
                 
-                // console.log(item.title)
-                // console.log(count)
-                // lstMeetings.
-                let numberOfDisplayChar = 0;
-                if (item.startTime && item.endTime){
-                    const startTime = new Date(item.startTime).getTime();
-                    const endTime = new Date(item.endTime).getTime();
-                    // console.log(endTime - startTime)
+    //             // console.log(item.title)
+    //             // console.log(count)
+    //             // lstMeetings.
+    //             let numberOfDisplayChar = 0;
+    //             if (item.startTime && item.endTime){
+    //                 const startTime = new Date(item.startTime).getTime();
+    //                 const endTime = new Date(item.endTime).getTime();
+    //                 // console.log(endTime - startTime)
     
-                    numberOfDisplayChar = (((width*27)/194 ) /count) * ((endTime - startTime)/1800000)
-                    // console.log(numberOfDisplayChar)
-                }
-                // console.log('-------------------------------------------')
+    //                 numberOfDisplayChar = (((width*27)/194 ) /count) * ((endTime - startTime)/1800000)
+    //                 // console.log(numberOfDisplayChar)
+    //             }
+    //             // console.log('-------------------------------------------')
     
-                const tmp: ISchedule = {
-                    id: item.id,
-                    title: item.title.length < numberOfDisplayChar ? item.title : item.title.slice(0,item.title.slice(0,numberOfDisplayChar).lastIndexOf(" ")) + "...",
-                    calendarId: item.task.id,
-                    category: "time",
-                    attendees: item?.memberMeetings ? item?.memberMeetings?.map(item => item?.member.fullName) : [],
-                    isVisible: true,
-                    start: item.startTime ? new Date(item.startTime) : new Date(new Date().setHours(start.getHours() + 0)),
-                    end: item.endTime ? new Date(item.endTime) : new Date(new Date().setHours(start.getHours() + 3))
-                }
-                return tmp;
-            })
-            return scheduleTmp;
-        }
-        else if(viewName==='month'){
-            scheduleTmp= lstMeetings.map((item, index) => {
+    //             const tmp: ISchedule = {
+    //                 id: item.id,
+    //                 title: item.title.length < numberOfDisplayChar ? item.title : item.title.slice(0,item.title.slice(0,numberOfDisplayChar).lastIndexOf(" ")) + "...",
+    //                 calendarId: item.task.id,
+    //                 category: "time",
+    //                 attendees: item?.memberMeetings ? item?.memberMeetings?.map(item => item?.member.fullName) : [],
+    //                 isVisible: true,
+    //                 start: item.startTime ? new Date(item.startTime) : new Date(new Date().setHours(start.getHours() + 0)),
+    //                 end: item.endTime ? new Date(item.endTime) : new Date(new Date().setHours(start.getHours() + 3))
+    //             }
+    //             return tmp;
+    //         })
+    //         return scheduleTmp;
+    //     }
+    //     else if(viewName==='month'){
+    //         scheduleTmp= lstMeetings.map((item, index) => {
                 
-                let numberOfDisplayChar: number=(width*28)/205.7;
-                // console.log(numberOfDisplayChar)
-                // console.log(item.title.slice(0,item.title.slice(0,numberOfDisplayChar).lastIndexOf(" ")) + "...");
-                const tmp: ISchedule = {
-                    id: item.id,
-                    title: item.title.length < numberOfDisplayChar ? item.title : item.title.slice(0,item.title.slice(0,numberOfDisplayChar).lastIndexOf(" ")) + "...",
-                    calendarId: item.task.id,
-                    category: "time",
-                    attendees: item?.memberMeetings ? item?.memberMeetings?.map(item => item?.member.fullName) : [],
-                    isVisible: true,
-                    start: item.startTime ? new Date(item.startTime) : new Date(new Date().setHours(start.getHours() + 0)),
-                    end: item.endTime ? new Date(item.endTime) : new Date(new Date().setHours(start.getHours() + 3))
-                }
-                return tmp;
-            })
-            return scheduleTmp;
-        }
+    //             let numberOfDisplayChar: number=(width*28)/205.7;
+    //             // console.log(numberOfDisplayChar)
+    //             // console.log(item.title.slice(0,item.title.slice(0,numberOfDisplayChar).lastIndexOf(" ")) + "...");
+    //             const tmp: ISchedule = {
+    //                 id: item.id,
+    //                 title: item.title.length < numberOfDisplayChar ? item.title : item.title.slice(0,item.title.slice(0,numberOfDisplayChar).lastIndexOf(" ")) + "...",
+    //                 calendarId: item.task.id,
+    //                 category: "time",
+    //                 attendees: item?.memberMeetings ? item?.memberMeetings?.map(item => item?.member.fullName) : [],
+    //                 isVisible: true,
+    //                 start: item.startTime ? new Date(item.startTime) : new Date(new Date().setHours(start.getHours() + 0)),
+    //                 end: item.endTime ? new Date(item.endTime) : new Date(new Date().setHours(start.getHours() + 3))
+    //             }
+    //             return tmp;
+    //         })
+    //         return scheduleTmp;
+    //     }
         
         
-    }
+    // }
 
     static genRandomNumber = (max: number) => {
         return Math.floor(Math.random() * max);

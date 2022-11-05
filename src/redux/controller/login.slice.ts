@@ -137,36 +137,36 @@ const loginSlice = createSlice({
     }
 })
 
-const login$: RootEpic = (action$) => action$.pipe(
-    filter(loginRequest.match),
-    switchMap((re) => {
-        // IdentityApi.login(re.payload) ?
-        console.log(re.payload);
-        const body: LoginRequest = {
-            "email": re.payload.email,
-            "password": re.payload.password,
-            "remember": re.payload.remember,
-        };
-        return IdentityApi.login(body).pipe(
-            mergeMap((res: any) => {
-                    console.log(res);
-                    console.log(res.data.accessToken);
-                    const token = res.data.accessToken
-                    const user: IUser = {
-                        email: res.data.email,
-                        id: res.data.id,
-                    };
-                    console.log(user);
-                    return [
-                        loginSlice.actions.loginSuccess({ user, token: token }),
-                        loginSlice.actions.setLoading(false),
-                        loginSlice.actions.setStatusCode(res.statusCode)
-                    ];
-            }),
-            catchError(err => [loginSlice.actions.loginFail(err)])
-        )
-    })
-)
+// const login$: RootEpic = (action$) => action$.pipe(
+//     filter(loginRequest.match),
+//     switchMap((re) => {
+//         // IdentityApi.login(re.payload) ?
+//         console.log(re.payload);
+//         const body: LoginRequest = {
+//             "email": re.payload.email,
+//             "password": re.payload.password,
+//             "remember": re.payload.remember,
+//         };
+//         return IdentityApi.login(body).pipe(
+//             mergeMap((res: any) => {
+//                     console.log(res);
+//                     console.log(res.data.accessToken);
+//                     const token = res.data.accessToken
+//                     const user: IUser = {
+//                         email: res.data.email,
+//                         id: res.data.id,
+//                     };
+//                     console.log(user);
+//                     return [
+//                         loginSlice.actions.loginSuccess({ user, token: token }),
+//                         loginSlice.actions.setLoading(false),
+//                         loginSlice.actions.setStatusCode(res.statusCode)
+//                     ];
+//             }),
+//             catchError(err => [loginSlice.actions.loginFail(err)])
+//         )
+//     })
+// )
 
 
 const forgot$ : RootEpic = (action$) => action$.pipe(
@@ -195,32 +195,32 @@ const logOut$ : RootEpic = (action$) => action$.pipe(
     })
 )
 
-const register$: RootEpic = (action$) => action$.pipe(
-    filter(registerRequest.match),
-    switchMap((re) => {
-        console.log(re.payload);
-        const body: RegisterRequest = {
-            "email": re.payload.email,
-            "password": re.payload.password,
-            "confirmPassword": re.payload.confirmPassword,
-        };
-        return IdentityApi.register(body).pipe(
-            mergeMap((res: any) => {
-                    return [
-                        loginSlice.actions.setLoading(false),
-                        loginSlice.actions.setStatusCode(res.statusCode),
-                        loginSlice.actions.registerSuccess(res)
-                    ];   
-            }),
-            catchError(err => 
-                [   
-                    loginSlice.actions.setStatusCode('UniqueEmail'),
-                    loginSlice.actions.registerFail(err)
-                ]
-            )
-        )
-    })
-)
+// const register$: RootEpic = (action$) => action$.pipe(
+//     filter(registerRequest.match),
+//     switchMap((re) => {
+//         console.log(re.payload);
+//         const body: RegisterRequest = {
+//             "email": re.payload.email,
+//             "password": re.payload.password,
+//             "confirmPassword": re.payload.confirmPassword,
+//         };
+//         return IdentityApi.register(body).pipe(
+//             mergeMap((res: any) => {
+//                     return [
+//                         loginSlice.actions.setLoading(false),
+//                         loginSlice.actions.setStatusCode(res.statusCode),
+//                         loginSlice.actions.registerSuccess(res)
+//                     ];   
+//             }),
+//             catchError(err => 
+//                 [   
+//                     loginSlice.actions.setStatusCode('UniqueEmail'),
+//                     loginSlice.actions.registerFail(err)
+//                 ]
+//             )
+//         )
+//     })
+// )
 
 const ableToLogin$ : RootEpic = (action$) => action$.pipe(
     filter(checkAbleToLogin.match),
@@ -233,11 +233,11 @@ const ableToLogin$ : RootEpic = (action$) => action$.pipe(
 
 
 export const LoginEpics = [
-    login$,
+    // login$,
     forgot$,
     clearMessage$,
     logOut$,
-    register$
+    // register$
 ]
 export const {
     // getDepartmentRequest,
