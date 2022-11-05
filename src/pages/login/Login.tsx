@@ -19,9 +19,13 @@ import IdentityApi from '../../api/identity/identity.api'
 export default function Login(): JSX.Element {
     const [rememberState,setRememberState] = useState<boolean>(false);
     const recentRegistration = localStorage.getItem('recentRegistration')
+    const token = localStorage.getItem('token');
     const history = useHistory();
 
     console.log(recentRegistration)
+    useEffect(()=>{
+        if(token) history.push('/home')
+    })
     // const dispatch = useDispatchRoot();
     // const isSuccess = useSelectorRoot(state => (state.login.statusCode));
     // useEffect( () => {

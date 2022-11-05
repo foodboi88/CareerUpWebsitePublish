@@ -10,7 +10,7 @@ import { IDataResponse } from '../../common/define-meetings';
 import axios from 'axios';
 import QueryString from 'qs';
 export default class IdentityApi {
-    static host = 'http://localhost:8000';
+    static host = 'https://api.careerup.inres.ai';
     static encryptData(text: string, key: string) {
         const jsEncrypt = new JSEncrypt();
         jsEncrypt.setPublicKey(key)
@@ -38,7 +38,7 @@ export default class IdentityApi {
         console.log(data);
         var config = {
             method: 'post',
-            url: 'http://localhost:8000/auth/token',
+            url: `${IdentityApi.host}/auth/token`,
             headers: { 
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -59,7 +59,7 @@ export default class IdentityApi {
 
         var config = {
             method: 'post',
-            url: 'http://localhost:8000/user',
+            url: `${IdentityApi.host}/user`,
             headers: { 
                 'Content-Type': 'application/json'
             },
@@ -74,7 +74,7 @@ export default class IdentityApi {
         console.log((localStorage.getItem('token')))
         var config = {
             method: 'get',
-            url: 'http://localhost:8000/user/me',
+            url: `${IdentityApi.host}/user/me`,
             headers: { 
                 'Authorization': `Bearer ${localStorage.getItem('token')}` 
             },

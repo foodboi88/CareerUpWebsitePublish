@@ -12,7 +12,7 @@ export default class AdvisorApi {
     static sendCareerAdvisor(re: any) {
         throw new Error("Method not implemented.");
     }
-    static host = 'http://localhost:8000';
+    static host = 'https://api.careerup.inres.ai';
 
     // static sendAnswers(params: QuestionRequest[]): Observable<IDataResponse<testResponse[]> | null> {
     //     const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.ADVISOR.SEND_ANSWERS}`;
@@ -24,7 +24,7 @@ export default class AdvisorApi {
     static sendAnswers(params: any[]): any{
       var config = {
         method: 'post',
-        url: 'http://localhost:8000/question',
+        url: `${AdvisorApi.host}/question`,
         headers: { 
           'Content-Type': 'application/json'
         },
@@ -38,7 +38,7 @@ export default class AdvisorApi {
     static getSpecializedOfSchool(id: string, mark: string, unit_names: string): any {
       var config = {
         method: 'get',
-        url: `http://localhost:8000/school/search?specialized_id=${id}&mark=${mark}&unit_names=${unit_names}\n`,
+        url: `${AdvisorApi.host}/school/search?specialized_id=${id}&mark=${mark}&unit_names=${unit_names}\n`,
         headers: { },
       };
       return axios(config)
@@ -53,7 +53,7 @@ export default class AdvisorApi {
     static getQuestions(): any {
         var config = {
           method: 'get',
-          url: 'http://localhost:8000/question',
+          url: `${AdvisorApi.host}/question`,
           headers: { },
         };
         axios(config)
@@ -69,7 +69,7 @@ export default class AdvisorApi {
     static getUnit(): any {
         var config = {
           method: 'get',
-          url: 'http://localhost:8000/unit?limit=149&offset=0',
+          url: `${AdvisorApi.host}/unit?limit=149&offset=0`,
           headers: { },
         };
         return axios(config)
@@ -78,7 +78,7 @@ export default class AdvisorApi {
     static getSpecialized(): any {
         var config = {
           method: 'get',
-          url: 'http://localhost:8000/specialized?limit=1000&offset=0',
+          url: `${AdvisorApi.host}/specialized?limit=1000&offset=0`,
           headers: { },
         };
         return axios(config)
@@ -87,7 +87,7 @@ export default class AdvisorApi {
     static getSimilarSpecialized(id: string): any {
         var config = {
           method: 'get',
-          url: `http://localhost:8000/specialized/${id}/similar`,
+          url: `${AdvisorApi.host}/specialized/${id}/similar`,
           headers: { },
         };
         return axios(config)

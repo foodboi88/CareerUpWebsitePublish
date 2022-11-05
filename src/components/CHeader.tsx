@@ -25,7 +25,10 @@ const CHeader = (props: Myprops) => {
   let userInfo: IUser;
 
   useEffect(()=>{
-    if(userInfoJSON) userInfo = JSON.parse(userInfoJSON)
+    if(userInfoJSON) {
+      console.log(userInfoJSON)
+      userInfo = JSON.parse(userInfoJSON)
+    }
     var today = new Date()
     var curHr = today.getHours()
 
@@ -38,7 +41,7 @@ const CHeader = (props: Myprops) => {
     } else {
       console.log('good evening')
       setGreeting('Good evening :3')
-}
+    }
   })
 
   const [visible, setVisible] = useState(false);
