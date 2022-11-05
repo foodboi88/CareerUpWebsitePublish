@@ -32,7 +32,7 @@ const RouterArr: RouterItem[] = [
         path: "/ask_expert",
         component: AskExpert,
         noExact: true
-    },{
+    }, {
         path: "/register",
         component: RegisterModule,
         noExact: true
@@ -41,28 +41,52 @@ const RouterArr: RouterItem[] = [
     //     path: "*",
     //     component: PageNotFound
     // },
-   
-]
 
-export default function CMainRouter(): JSX.Element {
+]
+const CMainRouter = () => {
     return (
-        <Router>
-            <Suspense>
-                <Switch>
-                    <Route path="/login">
-                        <LoginModule />
-                    </Route>
-                    <CPrivateRouter path="/">
-                        <>
-                            <Switch>
-                                {RouterArr.map(({ path, component: Component, noExact, ...rest }) => {
-                                    return <Route path={path} component={Component} key={path} exact={noExact ? false : true} {...rest} />
-                                })}
-                            </Switch>
-                        </>
-                    </CPrivateRouter>
-                </Switch>
-            </Suspense>
-        </Router>
+        <React.Fragment>
+            <Router>
+                <Suspense>
+                    <Switch>
+                        <Route path="/login">
+                            <LoginModule />
+                        </Route>
+                        <CPrivateRouter path="/">
+                            <>
+                                <Switch>
+                                    {RouterArr.map(({ path, component: Component, noExact, ...rest }) => {
+                                        return <Route path={path} component={Component} key={path} exact={noExact ? false : true} {...rest} />
+                                    })}
+                                </Switch>
+                            </>
+                        </CPrivateRouter>
+                    </Switch>
+                </Suspense>
+            </Router>
+        </React.Fragment>
     )
 }
+export default CMainRouter
+// export default function CMainRouter(): JSX.Element {
+//     return (
+//         <Router>
+//             <Suspense>
+//                 <Switch>
+//                     <Route path="/login">
+//                         <LoginModule />
+//                     </Route>
+//                     <CPrivateRouter path="/">
+//                         <>
+//                             <Switch>
+//                                 {RouterArr.map(({ path, component: Component, noExact, ...rest }) => {
+//                                     return <Route path={path} component={Component} key={path} exact={noExact ? false : true} {...rest} />
+//                                 })}
+//                             </Switch>
+//                         </>
+//                     </CPrivateRouter>
+//                 </Switch>
+//             </Suspense>
+//         </Router>
+//     )
+// }
