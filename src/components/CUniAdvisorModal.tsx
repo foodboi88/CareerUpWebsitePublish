@@ -108,6 +108,8 @@ const CUniAdvisorModal = ({ isShow, setIsShowModal }: MyProps) => {
                 footer={false}
                 closable={false}
                 onCancel={() => setIsShowModal(!isShow)}
+                maskClosable={true}
+
             >
                 <div>
                     <div className='career-advisor-modal-title' style={{ display: 'flex', justifyContent: 'space-between' }}>

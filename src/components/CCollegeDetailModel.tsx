@@ -20,7 +20,10 @@ const CCollegeDetailModel = ({ isShow, setIsShowModal }: MyProps) => {
                 footer={false}
                 closable={false}
                 onCancel={() => setIsShowModal(!isShow)}
+                maskClosable={true}
+
             >
+                
                 <div>
                     <div className='career-advisor-modal-title' style={{ display: 'flex', justifyContent: 'end' }}>
                         <div><CloseOutlined style={{ fontSize: 20 }} alt="" onClick={() => setIsShowModal(false)} /></div>

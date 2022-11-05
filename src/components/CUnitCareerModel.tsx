@@ -3,6 +3,7 @@ import { Button, Form, Input, Modal, Select } from 'antd';
 import React, { useEffect, useState } from 'react';
 import AdvisorApi from '../api/Advisor/advisor.api';
 import { getSpecializedOfSchoolResponse, Specialized, Unit } from '../common/define-type';
+import CLoadingIcon from './CLoadingIcon';
 
 interface MyProps {
     isShow: boolean
@@ -15,6 +16,7 @@ interface MyProps {
     onGetSpecializedOfSchoolLst: (e: getSpecializedOfSchoolResponse[]) => void,
     onCloseAdvisor?: (e: boolean) => void,
     onGetSimilarSpecialized: (e: Specialized[]) => void,
+    
 }
 
 const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, setOpenUniAdvisor, specializedLst, unitLst, onGetSpecializedOfSchoolLst, onCloseAdvisor, onGetSimilarSpecialized }: MyProps) => {
@@ -28,6 +30,7 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
     const [checkButtonSubmitted, setCheckButtonSubmitted] = useState<boolean>(false);
     const [clickedSpecializedName, setClickedSpecializedName] = useState<string>('');
     const [specializedOfSchool, setSpecializedOfSchool] = useState<getSpecializedOfSchoolResponse[]>()
+    const [showLoading, setShowLoading] = useState(false);
 
     useEffect(() => {
         if (clickedSpecialized) {
@@ -55,8 +58,8 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
     };
 
     const handleCaculateResult = async () => {
-        if (onCloseAdvisor)
-            onCloseAdvisor(false)
+        setShowLoading(true);
+        
         await AdvisorApi.getSpecializedOfSchool(career, score, combination)
             .then((data: any) => {
                 console.log(data.data)
@@ -77,9 +80,12 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
 
     useEffect(() => {
         if (specializedOfSchool !== null && specializedOfSchool !== undefined && specializedOfSchool?.length > 0) {
-            if (setOpenUniAdvisor)
-                setOpenUniAdvisor(true)
-            setIsShowModal(false)
+            if (onCloseAdvisor) onCloseAdvisor(false)
+            if (setOpenUniAdvisor) setOpenUniAdvisor(true)
+                setShowLoading(false)
+            setIsShowModal(false); 
+            toogle(false) 
+            
         }
         console.log(specializedOfSchool);
 
@@ -93,6 +99,8 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
                 open={isShow}
                 footer={false}
                 closable={false}
+                onCancel={() => setIsShowModal(false)}
+                maskClosable={true}
             >
                 <div>
                     <div className='career-advisor-modal-title' style={{ display: 'flex', justifyContent: 'end' }}>
@@ -145,7 +153,7 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
                                 style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
                                 label="Ngành: "
                                 name="career"
-                                rules={[{ required: true, message: 'Vui lòng chọn ngành' }]}
+                                // rules={[{ required: true, message: 'Vui lòng chọn ngành' }]}
                             // initialValue={clickedSpecialized ? clickedSpecialized.specialized_name : null}
                             >
                                 <div style={{ display: 'none' }}>{clickedSpecialized?.specialized_name}</div>
@@ -170,14 +178,17 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
                                 </Select>
                             </Form.Item>
                             <Form.Item >
-                                <Button disabled={!checkButtonSubmitted} type="primary" htmlType="submit" onClick={() => { handleCaculateResult(); setIsShowDetailCareerModal(true); setIsShowModal(false); toogle(false) }}>
+                                <Button disabled={!checkButtonSubmitted} type="primary" htmlType="submit" onClick={() => { handleCaculateResult()}}>
                                     Tìm kiếm thông tin
                                 </Button>
                             </Form.Item>
                         </Form>
                     </div>
                 </div>
-
+                {
+                    showLoading &&
+                    <CLoadingIcon/>      
+                }              
             </Modal>
         </div>
     )
