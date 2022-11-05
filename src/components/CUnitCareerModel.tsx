@@ -155,6 +155,7 @@ const CUnitCareerModel = ({ isShow, setIsShowModal, toogle, clickedSpecialized, 
                                 style={{ margin: '25px auto', fontSize: 20, fontWeight: 600 }}
                                 label="Ngành: "
                                 name="career"
+                                className='career-label'
                                 // rules={[{ required: true, message: 'Vui lòng chọn ngành' }]}
                             // initialValue={clickedSpecialized ? clickedSpecialized.specialized_name : null}
                             >
