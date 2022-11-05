@@ -162,7 +162,7 @@ const CHeader = (props: Myprops) => {
                   trigger={["click"]}
 
               >
-                  <div className='mr-2 mt-4' style={{cursor:'pointer'}} onClick={(e) => e.preventDefault()}><UnorderedListOutlined /></div>
+                  <div className='mr-2 mt-4' style={{cursor:'pointer'}} onClick={(e) => e.preventDefault()}><UnorderedListOutlined style={{fontSize:'25px'}} /></div>
               </Dropdown>
             </div>
             
