@@ -17,11 +17,11 @@ export default class IdentityApi {
         const encypt = jsEncrypt.encrypt(text);
         return encypt || '';
     }
-    static getToken(): Observable<string | null> {
-        return HttpClient.get(`${IdentityApi.host}/${SYSTEM_CONSTANTS.API.IDENTITY.CONNECT_TOKEN}`).pipe(
-            map((res) => res as string || null)
-        );
-    }
+    // static getToken(): Observable<string | null> {
+    //     return HttpClient.get(`${IdentityApi.host}/${SYSTEM_CONSTANTS.API.IDENTITY.CONNECT_TOKEN}`).pipe(
+    //         map((res) => res as string || null)
+    //     );
+    // }
 
     static login(body: LoginRequest): any{
         console.log(body)
@@ -91,10 +91,10 @@ export default class IdentityApi {
 //         )
 //     }
 
-    static forgotPassword(email: string): Observable<any | null>{
-        const api = `${IdentityApi.host}/${SYSTEM_CONSTANTS.API.IDENTITY.FORGOT}/${email}/notify/passwordreset`;
-        return HttpClient.post(api, {}).pipe(
-            map((res) => res as any || null, catchError((error) => new Observable)));
+    // static forgotPassword(email: string): Observable<any | null>{
+    //     const api = `${IdentityApi.host}/${SYSTEM_CONSTANTS.API.IDENTITY.FORGOT}/${email}/notify/passwordreset`;
+    //     return HttpClient.post(api, {}).pipe(
+    //         map((res) => res as any || null, catchError((error) => new Observable)));
         
-    }
+    // }
 }

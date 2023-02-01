@@ -44,12 +44,12 @@ export default class AdvisorApi {
       return axios(config)
     }
 
-    static getSpecializedOfSchoolById(specializedOfSchoolId: string): Observable<IDataResponse<SpecializedOfSchool> | null> {
-        const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.SPECIALIZED_OF_SCHOOL.GET_SPECIALIZED_OF_SCHOOL_BY_ID.replace('{specializedOfSchoolId}', specializedOfSchoolId)}`;
-        return HttpClient.get(api).pipe(
-            map((res) => res as IDataResponse<SpecializedOfSchool> || null, catchError((error) => new Observable)));
+    // static getSpecializedOfSchoolById(specializedOfSchoolId: string): Observable<IDataResponse<SpecializedOfSchool> | null> {
+    //     const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.SPECIALIZED_OF_SCHOOL.GET_SPECIALIZED_OF_SCHOOL_BY_ID.replace('{specializedOfSchoolId}', specializedOfSchoolId)}`;
+    //     return HttpClient.get(api).pipe(
+    //         map((res) => res as IDataResponse<SpecializedOfSchool> || null, catchError((error) => new Observable)));
 
-    }
+    // }
     static getQuestions(): any {
         var config = {
           method: 'get',
