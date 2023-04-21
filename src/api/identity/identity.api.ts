@@ -10,7 +10,7 @@ import { IDataResponse } from '../../common/define-meetings';
 import axios from 'axios';
 import QueryString from 'qs';
 export default class IdentityApi {
-    static host = 'https://api.careerup.inres.ai';
+    static host = 'http://14.231.84.10:8000';
     static encryptData(text: string, key: string) {
         const jsEncrypt = new JSEncrypt();
         jsEncrypt.setPublicKey(key)

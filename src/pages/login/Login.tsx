@@ -53,7 +53,7 @@ export default function Login(): JSX.Element {
     // } 
 
     const onFinish = async (item: LoginRequest) => {
-        console.log('hehehehe')
+        // console.log('hehehehe')
         localStorage.removeItem('recentRegistration')
         await IdentityApi.login(item).then((res: any)=>{
             console.log(res.data.access_token)

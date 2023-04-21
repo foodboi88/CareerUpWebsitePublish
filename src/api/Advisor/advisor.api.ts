@@ -12,7 +12,7 @@ export default class AdvisorApi {
     static sendCareerAdvisor(re: any) {
         throw new Error("Method not implemented.");
     }
-    static host = 'https://api.careerup.inres.ai';
+    static host = 'http://14.231.84.10:8000';
 
     // static sendAnswers(params: QuestionRequest[]): Observable<IDataResponse<testResponse[]> | null> {
     //     const api = `${AdvisorApi.host}/${SYSTEM_CONSTANTS.API.ADVISOR.SEND_ANSWERS}`;
