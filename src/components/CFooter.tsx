@@ -75,8 +75,8 @@ export default function App() {
                             </p>
                         </div>
 
-                        <div style={{ width: 250 }} className='mx-auto mb-md-0 mb-4'>
-                            <h6 className='text-uppercase fw-bold mb-4 text-warning'>Về chúng tôi</h6>
+                        <div style={{ width: 240 }} className='mx-auto mb-md-0 mb-4'>
+                            <h6 className='text-uppercase fw-bold mb-4 text-warning'>Cung cấp kỹ năng</h6>
                             <p>
                                 Kỹ năng hướng nghiệp
                             </p>
@@ -88,12 +88,26 @@ export default function App() {
                             </p>
                         </div>
 
+                        <div style={{ width: 240 }} className='mx-auto mb-md-0 mb-4'>
+                            <h6 className='text-uppercase fw-bold mb-4 text-warning'>Về chúng tôi</h6>
+                            <p>
+                                Tầm nhìn và sứ mệnh
+                            </p>
+                            <p>
+                                Giá trị cốt lõi
+                            </p>
+                        </div>
+
                         <div style={{ width: 250 }} className='mx-auto mb-md-0 mb-4'>
                             <h6 className='text-uppercase fw-bold mb-4 text-warning' >Theo dõi chúng tôi</h6>
                             <div>
-                                <img className='icon-footer' src={FaceIcon} />
-                                <img className='icon-footer' src={InstagramIcon} />
+                                <a href="https://www.facebook.com/careerupteamd19ptit">
+                                    <img className='icon-footer' src={FaceIcon} />
+                                </a>
+                                <a href="https://www.tiktok.com/@dai_hoc_la_chuyen_nho">
                                 <img className='icon-footer' src={TiktokIcon} />
+                                </a>
+                                <img className='icon-footer' src={InstagramIcon} />
                             </div>
                         </div>
                     </div>

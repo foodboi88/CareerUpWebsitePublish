@@ -47,7 +47,7 @@ const Home = () => {
                     <div className='adjust_image_home'>
                         <div>
                             <h1 className='title-advisor-intro' style={{ padding: '210px 150px 0px' }}>Tư vấn ngành nghề</h1>
-                            <h1 className='title-advisor-intro color-title' style={{ padding: '0px 150px', width: 1050 }}>Nhanh và hiện quả</h1>
+                            <h1 className='title-advisor-intro color-title' style={{ padding: '0px 150px', width: 1050 }}>Nhanh và hiệu quả</h1>
                             
                             <div style={{ display: 'flex', width: '30%', margin: '30px 150px' }}>
                                 <Button style={{width: '200px'}} className='btn-choose-advisor2' type='primary'
@@ -122,7 +122,7 @@ const Home = () => {
                                 Lý do
                             </div>
                             <div style={{ fontSize: '48px', fontWeight: '600', lineHeight: '72px' }}>
-                                Ra đời của CAREERUP
+                                Ra đời của Career Up
                             </div>
                             <div style={{ fontSize: '20px', fontWeight: '400', lineHeight: '30px', marginTop: '14px' }}>
                                 Dự án của chúng tôi bắt đầu từ cảm hứng của bốn bạn trẻ sinh viên, với hy vọng giúp đỡ các bạn sinh viên đang đứng giữa ngã ba lựa chọn của tương lai. Sản phẩm đã trải qua rất nhiều giai đoạn khó khăn, kể từ khi lắng nghe được nỗi đau của mỗi người học sinh cho tới khi ý tưởng được ra đời và đang dần hoàn thiện. Dù tiềm lực của team là nhỏ bé nhưng tôi tin với ước mơ đẹp đẽ, một ngày không xa những câu hỏi nan giải sẽ có lời giải đáp tốt nhất.
@@ -133,7 +133,7 @@ const Home = () => {
                 <div>
                     <div style={{ padding: 100 }}>
                         <div style={{ display: 'flex', justifyContent: 'flex-end', background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontWeight: '500', fontSize: '32px', lineHeight: '150%' }}>Nhóm</div>
-                        <div style={{ display: 'flex', justifyContent: 'flex-end', fontWeight: '600', fontSize: '48px', lineHeight: '150%', marginBottom: '30px' }}>Phát triển dự án</div>
+                        <div style={{ display: 'flex', justifyContent: 'flex-end', fontWeight: '600', fontSize: '48px', lineHeight: '150%', marginBottom: '30px' }}>Phát triển sản phẩm</div>
                         <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                             <div >
                                 <CParallelogramCard
@@ -175,14 +175,11 @@ const Home = () => {
                     width: '100%'
                 }}>
                     <div style={{ fontWeight: '600', fontSize: '48px', lineHeight: '64px', color: 'white', marginTop: '180px' }}>
-                        Tham gia cộng đồng của chúng tôi trên
-                    </div>
-                    <div style={{ fontWeight: '600', fontSize: '48px', lineHeight: '64px', color: 'white', marginBottom: '32px' }}>
-                        blog CAREER UP.
+                        Tham gia cộng đồng của chúng tôi 
                     </div>
                     <MDBBtn
                         rounded
-                        style={{ width: '320px', height: '64px', fontSize: '32px', fontWeight: '400', }} className='mx-2' color='light'
+                        style={{ width: '400px', height: '64px', fontSize: '32px', fontWeight: '400', }} className='mx-2' color='light'
                     >
                         <p style={{ background: 'linear-gradient(97.96deg, #11B8F7 5.25%, #007BEE 90.88%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}><a target='_blank' href='https://www.facebook.com/careerupteamd19ptit'>Đi tới Career Up</a></p>
                     </MDBBtn>
